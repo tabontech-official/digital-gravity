@@ -1,6 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Hero = () => {
+  const texts = [
+    "We are Nexa Soft",
+    "We are a Digital Agency",
+    "We build Software Solutions",
+  ];
+
+  const [textIndex, setTextIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = texts[textIndex];
+    let timeout;
+
+    if (!isDeleting && charIndex < current.length) {
+      timeout = setTimeout(() => {
+        setCurrentText(current.slice(0, charIndex + 1));
+        setCharIndex(charIndex + 1);
+      }, 80); // typing speed
+    } 
+    else if (isDeleting && charIndex > 0) {
+      timeout = setTimeout(() => {
+        setCurrentText(current.slice(0, charIndex - 1));
+        setCharIndex(charIndex - 1);
+      }, 50); // deleting speed
+    } 
+    else if (!isDeleting && charIndex === current.length) {
+      timeout = setTimeout(() => setIsDeleting(true), 1200); // pause after typing
+    } 
+    else if (isDeleting && charIndex === 0) {
+      setIsDeleting(false);
+      setTextIndex((prev) => (prev + 1) % texts.length);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [charIndex, isDeleting, textIndex]);
+
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-[#050505] flex flex-col">
       {/* Background */}
@@ -17,66 +55,37 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#050505]" />
       </div>
 
-      {/* CONTENT WRAPPER */}
+      {/* Content */}
       <div className="relative z-10 container mx-auto px-6 mt-auto pb-32">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
           <span className="inline-block py-1 px-4 mb-6 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs font-bold tracking-[0.2em] uppercase">
             Global Creative Agency
           </span>
 
-          {/* Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Elevating Brands <br />
+
+            {/* TYPEWRITER TEXT */}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-300">
-              Across the Digital Orbit
+              {currentText}
+              <span className="animate-pulse">|</span>
             </span>
           </h1>
 
-          {/* Description */}
           <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-10">
             We blend cutting-edge strategy with celestial design to help
             world-class brands dominate their industry.
           </p>
 
-          {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-5 items-center justify-center">
-            <button
-              className="
-      bg-white
-      text-black
-      px-10 py-4
-      rounded-full
-      text-[13px]
-      font-semibold
-      tracking-wide
-      uppercase
-      transition-all duration-300
-      hover:bg-gray-200
-      hover:shadow-[0_10px_30px_rgba(255,255,255,0.25)]
-      focus:outline-none
-    "
-            >
+            <button className="bg-white text-black px-10 py-4 rounded-full text-[13px] font-semibold uppercase transition-all duration-300 hover:bg-gray-200">
               Start a Project
             </button>
 
-            {/* Secondary Button */}
-            <button
-              className="
-      group
-      flex items-center gap-2
-      text-white
-      text-[13px]
-      font-semibold
-      tracking-wide
-      uppercase
-      transition-all duration-300
-      hover:text-purple-400
-    "
-            >
+            <button className="group flex items-center gap-2 text-white text-[13px] font-semibold uppercase hover:text-purple-400 transition">
               <span>View Case Studies</span>
               <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                className="w-4 h-4 group-hover:translate-x-1 transition-transform"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -92,15 +101,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-40">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center p-1">
-          <div className="w-1 h-2 bg-white rounded-full animate-bounce" />
-        </div>
-      </div> */}
     </section>
-    
   );
 };
 
