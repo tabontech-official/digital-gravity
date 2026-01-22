@@ -3,7 +3,6 @@
 // import OurWork from "./component/OurWork";
 // import WhatWeDo from "./component/WhatWeDo";
 
-
 // function App() {
 //   return (
 //     <>
@@ -22,6 +21,7 @@ import Hero from "./component/Hero";
 import WhatWeDo from "./component/WhatWeDo";
 import OurWork from "./component/OurWork";
 import AboutUs from "./component/Aboutus";
+import ServiceHero from "./component/ServiceHero";
 
 const Home = () => (
   <>
@@ -37,8 +37,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-                <Route path="/about-us" element={<AboutUs />} />
-
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/services/:service" element={<ServiceHero />} />
       </Routes>
     </>
   );

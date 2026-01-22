@@ -49,32 +49,40 @@ const gccGiants = [
 ];
 
 /* ================= DROPDOWN ================= */
+const toSlug = (text) =>
+  text.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-");
 
 const ServicesDropdown = () => (
   <div className="absolute top-full left-0 w-full pt-4 z-50">
     <div className="bg-[#0a0a0a] border border-white/10 rounded-[2rem] p-10 shadow-[0_40px_80px_rgba(0,0,0,0.9)] flex flex-col lg:flex-row gap-12 animate-in fade-in slide-in-from-top-2 duration-300">
-
       {/* LEFT SERVICES */}
       <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-x-12">
         {serviceLinks.map((column, colIdx) => (
           <div key={colIdx} className="space-y-1">
-            {column.map((service) => (
-              <div
-                key={service}
-                className="group flex items-center justify-between py-3 border-b border-white/5 cursor-pointer hover:border-purple-500/40 transition-all"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-purple-600 shadow-[0_0_8px_#a855f7]" />
-                  <span className="text-[14px] font-medium tracking-wide text-gray-300 group-hover:text-white transition-colors">
-                    {service}
-                  </span>
-                </div>
-                <MdSubdirectoryArrowRight
-                  size={18}
-                  className="text-gray-600 group-hover:text-purple-500 transition-transform group-hover:translate-x-1"
-                />
-              </div>
-            ))}
+           {column.map((service) => {
+  const slug = toSlug(service);
+
+  return (
+    <Link
+      key={service}
+      to={`/services/${slug}`}
+      className="group flex items-center justify-between py-3 border-b border-white/5 cursor-pointer hover:border-purple-500/40 transition-all"
+    >
+      <div className="flex items-center gap-3">
+        <span className="w-1.5 h-1.5 rounded-full bg-purple-600 shadow-[0_0_8px_#a855f7]" />
+        <span className="text-sm font-normal text-gray-300 group-hover:text-white transition-colors">
+          {service}
+        </span>
+      </div>
+
+      <MdSubdirectoryArrowRight
+        size={18}
+        className="text-gray-600 group-hover:text-purple-500 transition-transform group-hover:translate-x-1"
+      />
+    </Link>
+  );
+})}
+
           </div>
         ))}
       </div>
@@ -107,6 +115,9 @@ const ServicesDropdown = () => (
 /* ================= NAVBAR ================= */
 
 const Navbar = () => {
+  const toSlug = (text) =>
+  text.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-");
+
   const [isServicesHovered, setIsServicesHovered] = useState(false);
 
   return (
@@ -116,14 +127,14 @@ const Navbar = () => {
         onMouseLeave={() => setIsServicesHovered(false)}
       >
         {/* LOGO */}
-        <div className="flex items-center gap-1 text-[22px] tracking-tight text-white cursor-pointer select-none font-brand">
-          <span className="font-light">digital</span>
-          <span className="font-extrabold">gravity</span>
+        <div className="flex items-center gap-1 text-xl font-semibold text-white">
+          <span className="font-light">NexaSoft</span>
+          <span className="font-semibold">Solutions</span>
           <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-2 ml-0.5" />
         </div>
 
         {/* NAV LINKS */}
-        <ul className="hidden lg:flex items-center gap-10 text-[12px] uppercase tracking-[0.12em] font-semibold text-gray-300">
+        <ul className="hidden lg:flex items-center gap-10 text-sm font-medium tracking-normal text-gray-300">
           <li
             className={`py-4 cursor-pointer transition-colors ${
               isServicesHovered
@@ -159,7 +170,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          <button className="bg-purple-600 px-7 py-3 rounded-full text-[11px] font-extrabold tracking-[0.12em] uppercase text-white hover:bg-purple-500 transition-all shadow-[0_10px_20px_rgba(168,85,247,0.25)] active:scale-95">
+          <button className="bg-purple-600 px-6 py-2.5 rounded-full text-sm font-medium text-white hover:bg-purple-500 transition-all">
             Speak to an expert
           </button>
         </div>
