@@ -5,9 +5,41 @@ import { FiPhoneCall } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
 
 const serviceLinks = [
-  ["Web Development", "Ecommerce Development", "ERP Software", "Digital Marketing", "Search Engine Optimization", "Artificial Intelligence", "Virtual Reality", "Video Production"],
-  ["Mobile App Development", "UI/UX Design", "IT Resource Outsourcing", "Social Media Marketing", "Generative Engine Optimization", "Augmented Reality", "Digital Branding & Creatives", "2D/3D Video Animation"]
+  [
+    // Core Software Services
+    "Web Development",
+    "Ecommerce Development",
+    "ERP Software",
+    "AI & Machine Learning",
+    "Cloud Solutions",
+
+    "Shopify Store Build & Redesign",
+    "Shopify Theme Customization",
+    "Shopify Store Migration",
+    "Shopify Troubleshooting & Support",
+    "Shopify Performance & Speed Optimization",
+    "Shopify Custom Apps & Integrations",
+    "Shopify Product & Collection Setup",
+    "Shopify Custom Domain Setup",
+  ],
+  [
+    "Shopify SEO Optimization",
+    "Shopify Conversion Rate Optimization",
+    "Shopify Analytics & Tracking",
+    "Shopify Sales Channel Setup",
+    "Shopify Email Marketing",
+    "Shopify Website & Marketing Content",
+    "Shopify Product Descriptions",
+    "Shopify Content Marketing",
+    "Shopify Social Media Marketing",
+    "Shopify Search Engine Advertising",
+
+    "Shopify Digital Branding & Visual Identity",
+    "Shopify Business Strategy Guidance",
+    "Shopify Website Audit & Optimization Strategy",
+  ],
 ];
+
 
 const gccGiants = ["BEYOND", "GBM", "SkillBridge", "mediaPro", "DIFC", "SANAD", "exa", "ADIB", "flydubai", "Terra Nexus", "EMDAD", "ATMOSPHERE", "SHARJAH", "SEPHORA", "Khazna", "OHANA"];
 

@@ -100,7 +100,7 @@ const AboutUs = () => {
             <a
               key={idx}
               href="#"
-              className="w-9 h-9 rounded-full bg-black border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500 transition-all"
+              className="animate-borderGlow w-9 h-9 rounded-full bg-black border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500 transition-all"
             >
               <Icon size={14} />
             </a>
@@ -119,7 +119,7 @@ const AboutUs = () => {
         {[FaWhatsapp, HiOutlineMail, HiOutlinePhone].map((Icon, idx) => (
           <div
             key={idx}
-            className="w-10 h-10 bg-black/80 border border-white/10 rounded-full flex items-center justify-center text-white cursor-pointer hover:bg-purple-600 transition-colors"
+            className="animate-borderGlow w-10 h-10 bg-black/80 border border-white/10 rounded-full flex items-center justify-center text-white cursor-pointer hover:bg-purple-600 transition-colors"
           >
             <Icon size={18} />
           </div>

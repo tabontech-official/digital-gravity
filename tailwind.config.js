@@ -8,9 +8,11 @@ export default {
         marqueeLeft: "marqueeLeft 35s linear infinite",
         marqueeRight: "marqueeRight 40s linear infinite",
         fadeUp: "fadeUp 0.6s ease-out",
-         fontFamily: {
-      sans: ["Inter", "system-ui", "sans-serif"],
-    },
+        borderGlow: "borderGlow 3s ease-in-out infinite",
+
+        fontFamily: {
+          sans: ["Inter", "ui-sans-serif", "system-ui"],
+        },
       },
       keyframes: {
         marquee: {
@@ -28,6 +30,14 @@ export default {
         fadeUp: {
           "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        borderGlow: {
+          "0%, 100%": {
+            boxShadow: "0 0 2px rgba(168,85,247,0.2)",
+          },
+          "50%": {
+            boxShadow: "0 0 12px rgba(168,85,247,0.7)",
+          },
         },
       },
     },
