@@ -6,6 +6,7 @@ import OurWork from "./component/OurWork";
 import AboutUs from "./component/Aboutus";
 import ServiceHero from "./component/ServiceHero";
 import { AnimatePresence } from "framer-motion";
+import Work from "./component/work";
 
 const Home = () => (
   <>
@@ -26,6 +27,8 @@ function App() {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
+                    <Route path="/case-studies" element={<Work />} />
+
           <Route path="/services/:service" element={<ServiceHero />} />
         </Routes>
       </AnimatePresence>
