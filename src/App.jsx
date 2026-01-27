@@ -7,6 +7,7 @@ import AboutUs from "./component/Aboutus";
 import ServiceHero from "./component/ServiceHero";
 import { AnimatePresence } from "framer-motion";
 import Work from "./component/work";
+import CaseStudy from "./component/pages/CaseStudy";
 
 const Home = () => (
   <>
@@ -28,6 +29,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
                     <Route path="/case-studies" element={<Work />} />
+        <Route path="/case-study/:id" element={<CaseStudy />} />
 
           <Route path="/services/:service" element={<ServiceHero />} />
         </Routes>
