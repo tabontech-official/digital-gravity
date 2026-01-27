@@ -127,7 +127,7 @@ const OurWork = () => {
               >
                 <Icon size={14} />
               </a>
-            )
+            ),
           )}
         </div>
 

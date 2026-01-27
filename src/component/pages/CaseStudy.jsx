@@ -341,8 +341,7 @@ const CaseStudy = () => {
           </motion.blockquote>
         </div>
       </section>
-      <div className="relative min-h-screen bg-gray-100">
-        {/* Your Trigger Button */}
+      <div className="relative bg-gray-100">
         <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
           <button
             onClick={() => setIsOpen(true)}
