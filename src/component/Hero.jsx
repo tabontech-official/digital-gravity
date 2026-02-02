@@ -76,7 +76,7 @@ const Hero = () => {
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-purple-600 text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-purple-500 transition-all">
+            <button className="bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-purple-500 transition-all">
               Schedule a call
             </button>
 

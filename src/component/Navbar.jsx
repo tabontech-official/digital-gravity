@@ -94,10 +94,10 @@
 
 //   return (
 //     <header className="fixed top-6 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-6xl font-primary">
-//       <nav
-//         className="relative flex items-center justify-between px-6 py-3 rounded-full bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl"
-//         onMouseLeave={() => setIsServicesHovered(false)}
-//       >
+      // <nav
+      //   className="relative flex items-center justify-between px-6 py-3 rounded-full bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl"
+      //   onMouseLeave={() => setIsServicesHovered(false)}
+      // >
 //         <Link to="/" className="flex items-center gap-1 text-xl font-semibold text-white">
 //           <span className="font-light">NexaSoft</span>
 //           <span className="font-semibold">Solutions</span>
