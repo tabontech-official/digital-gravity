@@ -75,7 +75,7 @@ const Footer = () => {
               <button
                 className="
                   absolute right-2 top-1.5
-                  bg-gradient-to-r from-purple-500 to-pink-500
+                    bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1]
                   text-white p-2 rounded-lg
                   hover:shadow-lg hover:shadow-purple-500/30
                   transition
@@ -145,7 +145,7 @@ const Footer = () => {
                     bg-white/5 border border-purple-500/20
                     text-gray-400
                     hover:text-white
-                    hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500
+                    hover:bg-gradient-to-br hover:from-[#6318C6] hover:via-[#8B22CD] hover:to-[#A526D1]
                     hover:shadow-lg hover:shadow-purple-500/30
                     transition-all duration-500
                   "

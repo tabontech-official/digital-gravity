@@ -281,8 +281,10 @@ const AboutUs = () => {
       <TechStack />
       <TestimonialsSection />
       <section className="bg-[#010101] text-white py-24 px-8 font-sans relative overflow-hidden">
-  {/* Soft top fade */}
-  <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black to-transparent pointer-events-none" />
+ <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1a0b1e] via-[#0d0d0d] to-[#0a0a0a]" />
+          <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-full h-[500px] bg-[#6d28d9]/10 blur-[120px] rounded-full" />
+        </div>  <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black to-transparent pointer-events-none" />
 
   <div className="max-w-7xl mx-auto relative z-10">
     
