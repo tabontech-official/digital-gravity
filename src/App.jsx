@@ -8,6 +8,7 @@ import ServiceHero from "./component/ServiceHero";
 import { AnimatePresence } from "framer-motion";
 import Work from "./component/work";
 import CaseStudy from "./component/pages/CaseStudy";
+import Footer from "./component/Footer";
 
 const Home = () => (
   <>
@@ -33,6 +34,7 @@ function App() {
 
           <Route path="/services/:service" element={<ServiceHero />} />
         </Routes>
+        <Footer/>
       </AnimatePresence>
     </>
   );

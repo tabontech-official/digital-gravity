@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 
 const Hero = () => {
@@ -77,11 +76,11 @@ const Hero = () => {
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-black px-8 py-3 rounded-full text-sm font-medium hover:bg-gray-200 transition">
-              Start a Project
+            <button className="bg-purple-600 text-white px-8 py-3 rounded-full text-sm font-medium hover:bg-purple-500 transition-all">
+              Schedule a call
             </button>
 
-            <button className="flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition">
+            <button className="flex items-center gap-2 px-8 py-3 rounded-full text-sm font-medium text-purple-400 border border-purple-500/40 hover:bg-purple-500/10 hover:text-white transition-all">
               <span>View Case Studies</span>
               <svg
                 className="w-4 h-4"

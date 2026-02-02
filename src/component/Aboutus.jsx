@@ -13,6 +13,23 @@ import TechStack from "./TecjStack";
 import TestimonialsSection from "./Testimonial";
 
 const AboutUs = () => {
+  const blogs = [
+    {
+      id: 1,
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995', // Placeholder for AI image
+      tags: ['Artificial Intelligence (AI)', 'DG NEWS'],
+    },
+    {
+      id: 2,
+      image: 'https://images.unsplash.com/photo-1614728263952-84ea256f9679', // Placeholder for Astronaut image
+      tags: ['Digital Marketing'],
+    },
+    {
+      id: 3,
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f', // Placeholder for Web Design image
+      tags: ['Web Design'],
+    },
+  ];
   const logos = [
     "https://www.digitalgravity.ae/assets/svg/home/client-3.svg",
     "https://www.digitalgravity.ae/assets/svg/home/client-4.svg",
@@ -263,6 +280,94 @@ const AboutUs = () => {
       </section>
       <TechStack />
       <TestimonialsSection />
+      <section className="bg-[#010101] text-white py-24 px-8 font-sans relative overflow-hidden">
+  {/* Soft top fade */}
+  <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black to-transparent pointer-events-none" />
+
+  <div className="max-w-7xl mx-auto relative z-10">
+    
+    {/* Header */}
+    <div className="flex flex-col md:flex-row justify-between md:items-end gap-8 mb-16">
+      <div>
+        <div className="flex items-center gap-2 mb-4">
+          <span className="w-2 h-2 bg-purple-500 rounded-full" />
+          <span className="text-sm uppercase tracking-widest text-gray-400">
+            Our Blog
+          </span>
+        </div>
+
+        <h2 className="text-4xl md:text-5xl font-light leading-tight">
+          What’s Happening in The <br />
+          <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1]">
+            Industry?
+          </span>
+        </h2>
+      </div>
+
+      {/* CTA */}
+     <button
+  className="
+    hidden md:inline-flex
+    items-center justify-center
+    /* The Gradient Change */
+    bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1]
+    text-white text-sm font-semibold
+    px-8 py-3
+    rounded-full
+    /* Effects */
+    hover:brightness-110
+    transition-all duration-200
+    active:scale-95
+    shadow-lg shadow-purple-900/40
+    tracking-tight
+  "
+>
+        View All Blogs
+      </button>
+    </div>
+
+    {/* Blog Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      {blogs.map((blog) => (
+        <div key={blog.id} className="group cursor-pointer">
+          
+          {/* Image */}
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] mb-6">
+            <img
+              src={blog.image}
+              alt="Blog cover"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+
+            {/* Glow on hover */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-t from-purple-500/20 via-transparent to-transparent" />
+          </div>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2">
+            {blog.tags.map((tag) => (
+              <span
+                key={tag}
+                className="
+                  px-4 py-1.5 rounded-full text-xs
+                  border border-purple-500/20
+                  bg-gradient-to-r from-purple-500/10 to-pink-500/10
+                  backdrop-blur-md
+                  text-gray-300
+                  hover:text-white hover:border-purple-500/40
+                  transition
+                "
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
     </>
   );
 };

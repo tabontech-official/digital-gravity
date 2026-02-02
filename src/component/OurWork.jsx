@@ -388,7 +388,6 @@ const OurWork = () => {
         </div>
       </section>
 
-      {/* NEW: CLIENT TESTIMONIALS SECTION */}
       <section className="relative py-32 bg-[#fafafa] overflow-hidden">
         {/* Subtle Grid Background */}
         <div
@@ -411,7 +410,7 @@ const OurWork = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-marquee  hover:[animation-play-state:paused]">
             {testimonials.map((t, idx) => (
               <div key={idx} className="flex flex-col group cursor-pointer">
                 {/* Video/Portrait Card */}
@@ -447,6 +446,64 @@ const OurWork = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+      <section className="relative w-full flex items-center justify-center overflow-hidden text-white font-sans py-16 md:py-24 lg:h-[80vh] min-h-[600px]">
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source
+              src="https://cdn.shopify.com/videos/c/o/v/1dae855412ca4656b8ae4fa2a61c0d1b.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div className="absolute inset-0 bg-black/40 z-0" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          <div className="space-y-4 md:space-y-6 text-center lg:text-left">
+            <div className="flex items-center justify-center lg:justify-start gap-3">
+              <span className="w-2 h-2 rounded-full bg-[#7C1DF0]" />
+              <span className="text-[10px] md:text-xs uppercase tracking-[0.35em] font-medium text-gray-300">
+                Catch The Success
+              </span>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
+              Our 200+ Tech Nerds <br className="hidden md:block" />
+              are here to help
+            </h1>
+          </div>
+
+          <div className="lg:pl-12 space-y-6 md:space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div className="space-y-4 md:space-y-6 max-w-lg">
+              <p className="text-gray-200 text-base md:text-lg leading-relaxed">
+                Client satisfaction is one of our top priorities. Our
+                consistency, dedication, and constant innovation have earned
+                trust across the globe.
+              </p>
+
+              <p className="text-gray-400 text-sm leading-relaxed border-l-0 lg:border-l border-white/20 lg:pl-4">
+                Hire expert developers to build scalable, high-performance
+                digital products designed for long-term growth.
+              </p>
+            </div>
+
+            <button className="group relative w-full sm:w-auto px-8 py-4 rounded-full font-semibold bg-[#7C1DF0] text-white overflow-hidden transition-all hover:bg-white hover:text-black active:scale-95">
+              <span className="relative z-10">Start A Project</span>
+              <div className="absolute inset-0 bg-white/10 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+            </button>
+          </div>
+        </div>
+
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 opacity-60">
+          <span className="text-[10px] uppercase tracking-widest">Scroll</span>
+          <div className="w-px h-8 bg-gradient-to-b from-white to-transparent" />
         </div>
       </section>
     </div>
