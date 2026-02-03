@@ -110,18 +110,20 @@ const testimonials = [
 const OurWork = () => {
   return (
     <div className="bg-[#0a0a0a] font-body text-white overflow-x-hidden">
-      {/* 1. OUR WORK SECTION */}
-    <section className="relative py-24 px-6 lg:px-20">
+      <section className="relative py-24 px-6 lg:px-20">
         <div className="absolute inset-0 bg-gradient-to-b from-[#1a0b1e] via-[#0d0d0d] to-[#0a0a0a]" />
 
         {/* Social */}
         <div className="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-40">
           {[FaBehance, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube].map(
             (Icon, i) => (
-              <a key={i} className="w-9 h-9 rounded-full bg-black border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500">
+              <a
+                key={i}
+                className="w-9 h-9 rounded-full bg-black border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500"
+              >
                 <Icon size={14} />
               </a>
-            )
+            ),
           )}
         </div>
 
@@ -139,15 +141,17 @@ const OurWork = () => {
                 </span>
               </h2>
             </div>
-
-
           </div>
 
           <div className="grid md:grid-cols-3 gap-10">
             {projects.map((p, i) => (
               <div key={i} className="group">
                 <div className="rounded-[2rem] overflow-hidden mb-6">
-                  <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+                  />
                 </div>
                 <h3 className="text-2xl text-gray-200 group-hover:text-white">
                   {p.title}
@@ -158,37 +162,25 @@ const OurWork = () => {
         </div>
       </section>
 
-
-      {/* PARTNERS SECTION */}
       <section className="relative py-32 bg-[#0a0a0a] overflow-hidden">
-        {/* Top Glow */}
-
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[#2a0e3a]/20 blur-[120px] pointer-events-none" />
-
-        {/* Bottom Line */}
 
         <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
 
         <div className="relative z-10 mx-auto px-6">
-          {/* HEADER */}
-
           <div className="flex flex-col items-center mb-20 text-center">
-           <div className="flex items-center gap-3 text-purple-400 uppercase tracking-[0.3em] text-xs font-semibold mb-4">
-                <span className="w-2 h-2 bg-purple-400 rounded-full" />
+            <div className="flex items-center gap-3 text-purple-400 uppercase tracking-[0.3em] text-xs font-semibold mb-4">
+              <span className="w-2 h-2 bg-purple-400 rounded-full" />
               Partners & Recognition
             </div>
 
-           <h2 className="text-center text-4xl md:text-5xl font-headingAlt mb-20">
-            Trusted by Industry{" "}
-            <span className="italic text-gray-400">Leaders</span>
-          </h2>
+            <h2 className="text-center text-4xl md:text-5xl font-headingAlt mb-20">
+              Trusted by Industry{" "}
+              <span className="italic text-gray-400">Leaders</span>
+            </h2>
           </div>
 
-          {/* MARQUEE */}
-
           <div className="flex flex-col gap-8 relative">
-            {/* ROW 1 – LEFT */}
-
             <div className="relative overflow-hidden group">
               <div className="flex w-max gap-6 animate-marqueeLeft py-4 group-hover:[animation-play-state:paused]">
                 {[...partners, ...partners].map((partner, idx) => (
@@ -246,15 +238,11 @@ const OurWork = () => {
 "
                     />
 
-                    {/* Glass sheen */}
-
                     <div className="absolute inset-0 rounded-[1.75rem] bg-gradient-to-br from-white/[0.04] via-transparent to-transparent pointer-events-none" />
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* ROW 2 – RIGHT */}
 
             <div className="relative overflow-hidden group">
               <div className="flex w-max gap-6 animate-marqueeRight py-4 group-hover:[animation-play-state:paused]">
@@ -313,8 +301,6 @@ const OurWork = () => {
 "
                     />
 
-                    {/* Glass sheen */}
-
                     <div className="absolute inset-0 rounded-[1.75rem] bg-gradient-to-br from-white/[0.04] via-transparent to-transparent pointer-events-none" />
                   </div>
                 ))}
@@ -328,7 +314,7 @@ const OurWork = () => {
         </div>
       </section>
 
-<section className="py-32 bg-[#fafafa] text-black">        {/* Subtle Grid Background */}
+      <section className="py-32 bg-[#fafafa] text-black">
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
@@ -339,19 +325,18 @@ const OurWork = () => {
 
         <div className="relative z-10 max-w-[1440px] mx-auto px-8 lg:px-20">
           <div className="mb-16">
-           <div className="flex items-center gap-3 text-purple-600 uppercase tracking-[0.3em] text-xs font-semibold mb-4">
-                <span className="w-2 h-2 bg-purple-600 rounded-full" />
+            <div className="flex items-center gap-3 text-purple-600 uppercase tracking-[0.3em] text-xs font-semibold mb-4">
+              <span className="w-2 h-2 bg-purple-600 rounded-full" />
               Client Testimonials & Reviews
             </div>
-             <h2 className="text-5xl font-headingAlt mb-16">
-            What Our Happy Clients Say
-          </h2>
+            <h2 className="text-5xl font-headingAlt mb-16">
+              What Our Happy Clients Say
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {testimonials.map((t, idx) => (
               <div key={idx} className="flex flex-col group cursor-pointer">
-                {/* Video/Portrait Card */}
                 <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden mb-6 bg-zinc-200 shadow-xl">
                   <img
                     src={t.videoThumb}
@@ -359,16 +344,13 @@ const OurWork = () => {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
 
-                  {/* Purple Mute Overlay */}
                   <div className="absolute bottom-4 left-4 w-10 h-10 bg-[#a855f7] rounded-full flex items-center justify-center text-white shadow-lg">
                     <FaVolumeMute size={16} />
                   </div>
 
-                  {/* Glass Top Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
 
-                {/* Info Section */}
                 <div className="px-2">
                   <div className="flex items-start justify-between gap-4 mb-2">
                     <img
@@ -377,8 +359,7 @@ const OurWork = () => {
                       className="h-10 w-auto object-contain grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all"
                     />
                   </div>
-                                 <h4 className="font-bold">{t.name}</h4>
-
+                  <h4 className="font-bold">{t.name}</h4>
                 </div>
               </div>
             ))}
