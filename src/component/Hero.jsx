@@ -116,8 +116,9 @@ const Hero = () => {
               text-purple-400
               border border-purple-500/40
               hover:bg-purple-500/10
-              hover:text-white
               transition-all
+              hover:shadow-[0_0_25px_#a855f7]
+              
               flex items-center gap-2 justify-center
             "
           >
