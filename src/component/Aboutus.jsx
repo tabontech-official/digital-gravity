@@ -402,6 +402,18 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
+       <div className="relative bg-gray-100">
+              <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
+                <button
+                  className="font-sans    bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] text-white py-8 px-3 rounded-l-[20px] shadow-[0_0_30px_rgba(139,44,245,0.3)] transition-all group"
+                >
+                  <span className="[writing-mode:vertical-lr] rotate-180 text-[11px] font-semibold tracking-[0.2em] uppercase">
+                    Get A Quote!
+                  </span>
+                </button>
+              </div>
+      
+            </div>
     </>
   );
 };

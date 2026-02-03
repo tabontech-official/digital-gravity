@@ -194,104 +194,110 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-[100] px-4 py-4 lg:px-0">
-      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 lg:py-4 rounded-full bg-black/80 backdrop-blur-xl border border-white/10 shadow-2xl">
-        <Link
-          to="/"
-          className="flex items-center gap-1 text-xl text-white font-heading"
-        >
-          <span className="font-light">NexaSoft</span>
-          <span className="font-bold text-purple-400">Solutions</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 shadow-[0_0_10px_#a855f7]" />
-        </Link>
+   <header className="fixed top-0 left-0 w-full z-[100] px-4 py-4 lg:px-0 font-body">
+  <nav className="max-w-[1440px] mx-auto flex items-center justify-between px-6 py-3 lg:py-4 rounded-full bg-[#050505]/90 backdrop-blur-xl border border-white/10">
 
-        <ul className="hidden lg:flex items-center gap-8 text-sm font-heading font-medium text-gray-400">
-          <li
-            className="relative py-2"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            <button className="flex items-center gap-1 hover:text-white transition-colors">
-              Services
-              <MdKeyboardArrowDown
-                className={`text-lg transition-transform ${
-                  isHovered ? "rotate-180" : ""
-                }`}
-              />
-            </button>
+    {/* LOGO */}
+    <Link
+      to="/"
+      className="flex items-center gap-1 text-lg text-white font-heading"
+    >
+      <span className="font-light">NexaSoft</span>
+      <span className="font-semibold text-purple-400">Solutions</span>
+      <span className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 shadow-[0_0_10px_#a855f7]" />
+    </Link>
 
-            <AnimatePresence>
-              {isHovered && (
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="absolute top-full -left-40 pt-6 w-[800px]"
-                >
-                  <div className="bg-[#0f0f0f] border border-white/10 rounded-[2.5rem] p-8 shadow-[0_30px_100px_rgba(0,0,0,0.8)] flex gap-10">
-                    <div className="flex-1 grid grid-cols-2 gap-x-8">
-                      {serviceLinks.map((column, i) => (
-                        <div key={i}>
-                          {column.map((item) => (
-                            <Link
-                              key={item}
-                              to={`/services/${toSlug(item)}`}
-                              className="group flex items-center justify-between py-2.5 border-b border-white/5 hover:border-purple-500/30"
-                            >
-                              <span className="text-gray-400 group-hover:text-white transition-colors">
-                                {item}
-                              </span>
-                              <MdSubdirectoryArrowRight className="text-gray-700 group-hover:text-purple-500 group-hover:translate-x-1 transition-all" />
-                            </Link>
-                          ))}
-                        </div>
+    {/* DESKTOP NAV */}
+    <ul className="hidden lg:flex items-center gap-10 text-sm font-heading text-gray-400">
+      <li
+        className="relative py-2"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <button className="flex items-center gap-1 hover:text-white transition-colors">
+          Services
+          <MdKeyboardArrowDown
+            className={`text-lg transition-transform ${
+              isHovered ? "rotate-180" : ""
+            }`}
+          />
+        </button>
+
+        <AnimatePresence>
+          {isHovered && (
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 8 }}
+              className="absolute top-full -left-40 pt-6 w-[820px]"
+            >
+              <div className="bg-[#0f0f0f] border border-white/10 rounded-[32px] p-8 shadow-[0_40px_100px_rgba(0,0,0,0.8)]">
+                <div className="grid grid-cols-2 gap-x-10">
+                  {serviceLinks.map((column, i) => (
+                    <div key={i}>
+                      {column.map((item) => (
+                        <Link
+                          key={item}
+                          to={`/services/${toSlug(item)}`}
+                          className="group flex items-center justify-between py-3 border-b border-white/5 hover:border-purple-500/30 transition-all"
+                        >
+                          <span className="text-gray-400 group-hover:text-white transition-colors">
+                            {item}
+                          </span>
+                          <MdSubdirectoryArrowRight className="text-gray-600 group-hover:text-purple-500 group-hover:translate-x-1 transition-all" />
+                        </Link>
                       ))}
                     </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </li>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </li>
 
-          <li>
-            <Link
-              to="/case-studies"
-              className="hover:text-white transition-colors"
-            >
-              Our Work
-            </Link>
-          </li>
+      <li>
+        <Link to="/case-studies" className="hover:text-white transition-colors">
+          Our Work
+        </Link>
+      </li>
 
-          <li>
-            <Link to="/about-us" className="hover:text-white transition-colors">
-              About
-            </Link>
-          </li>
-        </ul>
+      <li>
+        <Link to="/about-us" className="hover:text-white transition-colors">
+          About
+        </Link>
+      </li>
+    </ul>
 
-        <div className="flex items-center gap-4">
-          <button className="hidden md:inline-flex font-heading bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] px-8 py-3 rounded-full text-sm font-semibold text-white hover:brightness-110 transition active:scale-95">
-            Speak to an expert
-          </button>
+    {/* ACTIONS */}
+    <div className="flex items-center gap-4">
 
-          <div className="hidden md:flex gap-3">
-            <a className="p-3 rounded-full border border-white/20 text-white hover:bg-white hover:text-purple-500 transition-colors">
-              <HiOutlineMail />
-            </a>
-            <a className="p-3 rounded-full border border-white/20 text-white hover:bg-white hover:text-purple-500 transition-colors">
-              <FiPhoneCall />
-            </a>
-          </div>
+      {/* CTA */}
+      <button className="hidden md:inline-flex px-8 py-3 rounded-full border border-purple-500/40 text-sm font-heading font-semibold text-purple-300 hover:bg-purple-500/10 hover:shadow-[0_0_25px_#a855f7] transition-all duration-500">
+        Speak to an expert
+      </button>
 
-          <button
-            className="lg:hidden text-white"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <MdClose size={28} /> : <MdMenu size={28} />}
-          </button>
-        </div>
-      </nav>
-    </header>
+      {/* ICON ACTIONS */}
+      <div className="hidden md:flex gap-3">
+        <a className="p-3 rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-purple-500/30 transition-all">
+          <HiOutlineMail />
+        </a>
+        <a className="p-3 rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-purple-500/30 transition-all">
+          <FiPhoneCall />
+        </a>
+      </div>
+
+      {/* MOBILE TOGGLE */}
+      <button
+        className="lg:hidden text-white"
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      >
+        {mobileMenuOpen ? <MdClose size={28} /> : <MdMenu size={28} />}
+      </button>
+    </div>
+  </nav>
+</header>
+
   );
 };
 
