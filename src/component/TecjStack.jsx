@@ -68,16 +68,19 @@ const TechStack = () => {
      },
    ];
   return (
-  <section className="relative bg-[#08080a] py-32 text-white overflow-hidden font-body w-full">
-  
-  {/* BACKGROUND GLOW */}
+<section className="relative bg-[#050505] py-32 text-white overflow-hidden font-body w-full">
+
+  {/* TOP DIVIDER (CONSISTENT) */}
+  <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+
+  {/* SUBTLE BACKGROUND GLOW */}
   <div className="absolute inset-0 pointer-events-none">
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-purple-900/10 blur-[140px] rounded-full" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-purple-900/10 blur-[140px] rounded-full" />
   </div>
 
-  {/* CONTENT (NO WIDTH LIMIT) */}
+  {/* CONTENT */}
   <div className="relative z-10 px-6 lg:px-20 w-full">
-    
+
     {/* HEADING */}
     <div className="text-center mb-24 max-w-6xl mx-auto">
       <h2 className="text-4xl md:text-6xl font-headingAlt font-light mb-8 tracking-tight leading-[1.1]">
@@ -93,7 +96,7 @@ const TechStack = () => {
       </p>
     </div>
 
-    {/* TECH SLIDER – FULL WIDTH */}
+    {/* TECH SLIDER */}
     <div className="relative overflow-hidden">
       <div className="flex items-center gap-12 w-max animate-techSlider hover:[animation-play-state:paused]">
         {[...commonTechStack, ...commonTechStack].map((tech, idx) => (
@@ -101,7 +104,7 @@ const TechStack = () => {
             key={idx}
             className="group flex flex-col items-center gap-6 shrink-0"
           >
-            {/* CARD */}
+            {/* CARD — SAME SIZE */}
             <div
               className="
                 relative w-36 h-36
@@ -111,6 +114,7 @@ const TechStack = () => {
                 flex items-center justify-center
                 transition-all duration-500
                 hover:-translate-y-3
+                hover:border-purple-500/30
                 backdrop-blur-sm
               "
               style={{
@@ -152,11 +156,12 @@ const TechStack = () => {
       </div>
 
       {/* EDGE FADES */}
-      <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-[#08080a] to-transparent pointer-events-none z-20" />
-      <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-[#08080a] to-transparent pointer-events-none z-20" />
+      <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-[#050505] to-transparent pointer-events-none z-20" />
+      <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-[#050505] to-transparent pointer-events-none z-20" />
     </div>
   </div>
 </section>
+
 
   );
 };

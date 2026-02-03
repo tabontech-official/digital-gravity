@@ -205,14 +205,18 @@ const AboutUs = () => {
 
 
     <section className="relative bg-[#050505] text-white py-32 px-6 overflow-hidden font-body">
-  {/* Background accents */}
+
+  {/* TOP DIVIDER — SAME AS OTHER SECTIONS */}
+  <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+
+  {/* SUBTLE BACKGROUND GLOW */}
   <div className="absolute inset-0 z-0 pointer-events-none">
-    <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-purple-900/20 blur-[120px] rounded-full" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-purple-900/10 blur-[140px] rounded-full" />
   </div>
 
   <div className="relative z-10 max-w-7xl mx-auto">
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-20">
-      
+
       {/* LEFT – STICKY HEADING */}
       <div className="lg:sticky lg:top-32 h-fit">
         <h2 className="text-5xl lg:text-7xl font-headingAlt font-light leading-tight tracking-tight">
@@ -278,7 +282,6 @@ const AboutUs = () => {
                 }`}
               >
                 {item.type === "list" ? (
-                  /* VALUES LIST */
                   <div className="space-y-10 pb-4">
                     {item.content.map((val, idx) => (
                       <div key={idx} className="flex gap-6">
@@ -297,7 +300,6 @@ const AboutUs = () => {
                     ))}
                   </div>
                 ) : (
-                  /* MISSION / VISION TEXT */
                   <p className="text-gray-300 text-lg leading-relaxed max-w-lg pb-4 font-body">
                     {item.content}
                   </p>
@@ -307,23 +309,23 @@ const AboutUs = () => {
           );
         })}
       </div>
+
     </div>
   </div>
 </section>
 
       <TechStack />
       <TestimonialsSection />
-      <section className="relative bg-[#010101] text-white py-24 px-8 overflow-hidden font-body">
-  
-  {/* BACKGROUND */}
-  <div className="absolute inset-0 z-0 pointer-events-none">
-    <div className="absolute inset-0 bg-gradient-to-b from-[#1a0b1e] via-[#0d0d0d] to-[#0a0a0a]" />
-    <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-full h-[500px] bg-purple-700/10 blur-[120px] rounded-full" />
-    <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black to-transparent" />
+    <section className="relative bg-[#050505] text-white py-24 px-8 overflow-hidden font-body">
+    <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+
+  {/* SUBTLE BACKGROUND GLOW — SAME AS TESTIMONIALS */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-purple-900/10 blur-[140px] rounded-full" />
   </div>
 
   <div className="max-w-7xl mx-auto relative z-10">
-    
+
     {/* HEADER */}
     <div className="flex flex-col md:flex-row justify-between md:items-end gap-8 mb-16">
       <div>
@@ -364,20 +366,18 @@ const AboutUs = () => {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
       {blogs.map((blog) => (
         <div key={blog.id} className="group cursor-pointer">
-          
-          {/* IMAGE */}
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] mb-6 border border-white/5">
+
+          {/* IMAGE CARD — SAME TREATMENT AS TESTIMONIAL CARDS */}
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] mb-6 bg-[#0f0f0f] border border-white/10 transition-all duration-500 group-hover:border-purple-500/30">
             <img
               src={blog.image}
               alt="Blog cover"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-
-            {/* Hover glow */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-t from-purple-500/20 via-transparent to-transparent" />
           </div>
 
-          {/* TAGS */}
+          {/* TAGS — SAME AS OTHER SECTIONS */}
           <div className="flex flex-wrap gap-2">
             {blog.tags.map((tag) => (
               <span
@@ -386,8 +386,7 @@ const AboutUs = () => {
                   px-4 py-1.5 rounded-full text-xs
                   font-body
                   border border-purple-500/20
-                  bg-gradient-to-r from-purple-500/10 to-pink-500/10
-                  backdrop-blur-md
+                  bg-[#0f0f0f]
                   text-gray-300
                   hover:text-white hover:border-purple-500/40
                   transition-all
@@ -397,11 +396,14 @@ const AboutUs = () => {
               </span>
             ))}
           </div>
+
         </div>
       ))}
     </div>
   </div>
 </section>
+
+
 
     </>
   );
