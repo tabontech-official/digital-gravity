@@ -30,29 +30,32 @@ const CaseStudy = () => {
   const { hero, testimonialSection } = project.caseStudy;
 
   return (
-    <div className=" text-white">
-      <section className="relative min-h-screen px-8 lg:px-32 flex items-center overflow-hidden bg-black">
+    <div className="text-white font-body">
+      <section className="relative min-h-screen px-6 lg:px-32 flex items-center overflow-hidden bg-[#050505]">
+        {/* BACKGROUND IMAGE */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${hero.backgroundImage})`,
-          }}
+          className="absolute inset-0 bg-cover bg-center scale-105"
+          style={{ backgroundImage: `url(${hero.backgroundImage})` }}
         />
 
-        <div className="absolute inset-0 " />
+        {/* DARK OVERLAY */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40" />
 
-        <div className="relative z-10 grid lg:grid-cols-2 gap-20 items-center w-full">
+        <div className="relative z-10 grid lg:grid-cols-2 gap-20 items-center w-full max-w-[1440px] mx-auto">
+          {/* LEFT CONTENT */}
           <div>
-            <div className="flex items-center gap-2 text-purple-400 text-sm mb-6">
-              <span className="w-2 h-2 rounded-full bg-purple-500" />
-              {hero.label}
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
+              <span className="text-purple-400 text-xs font-heading tracking-[0.25em] uppercase">
+                {hero.label}
+              </span>
             </div>
 
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-headingAlt font-light leading-tight mb-8 max-w-xl">
               {hero.title}
             </h1>
 
-            <p className="text-gray-300 leading-relaxed max-w-xl mb-10">
+            <p className="text-gray-400 leading-relaxed max-w-xl mb-12">
               {hero.description}
             </p>
 
@@ -60,48 +63,49 @@ const CaseStudy = () => {
               href={hero.website}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex px-7 py-3 rounded-full bg-purple-600 hover:bg-purple-700 transition"
+              className="inline-flex px-8 py-3 rounded-full border border-purple-500/40 text-purple-300 text-sm font-semibold hover:bg-purple-500/10 hover:shadow-[0_0_25px_#a855f7] transition-all duration-500"
             >
               Visit Website
             </a>
           </div>
 
-          {/* RIGHT MOCKUP IMAGE */}
+          {/* RIGHT MOCKUP */}
           <div className="relative flex justify-center lg:justify-end">
             <img
               src={hero.mockupImage}
               alt={hero.title}
               className="
-          w-[320px]
-          sm:w-[420px]
-          lg:w-[560px]
-          xl:w-[640px]
-          rotate-[-12deg]
-          drop-shadow-[0_40px_80px_rgba(0,0,0,0.8)]
-        "
+            w-[300px]
+            sm:w-[420px]
+            lg:w-[560px]
+            xl:w-[640px]
+            rotate-[-10deg]
+            drop-shadow-[0_50px_100px_rgba(0,0,0,0.9)]
+          "
             />
           </div>
         </div>
       </section>
-      <section className="relative px-8 lg:px-32 py-24 bg-black overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a0525] via-black to-black" />
+      <section className="relative px-6 lg:px-32 py-32 bg-[#050505] overflow-hidden font-body text-white">
+        {/* SOFT BACKGROUND GRADIENT */}
 
-        <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="border border-white/45 rounded-2xl">
-            <div className="grid lg:grid-cols-[1.5fr_1fr] border-b border-white/45">
+        <div className="relative z-10 max-w-[1440px] mx-auto">
+          <div className="rounded-[32px] border border-white/10 bg-[#0f0f0f]">
+            {/* TOP GRID */}
+            <div className="grid lg:grid-cols-[1.5fr_1fr] border-b border-white/10">
               {/* LEFT DESCRIPTION */}
               <div className="p-10 lg:p-16 flex items-center">
-                <p className="text-xl lg:text-2xl text-gray-300 font-light leading-relaxed">
+                <p className="text-lg md:text-xl lg:text-2xl text-gray-400 font-light leading-relaxed">
                   {project.caseStudy.overviewSection.description}
                 </p>
               </div>
 
               {/* RIGHT META */}
-              <div className="p-10 lg:p-16 lg:border-l border-white/10 bg-white/[0.02]">
-                <div className="grid grid-cols-2 gap-y-12 gap-x-8">
+              <div className="p-10 lg:p-16 lg:border-l border-white/10 bg-black/20">
+                <div className="grid grid-cols-2 gap-y-12 gap-x-10">
                   {project.caseStudy.overviewSection.meta.map((item, i) => (
-                    <div key={i} className="space-y-1">
-                      <h4 className="text-xl text-white font-medium">
+                    <div key={i} className="space-y-2">
+                      <h4 className="text-xs font-heading tracking-[0.25em] uppercase text-purple-400">
                         {item.label}
                       </h4>
                       <p className="text-sm text-gray-400">{item.value}</p>
@@ -111,43 +115,50 @@ const CaseStudy = () => {
               </div>
             </div>
 
-            {/* BOTTOM IMAGE AREA */}
-            <div className="p-8 lg:p-20 bg-black">
-              <div className="rounded-xl overflow-hidden shadow-2xl">
+            {/* IMAGE AREA */}
+            <div className="p-8 lg:p-20">
+              <div className="relative rounded-[32px] overflow-hidden border border-white/10 transition-all duration-500 hover:border-purple-500/30">
                 <img
                   src={project.caseStudy.overviewSection.image}
                   alt="Project Overview"
-                  className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity duration-500"
+                  className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity duration-700"
                 />
+
+                {/* SUBTLE OVERLAY */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="relative px-8 lg:px-32 py-24 bg-black text-white overflow-hidden">
-        <div className="relative z-10 flex items-center gap-3 mb-8">
-          <div className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
-          <span className="text-sm font-medium tracking-widest uppercase text-gray-400">
-            {project.caseStudy.aboutClient.label}
-          </span>
-        </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto">
-          {/* Main Heading & Description */}
-          <div className="max-w-4xl mb-20">
-            <h2 className="text-4xl lg:text-6xl font-semibold mb-8 tracking-tight">
+      <section className="relative px-6 lg:px-32 py-32 bg-[#050505] text-white overflow-hidden font-body">
+        {/* SOFT PURPLE GLOW */}
+
+        <div className="relative z-10 max-w-[1440px] mx-auto">
+          {/* SECTION LABEL */}
+          <div className="flex items-center gap-3 mb-10">
+            <span className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
+            <span className="text-xs font-heading tracking-[0.25em] uppercase text-purple-400">
+              {project.caseStudy.aboutClient.label}
+            </span>
+          </div>
+
+          {/* HEADING & DESCRIPTION */}
+          <div className="max-w-4xl mb-24">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-headingAlt font-light leading-tight mb-10">
               {project.caseStudy.aboutClient.heading}
             </h2>
-            <p className="text-lg text-gray-400 leading-relaxed font-light">
+            <p className="text-gray-400 text-lg leading-relaxed font-light">
               {project.caseStudy.aboutClient.description}
             </p>
           </div>
 
-          {/* Two Column Section */}
-          <div className="grid lg:grid-cols-2 gap-8 items-stretch">
-            {/* Left Card: Text Content */}
-            <div className="bg-[#111111] p-10 lg:p-16 rounded-[2rem] border border-white/5 flex flex-col justify-center">
-              <h3 className="text-3xl lg:text-4xl font-medium mb-6">
+          {/* TWO COLUMN LAYOUT */}
+          <div className="grid lg:grid-cols-2 gap-10 items-stretch">
+            {/* LEFT: SERVICES CARD */}
+            <div className="bg-[#0f0f0f] p-10 lg:p-16 rounded-[32px] border border-white/10 flex flex-col justify-center transition-all duration-500 hover:border-purple-500/30">
+              <h3 className="text-2xl lg:text-3xl font-heading font-medium mb-6 text-white">
                 {project.caseStudy.ourServices.heading}
               </h3>
               <p className="text-gray-400 leading-relaxed font-light">
@@ -155,107 +166,104 @@ const CaseStudy = () => {
               </p>
             </div>
 
-            {/* Right Card: Tablet Mockup */}
-            <div className="relative rounded-[2rem] overflow-hidden group">
+            {/* RIGHT: MOCKUP */}
+            <div className="relative rounded-[32px] overflow-hidden border border-white/10 group">
               <img
                 src={project.caseStudy.ourServices.mockupImage}
                 alt="Tablet Display"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100"
               />
-              {/* Subtle overlay to match the image mood */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
             </div>
           </div>
         </div>
-
-        {/* Background Decoration (Purple Glow) */}
-        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-purple-900/10 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/4" />
       </section>
-      <section className="relative px-8 lg:px-32 py-24 bg-black text-white overflow-hidden">
-        <div className="relative z-10 max-w-7xl mx-auto mb-16">
+
+      <section className="relative px-6 lg:px-32 py-32 bg-[#050505] text-white overflow-hidden font-body">
+        <div className="relative z-10 max-w-[1440px] mx-auto mb-20">
+          {/* SECTION LABEL */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
-            <span className="text-sm font-medium tracking-widest uppercase text-gray-400">
+            <span className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
+            <span className="text-xs font-heading tracking-[0.25em] uppercase text-purple-400">
               {project.caseStudy.challengesSection.label}
             </span>
           </div>
-          <h2 className="text-4xl lg:text-6xl font-light tracking-tight">
+
+          {/* HEADING */}
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-headingAlt font-light leading-tight max-w-4xl">
             {project.caseStudy.challengesSection.heading}
           </h2>
         </div>
 
-        {/* Challenges Table/List */}
-        <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="border border-white/10 rounded-2xl overflow-hidden bg-white/[0.02] backdrop-blur-sm">
+        {/* CHALLENGES LIST */}
+        <div className="relative z-10 max-w-[1440px] mx-auto">
+          <div className="rounded-[32px] border border-white/10 bg-[#0f0f0f] overflow-hidden">
             {project.caseStudy.challengesSection.items.map(
               (challenge, index) => (
                 <div
                   key={index}
-                  className={`grid lg:grid-cols-[1fr_1.5fr] items-center p-8 lg:p-12 transition-colors duration-300 hover:bg-white/[0.03] ${
+                  className={`grid lg:grid-cols-[1fr_1.5fr] gap-10 items-start p-8 lg:p-12 transition-colors duration-500 hover:bg-white/[0.02] ${
                     index !==
                     project.caseStudy.challengesSection.items.length - 1
                       ? "border-b border-white/10"
                       : ""
                   }`}
                 >
-                  {/* Challenge Title */}
-                  <div className="flex items-center gap-6 mb-4 lg:mb-0">
-                    <div className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]" />
-                    <h3 className="text-2xl lg:text-3xl font-normal text-gray-100">
+                  {/* TITLE */}
+                  <div className="flex items-center gap-4">
+                    <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_#a855f7]" />
+                    <h3 className="text-xl md:text-2xl font-heading font-medium text-white">
                       {challenge.title}
                     </h3>
                   </div>
 
-                  {/* Challenge Description */}
-                  <div className="lg:pl-12">
-                    <p className="text-gray-400 leading-relaxed font-light lg:text-lg">
-                      {challenge.description}
-                    </p>
-                  </div>
+                  {/* DESCRIPTION */}
+                  <p className="text-gray-400 leading-relaxed font-light text-base md:text-lg">
+                    {challenge.description}
+                  </p>
                 </div>
               ),
             )}
           </div>
         </div>
-
-        {/* Subtle Grid Background Effect */}
-        <div
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
-          style={{
-            backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`,
-            size: "40px 40px",
-          }}
-        />
       </section>
-      <section className="relative px-8 lg:px-32 py-24 bg-black text-white overflow-hidden">
-        <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 mb-32">
+
+      <section className="relative px-6 lg:px-32 py-32 bg-[#050505] text-white overflow-hidden font-body">
+        <div className="relative z-10 max-w-[1440px] mx-auto">
+          {/* TOP DIVIDER (TESTIMONIAL STYLE) */}
+          <div className="border-b border-white/10 pb-10 mb-20">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
+              <span className="text-purple-400 text-xs font-heading font-semibold tracking-[0.25em] uppercase">
+                {project.caseStudy.resultsSection.label}
+              </span>
+            </div>
+
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-headingAlt font-light leading-tight max-w-4xl">
+              {project.caseStudy.resultsSection.heading}
+            </h2>
+          </div>
+
+          {/* TOP GRID */}
+          <div className="grid lg:grid-cols-[1fr_1.5fr] gap-20 mb-32">
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
-                <span className="text-sm font-medium tracking-widest uppercase text-gray-400">
-                  {project.caseStudy.resultsSection.label}
-                </span>
-              </div>
-              <h2 className="text-4xl lg:text-6xl font-light tracking-tight mb-8">
-                {project.caseStudy.resultsSection.heading}
-              </h2>
-              <p className="text-gray-400 leading-relaxed font-light text-lg">
+              <p className="text-gray-400 leading-relaxed font-light text-lg max-w-xl">
                 {project.caseStudy.resultsSection.description}
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {/* DELIVERABLES */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {project.caseStudy.resultsSection.deliverables.map(
                 (item, index) => (
                   <div
                     key={index}
-                    className="border border-white/10 rounded-2xl p-8 flex flex-col justify-between bg-white/[0.02] aspect-square lg:aspect-auto lg:h-48"
+                    className="bg-[#0f0f0f] border border-white/10 rounded-[24px] p-8 flex flex-col justify-between transition-all duration-500 hover:border-purple-500/30"
                   >
-                    <div className="w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-[10px]">
+                    <div className="w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-[10px] text-purple-400">
                       ✓
                     </div>
-                    <h4 className="text-xl font-medium leading-tight">
+                    <h4 className="text-lg font-heading font-medium leading-snug text-white mt-6">
                       {item}
                     </h4>
                   </div>
@@ -264,11 +272,11 @@ const CaseStudy = () => {
             </div>
           </div>
 
-          {/* BOTTOM CONTENT: LARGE STATS */}
+          {/* STATS SECTION */}
           <div>
-            <div className="flex items-center gap-3 mb-12">
-              <div className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
-              <span className="text-sm font-medium tracking-widest uppercase text-gray-400">
+            <div className="flex items-center gap-3 mb-16">
+              <span className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
+              <span className="text-purple-400 text-xs font-heading tracking-[0.25em] uppercase">
                 {project.caseStudy.resultsSection.statsLabel}
               </span>
             </div>
@@ -277,16 +285,16 @@ const CaseStudy = () => {
               {project.caseStudy.resultsSection.stats.map((stat, index) => (
                 <div
                   key={index}
-                  className={`text-center lg:px-8 ${
+                  className={`text-center px-4 lg:px-10 ${
                     index !== project.caseStudy.resultsSection.stats.length - 1
                       ? "lg:border-r border-white/10"
                       : ""
                   }`}
                 >
-                  <p className="text-gray-400 text-lg mb-4 font-light">
+                  <p className="text-gray-400 text-sm mb-4 font-light uppercase tracking-widest">
                     {stat.label}
                   </p>
-                  <span className="text-6xl lg:text-8xl font-light tracking-tighter">
+                  <span className="text-5xl md:text-6xl lg:text-7xl font-headingAlt font-light tracking-tighter text-white">
                     {stat.value}
                   </span>
                 </div>
@@ -295,52 +303,46 @@ const CaseStudy = () => {
           </div>
         </div>
       </section>
-      <section className="relative bg-black py-32 px-8 overflow-hidden">
-        {/* Arched Purple Glow Background */}
-        <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[140%] h-[500px] rounded-[100%] opacity-30 blur-[80px] pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(168,85,247,0.4) 0%, rgba(0,0,0,0) 70%)",
-            transform: "translateX(-50%) translateY(-60%)",
-          }}
-        />
 
-        <div className="relative z-10 max-w-5xl mx-auto text-center">
-          {/* Section Label */}
-          <div className="flex items-center justify-center gap-3 mb-12">
-            <div className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_12px_#a855f7]" />
-            <span className="text-sm font-semibold tracking-[0.2em] uppercase text-white">
-              {testimonialSection.label}
-            </span>
+      <section className="relative bg-[#050505] py-32 px-6 overflow-hidden font-body text-white">
+        <div className="relative z-10 max-w-[1440px] mx-auto">
+          {/* TOP DIVIDER */}
+          <div className="border-b border-white/10 pb-10 mb-20 text-center">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <span className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
+              <span className="text-purple-400 text-xs font-heading font-semibold tracking-[0.25em] uppercase">
+                {testimonialSection.label}
+              </span>
+            </div>
           </div>
 
-          {/* Star Rating */}
-          <div className="flex justify-center gap-2 mb-10">
+          {/* STAR RATING (PURPLE, SUBTLE) */}
+          <div className="flex justify-center gap-2 mb-12">
             {[...Array(testimonialSection.stars)].map((_, i) => (
               <motion.span
                 key={i}
-                initial={{ opacity: 0, scale: 0.5 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.1 }}
-                className="text-yellow-500 text-3xl"
+                transition={{ delay: i * 0.08 }}
+                className="text-purple-500 text-xl"
               >
                 ★
               </motion.span>
             ))}
           </div>
 
-          {/* Testimonial Quote */}
+          {/* QUOTE */}
           <motion.blockquote
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-2xl md:text-4xl lg:text-5xl font-light leading-[1.4] text-gray-200 tracking-tight italic"
+            className="max-w-5xl mx-auto text-center text-2xl md:text-4xl lg:text-5xl font-headingAlt font-light leading-tight text-gray-300 tracking-tight"
           >
-            "{testimonialSection.content}"
+            “{testimonialSection.content}”
           </motion.blockquote>
         </div>
       </section>
+
       <div className="relative bg-gray-100">
         <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
           <button
