@@ -16,18 +16,18 @@ const AboutUs = () => {
   const blogs = [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995', // Placeholder for AI image
-      tags: ['Artificial Intelligence (AI)', 'DG NEWS'],
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995", // Placeholder for AI image
+      tags: ["Artificial Intelligence (AI)", "DG NEWS"],
     },
     {
       id: 2,
-      image: 'https://images.unsplash.com/photo-1614728263952-84ea256f9679', // Placeholder for Astronaut image
-      tags: ['Digital Marketing'],
+      image: "https://images.unsplash.com/photo-1614728263952-84ea256f9679", // Placeholder for Astronaut image
+      tags: ["Digital Marketing"],
     },
     {
       id: 3,
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f', // Placeholder for Web Design image
-      tags: ['Web Design'],
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f", // Placeholder for Web Design image
+      tags: ["Web Design"],
     },
   ];
   const logos = [
@@ -84,87 +84,92 @@ const AboutUs = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <>
-     <section className="relative min-h-screen w-full overflow-hidden text-white font-body">
-  {/* Background */}
-  <div className="absolute inset-0 -z-10 overflow-hidden">
-    <img
-      src="https://cdn.shopify.com/s/files/1/0725/3091/9640/files/modern-equipped-computer-lab.jpg?v=1770118411"
-      alt="Background"
-      className="absolute inset-0 h-full w-full object-cover"
-    />
-    <div className="absolute inset-0 bg-black/50" />
-  </div>
-
-  <div className="relative z-10 max-w-[1400px] mx-auto px-12 pt-[220px] pb-40">
-    {/* Eyebrow */}
-    <div className="flex items-center gap-3 mb-10 text-sm text-gray-300 font-heading uppercase tracking-widest">
-      <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
-      <span>Our Story</span>
-    </div>
-
-    <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-28 items-start">
-      {/* Heading */}
-      <h1 className="text-[52px] md:text-[56px] leading-[1.15] font-headingAlt font-light tracking-tight max-w-[620px]">
-        From Dubai’s #1 Tech
-        <br />
-        Nerds to a Global
-        <br />
-        Force
-      </h1>
-
-      {/* Content */}
-      <div className="max-w-[520px] text-[15px] leading-[1.9] text-gray-300 space-y-6 font-body">
-        <p>
-          With <strong className="text-white font-medium">10+ years</strong>,{" "}
-          <strong className="text-white font-medium">500+ clients</strong>,{" "}
-          <strong className="text-white font-medium">50+ developers</strong>, and
-          a <strong className="text-white font-medium">200+ team</strong>, we
-          help brands scale globally.
-        </p>
-        <p>
-          We deliver web, mobile, and marketing solutions powered by AI, AR/VR,
-          and emerging technologies.
-        </p>
-        <p>
-          Expanding across{" "}
-          <span className="bg-purple-500/20 px-2 py-0.5 rounded text-purple-300 font-heading font-medium">
-            USA
-          </span>{" "}
-          &{" "}
-          <span className="bg-purple-500/20 px-2 py-0.5 rounded text-purple-300 font-heading font-medium">
-            MENA
-          </span>
-          , empowering digital leaders worldwide.
-        </p>
-      </div>
-    </div>
-
-    {/* Logos */}
-    <div className="relative mt-40 overflow-hidden">
-      <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-black to-transparent z-10" />
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-black to-transparent z-10" />
-
-      <div className="flex w-max animate-marquee gap-20 opacity-60">
-        {[...logos, ...logos].map((logo, i) => (
+      <section className="relative min-h-screen w-full overflow-hidden text-white font-body">
+        {/* Background */}
+        <div className="absolute inset-0 -z-10 overflow-hidden">
           <img
-            key={i}
-            src={logo}
-            alt="brand"
-            className="h-10 grayscale hover:grayscale-0 transition"
+            src="https://cdn.shopify.com/s/files/1/0725/3091/9640/files/modern-equipped-computer-lab.jpg?v=1770118411"
+            alt="Background"
+            className="absolute inset-0 h-full w-full object-cover"
           />
-        ))}
-      </div>
-    </div>
-  </div>
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
 
-  {/* Left Socials */}
-  <div className="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-40">
-    {[FaBehance, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube].map(
-      (Icon, idx) => (
-        <a
-          key={idx}
-          href="#"
-          className="
+        <div className="relative z-10 max-w-[1400px] mx-auto px-12 pt-[220px] pb-40">
+          {/* Eyebrow */}
+          <div className="flex items-center gap-3 mb-10 text-sm text-gray-300 font-heading uppercase tracking-widest">
+            <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
+            <span>Our Story</span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-28 items-start">
+            {/* Heading */}
+            <h1 className="text-[52px] md:text-[56px] leading-[1.15] font-headingAlt font-light tracking-tight max-w-[620px]">
+              From Dubai’s #1 Tech
+              <br />
+              Nerds to a Global
+              <br />
+              Force
+            </h1>
+
+            {/* Content */}
+            <div className="max-w-[520px] text-[15px] leading-[1.9] text-gray-300 space-y-6 font-body">
+              <p>
+                With{" "}
+                <strong className="text-white font-medium">10+ years</strong>,{" "}
+                <strong className="text-white font-medium">500+ clients</strong>
+                ,{" "}
+                <strong className="text-white font-medium">
+                  50+ developers
+                </strong>
+                , and a{" "}
+                <strong className="text-white font-medium">200+ team</strong>,
+                we help brands scale globally.
+              </p>
+              <p>
+                We deliver web, mobile, and marketing solutions powered by AI,
+                AR/VR, and emerging technologies.
+              </p>
+              <p>
+                Expanding across{" "}
+                <span className="bg-purple-500/20 px-2 py-0.5 rounded text-purple-300 font-heading font-medium">
+                  USA
+                </span>{" "}
+                &{" "}
+                <span className="bg-purple-500/20 px-2 py-0.5 rounded text-purple-300 font-heading font-medium">
+                  MENA
+                </span>
+                , empowering digital leaders worldwide.
+              </p>
+            </div>
+          </div>
+
+          {/* Logos */}
+          <div className="relative mt-40 overflow-hidden">
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-black to-transparent z-10" />
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-black to-transparent z-10" />
+
+            <div className="flex w-max animate-marquee gap-20 opacity-60">
+              {[...logos, ...logos].map((logo, i) => (
+                <img
+                  key={i}
+                  src={logo}
+                  alt="brand"
+                  className="h-10 grayscale hover:grayscale-0 transition"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Left Socials */}
+        <div className="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-40">
+          {[FaBehance, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube].map(
+            (Icon, idx) => (
+              <a
+                key={idx}
+                href="#"
+                className="
             w-9 h-9 rounded-full
             bg-black/70
             border border-purple-500/20
@@ -174,19 +179,19 @@ const AboutUs = () => {
             hover:shadow-[0_0_15px_rgba(168,85,247,0.4)]
             transition
           "
-        >
-          <Icon size={14} />
-        </a>
-      )
-    )}
-  </div>
+              >
+                <Icon size={14} />
+              </a>
+            ),
+          )}
+        </div>
 
-  {/* Right Contact */}
-  <div className="fixed right-6 bottom-32 hidden xl:flex flex-col gap-3 z-40">
-    {[FaWhatsapp, HiOutlineMail, HiOutlinePhone].map((Icon, idx) => (
-      <div
-        key={idx}
-        className="
+        {/* Right Contact */}
+        <div className="fixed right-6 bottom-32 hidden xl:flex flex-col gap-3 z-40">
+          {[FaWhatsapp, HiOutlineMail, HiOutlinePhone].map((Icon, idx) => (
+            <div
+              key={idx}
+              className="
           w-10 h-10 rounded-full
           bg-black/80
           border border-purple-500/20
@@ -196,50 +201,47 @@ const AboutUs = () => {
           hover:shadow-[0_0_15px_rgba(168,85,247,0.4)]
           transition
         "
-      >
-        <Icon size={18} />
-      </div>
-    ))}
-  </div>
-</section>
-
-
-    <section className="relative bg-[#050505] text-white py-32 px-6 overflow-hidden font-body">
-
-  {/* TOP DIVIDER — SAME AS OTHER SECTIONS */}
-  <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
-
-  {/* SUBTLE BACKGROUND GLOW */}
-  <div className="absolute inset-0 z-0 pointer-events-none">
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-purple-900/10 blur-[140px] rounded-full" />
-  </div>
-
-  <div className="relative z-10 max-w-7xl mx-auto">
-    <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-20">
-
-      {/* LEFT – STICKY HEADING */}
-      <div className="lg:sticky lg:top-32 h-fit">
-        <h2 className="text-5xl lg:text-7xl font-headingAlt font-light leading-tight tracking-tight">
-          What Moves and <br /> Defines Us
-        </h2>
-      </div>
-
-      {/* RIGHT – ACCORDION */}
-      <div className="space-y-0">
-        {valuesData.map((item, index) => {
-          const isOpen = activeIndex === index;
-
-          return (
-            <div
-              key={index}
-              className="border-b border-white/10 py-8 first:pt-0 transition-colors"
             >
-              <button
-                onClick={() => setActiveIndex(isOpen ? null : index)}
-                className="flex w-full justify-between items-center text-left group"
-              >
-                <h3
-                  className={`
+              <Icon size={18} />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="relative bg-[#050505] text-white py-32 px-6 overflow-hidden font-body">
+        {/* TOP DIVIDER — SAME AS OTHER SECTIONS */}
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+
+        {/* SUBTLE BACKGROUND GLOW */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-purple-900/10 blur-[140px] rounded-full" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-20">
+            {/* LEFT – STICKY HEADING */}
+            <div className="lg:sticky lg:top-32 h-fit">
+              <h2 className="text-5xl lg:text-7xl font-headingAlt font-light leading-tight tracking-tight">
+                What Moves and <br /> Defines Us
+              </h2>
+            </div>
+
+            {/* RIGHT – ACCORDION */}
+            <div className="space-y-0">
+              {valuesData.map((item, index) => {
+                const isOpen = activeIndex === index;
+
+                return (
+                  <div
+                    key={index}
+                    className="border-b border-white/10 py-8 first:pt-0 transition-colors"
+                  >
+                    <button
+                      onClick={() => setActiveIndex(isOpen ? null : index)}
+                      className="flex w-full justify-between items-center text-left group"
+                    >
+                      <h3
+                        className={`
                     text-3xl lg:text-4xl
                     font-heading font-medium
                     transition-colors duration-300
@@ -249,13 +251,13 @@ const AboutUs = () => {
                         : "text-gray-400 group-hover:text-white"
                     }
                   `}
-                >
-                  {item.title}
-                </h3>
+                      >
+                        {item.title}
+                      </h3>
 
-                {/* Arrow Button */}
-                <div
-                  className={`
+                      {/* Arrow Button */}
+                      <div
+                        className={`
                     w-10 h-10 rounded-full
                     border border-purple-500/30
                     flex items-center justify-center
@@ -266,87 +268,87 @@ const AboutUs = () => {
                         : "group-hover:bg-purple-500/10"
                     }
                   `}
-                >
-                  {isOpen ? (
-                    <FiArrowUp className="text-sm text-white" />
-                  ) : (
-                    <FiArrowDown className="text-sm text-purple-400" />
-                  )}
-                </div>
-              </button>
-
-              {/* CONTENT */}
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                  isOpen ? "max-h-[1000px] opacity-100 mt-8" : "max-h-0 opacity-0"
-                }`}
-              >
-                {item.type === "list" ? (
-                  <div className="space-y-10 pb-4">
-                    {item.content.map((val, idx) => (
-                      <div key={idx} className="flex gap-6">
-                        <div className="mt-2 shrink-0">
-                          <div className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_12px_#a855f7]" />
-                        </div>
-                        <div className="space-y-2">
-                          <h4 className="text-xl font-heading font-semibold text-white tracking-wide">
-                            {val.label}
-                          </h4>
-                          <p className="text-gray-400 text-lg leading-relaxed font-body">
-                            {val.desc}
-                          </p>
-                        </div>
+                      >
+                        {isOpen ? (
+                          <FiArrowUp className="text-sm text-white" />
+                        ) : (
+                          <FiArrowDown className="text-sm text-purple-400" />
+                        )}
                       </div>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-gray-300 text-lg leading-relaxed max-w-lg pb-4 font-body">
-                    {item.content}
-                  </p>
-                )}
-              </div>
-            </div>
-          );
-        })}
-      </div>
+                    </button>
 
-    </div>
-  </div>
-</section>
+                    {/* CONTENT */}
+                    <div
+                      className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                        isOpen
+                          ? "max-h-[1000px] opacity-100 mt-8"
+                          : "max-h-0 opacity-0"
+                      }`}
+                    >
+                      {item.type === "list" ? (
+                        <div className="space-y-10 pb-4">
+                          {item.content.map((val, idx) => (
+                            <div key={idx} className="flex gap-6">
+                              <div className="mt-2 shrink-0">
+                                <div className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_12px_#a855f7]" />
+                              </div>
+                              <div className="space-y-2">
+                                <h4 className="text-xl font-heading font-semibold text-white tracking-wide">
+                                  {val.label}
+                                </h4>
+                                <p className="text-gray-400 text-lg leading-relaxed font-body">
+                                  {val.desc}
+                                </p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="text-gray-300 text-lg leading-relaxed max-w-lg pb-4 font-body">
+                          {item.content}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <TechStack />
       <TestimonialsSection />
-    <section className="relative bg-[#050505] text-white py-24 px-8 overflow-hidden font-body">
-    <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
+      <section className="relative bg-[#050505] text-white py-24 px-8 overflow-hidden font-body">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
 
-  {/* SUBTLE BACKGROUND GLOW — SAME AS TESTIMONIALS */}
-  <div className="absolute inset-0 pointer-events-none">
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-purple-900/10 blur-[140px] rounded-full" />
-  </div>
-
-  <div className="max-w-7xl mx-auto relative z-10">
-
-    {/* HEADER */}
-    <div className="flex flex-col md:flex-row justify-between md:items-end gap-8 mb-16">
-      <div>
-        <div className="flex items-center gap-3 mb-4">
-          <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
-          <span className="text-xs uppercase tracking-[0.35em] text-gray-400 font-heading font-medium">
-            Our Blog
-          </span>
+        {/* SUBTLE BACKGROUND GLOW — SAME AS TESTIMONIALS */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-purple-900/10 blur-[140px] rounded-full" />
         </div>
 
-        <h2 className="text-4xl md:text-5xl font-headingAlt font-light leading-tight">
-          What’s Happening in The <br />
-          <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1]">
-            Industry?
-          </span>
-        </h2>
-      </div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* HEADER */}
+          <div className="flex flex-col md:flex-row justify-between md:items-end gap-8 mb-16">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
+                <span className="text-xs uppercase tracking-[0.35em] text-gray-400 font-heading font-medium">
+                  Our Blog
+                </span>
+              </div>
 
-      {/* CTA */}
-      <button
-        className="
+              <h2 className="text-4xl md:text-5xl font-headingAlt font-light leading-tight">
+                What’s Happening in The <br />
+                <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1]">
+                  Industry?
+                </span>
+              </h2>
+            </div>
+
+            {/* CTA */}
+            <button
+              className="
           hidden md:inline-flex
           items-center justify-center
           font-heading font-semibold text-sm
@@ -357,32 +359,31 @@ const AboutUs = () => {
           active:scale-95
           shadow-lg shadow-purple-900/40
         "
-      >
-        View All Blogs
-      </button>
-    </div>
-
-    {/* BLOG GRID */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-      {blogs.map((blog) => (
-        <div key={blog.id} className="group cursor-pointer">
-
-          {/* IMAGE CARD — SAME TREATMENT AS TESTIMONIAL CARDS */}
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] mb-6 bg-[#0f0f0f] border border-white/10 transition-all duration-500 group-hover:border-purple-500/30">
-            <img
-              src={blog.image}
-              alt="Blog cover"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-t from-purple-500/20 via-transparent to-transparent" />
+            >
+              View All Blogs
+            </button>
           </div>
 
-          {/* TAGS — SAME AS OTHER SECTIONS */}
-          <div className="flex flex-wrap gap-2">
-            {blog.tags.map((tag) => (
-              <span
-                key={tag}
-                className="
+          {/* BLOG GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {blogs.map((blog) => (
+              <div key={blog.id} className="group cursor-pointer">
+                {/* IMAGE CARD — SAME TREATMENT AS TESTIMONIAL CARDS */}
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] mb-6 bg-[#0f0f0f] border border-white/10 transition-all duration-500 group-hover:border-purple-500/30">
+                  <img
+                    src={blog.image}
+                    alt="Blog cover"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-t from-purple-500/20 via-transparent to-transparent" />
+                </div>
+
+                {/* TAGS — SAME AS OTHER SECTIONS */}
+                <div className="flex flex-wrap gap-2">
+                  {blog.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="
                   px-4 py-1.5 rounded-full text-xs
                   font-body
                   border border-purple-500/20
@@ -391,20 +392,16 @@ const AboutUs = () => {
                   hover:text-white hover:border-purple-500/40
                   transition-all
                 "
-              >
-                {tag}
-              </span>
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
-
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-
-
+      </section>
     </>
   );
 };
