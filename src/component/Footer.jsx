@@ -212,12 +212,10 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-[#010101] text-gray-400 py-24 px-6 overflow-hidden border-t border-white/5 font-body">
-      {/* Soft top fade */}
       <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-black to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 mb-20">
-          {/* Brand / Newsletter */}
           <div className="lg:col-span-4 space-y-10">
             <div className="space-y-4">
               <h2 className="text-2xl tracking-tight text-white font-heading">
@@ -230,7 +228,6 @@ const Footer = () => {
               </p>
             </div>
 
-            {/* Newsletter */}
             <div className="relative max-w-sm">
               <input
                 type="email"
@@ -258,7 +255,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Links */}
           <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-10">
             {sections.map((section, idx) => (
               <div key={idx} className="space-y-6">
@@ -287,10 +283,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="h-px w-full bg-gradient-to-r from-transparent via-purple-500/20 to-transparent mb-12" />
 
-        {/* Bottom bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-10">
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-14 text-center md:text-left">
             <div>
@@ -305,7 +299,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Social icons */}
           <div className="flex gap-4">
             {[Facebook, Instagram, Youtube, Linkedin, Twitter].map(
               (Icon, i) => (
@@ -330,7 +323,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Background text */}
       <div className="absolute -bottom-12 left-0 w-full opacity-[0.025] pointer-events-none text-center select-none">
         <span className="text-[15vw] font-black tracking-tighter text-white">
           NEXASOFT
