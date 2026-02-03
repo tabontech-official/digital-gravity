@@ -84,221 +84,257 @@ const AboutUs = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <>
-      <section className="relative min-h-screen w-full overflow-hidden text-white font-sans">
-        <div className="absolute inset-0 -z-10 overflow-hidden">
-          <iframe
-            src="https://player.vimeo.com/video/1024271179?background=1&autoplay=1&loop=1&muted=1&autopause=0"
-            className="absolute top-1/2 left-1/2 w-[120vw] h-[120vh] -translate-x-1/2 -translate-y-1/2"
-            frameBorder="0"
-            allow="autoplay; fullscreen"
+     <section className="relative min-h-screen w-full overflow-hidden text-white font-body">
+  {/* Background */}
+  <div className="absolute inset-0 -z-10 overflow-hidden">
+    <img
+      src="https://cdn.shopify.com/s/files/1/0725/3091/9640/files/modern-equipped-computer-lab.jpg?v=1770118411"
+      alt="Background"
+      className="absolute inset-0 h-full w-full object-cover"
+    />
+    <div className="absolute inset-0 bg-black/50" />
+  </div>
+
+  <div className="relative z-10 max-w-[1400px] mx-auto px-12 pt-[220px] pb-40">
+    {/* Eyebrow */}
+    <div className="flex items-center gap-3 mb-10 text-sm text-gray-300 font-heading uppercase tracking-widest">
+      <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
+      <span>Our Story</span>
+    </div>
+
+    <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-28 items-start">
+      {/* Heading */}
+      <h1 className="text-[52px] md:text-[56px] leading-[1.15] font-headingAlt font-light tracking-tight max-w-[620px]">
+        From Dubai’s #1 Tech
+        <br />
+        Nerds to a Global
+        <br />
+        Force
+      </h1>
+
+      {/* Content */}
+      <div className="max-w-[520px] text-[15px] leading-[1.9] text-gray-300 space-y-6 font-body">
+        <p>
+          With <strong className="text-white font-medium">10+ years</strong>,{" "}
+          <strong className="text-white font-medium">500+ clients</strong>,{" "}
+          <strong className="text-white font-medium">50+ developers</strong>, and
+          a <strong className="text-white font-medium">200+ team</strong>, we
+          help brands scale globally.
+        </p>
+        <p>
+          We deliver web, mobile, and marketing solutions powered by AI, AR/VR,
+          and emerging technologies.
+        </p>
+        <p>
+          Expanding across{" "}
+          <span className="bg-purple-500/20 px-2 py-0.5 rounded text-purple-300 font-heading font-medium">
+            USA
+          </span>{" "}
+          &{" "}
+          <span className="bg-purple-500/20 px-2 py-0.5 rounded text-purple-300 font-heading font-medium">
+            MENA
+          </span>
+          , empowering digital leaders worldwide.
+        </p>
+      </div>
+    </div>
+
+    {/* Logos */}
+    <div className="relative mt-40 overflow-hidden">
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-black to-transparent z-10" />
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-black to-transparent z-10" />
+
+      <div className="flex w-max animate-marquee gap-20 opacity-60">
+        {[...logos, ...logos].map((logo, i) => (
+          <img
+            key={i}
+            src={logo}
+            alt="brand"
+            className="h-10 grayscale hover:grayscale-0 transition"
           />
-        </div>
+        ))}
+      </div>
+    </div>
+  </div>
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-12 pt-[220px] pb-40">
-          <div className="flex items-center gap-3 mb-10 text-sm text-gray-300">
-            <span className="w-2 h-2 rounded-full bg-purple-500" />
-            <span>Our Story</span>
-          </div>
+  {/* Left Socials */}
+  <div className="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-40">
+    {[FaBehance, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube].map(
+      (Icon, idx) => (
+        <a
+          key={idx}
+          href="#"
+          className="
+            w-9 h-9 rounded-full
+            bg-black/70
+            border border-purple-500/20
+            flex items-center justify-center
+            text-gray-400
+            hover:text-white hover:border-purple-500
+            hover:shadow-[0_0_15px_rgba(168,85,247,0.4)]
+            transition
+          "
+        >
+          <Icon size={14} />
+        </a>
+      )
+    )}
+  </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_1fr] gap-28 items-start">
-            <h1 className="text-[56px] leading-[1.15] font-semibold tracking-tight max-w-[620px]">
-              From Dubai’s #1 Tech
-              <br />
-              Nerds to a Global
-              <br />
-              Force
-            </h1>
+  {/* Right Contact */}
+  <div className="fixed right-6 bottom-32 hidden xl:flex flex-col gap-3 z-40">
+    {[FaWhatsapp, HiOutlineMail, HiOutlinePhone].map((Icon, idx) => (
+      <div
+        key={idx}
+        className="
+          w-10 h-10 rounded-full
+          bg-black/80
+          border border-purple-500/20
+          flex items-center justify-center
+          text-white
+          hover:bg-purple-600
+          hover:shadow-[0_0_15px_rgba(168,85,247,0.4)]
+          transition
+        "
+      >
+        <Icon size={18} />
+      </div>
+    ))}
+  </div>
+</section>
 
-            <div className="max-w-[520px] text-[15px] leading-[1.9] text-gray-200 space-y-6">
-              <p>
-                With <strong className="text-white">10+ years</strong>,{" "}
-                <strong className="text-white">500+ clients</strong>,{" "}
-                <strong className="text-white">50+ developers</strong>, and a{" "}
-                <strong className="text-white">200+ team</strong>, we help
-                brands scale globally.
-              </p>
-              <p>
-                We deliver web, mobile, and marketing solutions powered by AI,
-                AR/VR, and emerging technologies.
-              </p>
-              <p>
-                Expanding across{" "}
-                <span className="bg-purple-600/30 px-2 py-0.5 rounded text-purple-300 font-medium">
-                  USA
-                </span>{" "}
-                &{" "}
-                <span className="bg-purple-600/30 px-2 py-0.5 rounded text-purple-300 font-medium">
-                  MENA
-                </span>
-                , empowering digital leaders worldwide.
-              </p>
-            </div>
-          </div>
 
-          {/* Logos */}
-          <div className="relative mt-40 overflow-hidden">
-            <div className="pointer-events-none absolute left-0 top-0 h-full bg-gradient-to-r from-black to-transparent z-10" />
-            <div className="pointer-events-none absolute right-0 top-0 h-full bg-gradient-to-l from-black to-transparent z-10" />
+    <section className="relative bg-[#050505] text-white py-32 px-6 overflow-hidden font-body">
+  {/* Background accents */}
+  <div className="absolute inset-0 z-0 pointer-events-none">
+    <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-purple-900/20 blur-[120px] rounded-full" />
+  </div>
 
-            <div className="flex w-max animate-marquee gap-20 opacity-60">
-              {[...logos, ...logos].map((logo, i) => (
-                <img
-                  key={i}
-                  src={logo}
-                  alt="brand"
-                  className="h-10 grayscale"
-                />
-              ))}
-            </div>
-          </div>
-        </div>
+  <div className="relative z-10 max-w-7xl mx-auto">
+    <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-20">
+      
+      {/* LEFT – STICKY HEADING */}
+      <div className="lg:sticky lg:top-32 h-fit">
+        <h2 className="text-5xl lg:text-7xl font-headingAlt font-light leading-tight tracking-tight">
+          What Moves and <br /> Defines Us
+        </h2>
+      </div>
 
-        {/* Socials */}
-        <div className="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-40">
-          {[FaBehance, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube].map(
-            (Icon, idx) => (
-              <a
-                key={idx}
-                href="#"
-                className="w-9 h-9 rounded-full bg-black border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500 transition"
-              >
-                <Icon size={14} />
-              </a>
-            ),
-          )}
-        </div>
+      {/* RIGHT – ACCORDION */}
+      <div className="space-y-0">
+        {valuesData.map((item, index) => {
+          const isOpen = activeIndex === index;
 
-        <div className="fixed right-6 bottom-32 hidden xl:flex flex-col gap-3 z-40">
-          {[FaWhatsapp, HiOutlineMail, HiOutlinePhone].map((Icon, idx) => (
+          return (
             <div
-              key={idx}
-              className="w-10 h-10 bg-black/80 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-purple-600 transition"
+              key={index}
+              className="border-b border-white/10 py-8 first:pt-0 transition-colors"
             >
-              <Icon size={18} />
-            </div>
-          ))}
-        </div>
-      </section>
+              <button
+                onClick={() => setActiveIndex(isOpen ? null : index)}
+                className="flex w-full justify-between items-center text-left group"
+              >
+                <h3
+                  className={`
+                    text-3xl lg:text-4xl
+                    font-heading font-medium
+                    transition-colors duration-300
+                    ${
+                      isOpen
+                        ? "text-white"
+                        : "text-gray-400 group-hover:text-white"
+                    }
+                  `}
+                >
+                  {item.title}
+                </h3>
 
-      <section className="relative bg-[#050505] text-white py-32 px-6 overflow-hidden font-sans">
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <div
-            className="absolute inset-0 opacity-[0.1]"
-            style={{
-              backgroundImage: `
-              linear-gradient(to right, #ffffff 1px, transparent 1px),
-              linear-gradient(to bottom, #ffffff 1px, transparent 1px)
-            `,
-              backgroundSize: "60px 60px",
-            }}
-          />
-          <div
-            className="absolute inset-0 opacity-[0.05]"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle, #ffffff 1.5px, transparent 1.5px)",
-              backgroundSize: "60px 60px",
-            }}
-          />
-          <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-purple-900/20 blur-[120px] rounded-full" />
-        </div>
+                {/* Arrow Button */}
+                <div
+                  className={`
+                    w-10 h-10 rounded-full
+                    border border-purple-500/30
+                    flex items-center justify-center
+                    transition-all duration-300
+                    ${
+                      isOpen
+                        ? "bg-purple-500/20 rotate-180 shadow-[0_0_12px_rgba(168,85,247,0.4)]"
+                        : "group-hover:bg-purple-500/10"
+                    }
+                  `}
+                >
+                  {isOpen ? (
+                    <FiArrowUp className="text-sm text-white" />
+                  ) : (
+                    <FiArrowDown className="text-sm text-purple-400" />
+                  )}
+                </div>
+              </button>
 
-        <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-20">
-            {/* Left Side: Sticky Heading */}
-            <div className="lg:sticky lg:top-32 h-fit">
-              <h2 className="text-5xl lg:text-7xl font-normal leading-tight tracking-tight">
-                What Moves and <br /> Defines Us
-              </h2>
-            </div>
-
-            {/* Right Side: Accordion */}
-            <div className="space-y-0">
-              {valuesData.map((item, index) => {
-                const isOpen = activeIndex === index;
-                return (
-                  <div
-                    key={index}
-                    className="border-b border-white/10 py-8 first:pt-0"
-                  >
-                    <button
-                      onClick={() => setActiveIndex(isOpen ? null : index)}
-                      className="flex w-full justify-between items-center text-left group"
-                    >
-                      <h3
-                        className={`text-3xl lg:text-4xl transition-colors duration-300 ${isOpen ? "text-white" : "text-gray-400 group-hover:text-white"}`}
-                      >
-                        {item.title}
-                      </h3>
-
-                      <div
-                        className={`w-10 h-10 rounded-full border border-white/20 flex items-center justify-center transition-all duration-300 ${isOpen ? "bg-white/10 border-white/40" : ""}`}
-                      >
-                        {isOpen ? (
-                          <FiArrowUp className="text-sm" />
-                        ) : (
-                          <FiArrowDown className="text-sm opacity-40" />
-                        )}
-                      </div>
-                    </button>
-
-                    <div
-                      className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-[1000px] opacity-100 mt-8" : "max-h-0 opacity-0"}`}
-                    >
-                      {item.type === "list" ? (
-                        /* Glowing Sub-list for "Our Values" */
-                        <div className="space-y-10 pb-4">
-                          {item.content.map((val, idx) => (
-                            <div key={idx} className="flex gap-6">
-                              <div className="mt-2 shrink-0">
-                                <div className="w-2.5 h-2.5 bg-[#bc00ff] rounded-full shadow-[0_0_12px_#bc00ff,0_0_4px_#bc00ff]" />
-                              </div>
-                              <div className="space-y-2">
-                                <h4 className="text-xl font-bold text-white tracking-wide">
-                                  {val.label}
-                                </h4>
-                                <p className="text-gray-400 text-lg leading-relaxed">
-                                  {val.desc}
-                                </p>
-                              </div>
-                            </div>
-                          ))}
+              {/* CONTENT */}
+              <div
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                  isOpen ? "max-h-[1000px] opacity-100 mt-8" : "max-h-0 opacity-0"
+                }`}
+              >
+                {item.type === "list" ? (
+                  /* VALUES LIST */
+                  <div className="space-y-10 pb-4">
+                    {item.content.map((val, idx) => (
+                      <div key={idx} className="flex gap-6">
+                        <div className="mt-2 shrink-0">
+                          <div className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_12px_#a855f7]" />
                         </div>
-                      ) : (
-                        /* Standard Text for Mission/Vision */
-                        <p className="text-gray-300 text-lg leading-relaxed max-w-lg pb-4">
-                          {item.content}
-                        </p>
-                      )}
-                    </div>
+                        <div className="space-y-2">
+                          <h4 className="text-xl font-heading font-semibold text-white tracking-wide">
+                            {val.label}
+                          </h4>
+                          <p className="text-gray-400 text-lg leading-relaxed font-body">
+                            {val.desc}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                );
-              })}
+                ) : (
+                  /* MISSION / VISION TEXT */
+                  <p className="text-gray-300 text-lg leading-relaxed max-w-lg pb-4 font-body">
+                    {item.content}
+                  </p>
+                )}
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>
+
       <TechStack />
       <TestimonialsSection />
-      <section className="bg-[#010101] text-white py-24 px-8 font-sans relative overflow-hidden">
- <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1a0b1e] via-[#0d0d0d] to-[#0a0a0a]" />
-          <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-full h-[500px] bg-[#6d28d9]/10 blur-[120px] rounded-full" />
-        </div>  <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black to-transparent pointer-events-none" />
+      <section className="relative bg-[#010101] text-white py-24 px-8 overflow-hidden font-body">
+  
+  {/* BACKGROUND */}
+  <div className="absolute inset-0 z-0 pointer-events-none">
+    <div className="absolute inset-0 bg-gradient-to-b from-[#1a0b1e] via-[#0d0d0d] to-[#0a0a0a]" />
+    <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-full h-[500px] bg-purple-700/10 blur-[120px] rounded-full" />
+    <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black to-transparent" />
+  </div>
 
   <div className="max-w-7xl mx-auto relative z-10">
     
-    {/* Header */}
+    {/* HEADER */}
     <div className="flex flex-col md:flex-row justify-between md:items-end gap-8 mb-16">
       <div>
-        <div className="flex items-center gap-2 mb-4">
-          <span className="w-2 h-2 bg-purple-500 rounded-full" />
-          <span className="text-sm uppercase tracking-widest text-gray-400">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
+          <span className="text-xs uppercase tracking-[0.35em] text-gray-400 font-heading font-medium">
             Our Blog
           </span>
         </div>
 
-        <h2 className="text-4xl md:text-5xl font-light leading-tight">
+        <h2 className="text-4xl md:text-5xl font-headingAlt font-light leading-tight">
           What’s Happening in The <br />
           <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1]">
             Industry?
@@ -307,57 +343,54 @@ const AboutUs = () => {
       </div>
 
       {/* CTA */}
-     <button
-  className="
-    hidden md:inline-flex
-    items-center justify-center
-    /* The Gradient Change */
-    bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1]
-    text-white text-sm font-semibold
-    px-8 py-3
-    rounded-full
-    /* Effects */
-    hover:brightness-110
-    transition-all duration-200
-    active:scale-95
-    shadow-lg shadow-purple-900/40
-    tracking-tight
-  "
->
+      <button
+        className="
+          hidden md:inline-flex
+          items-center justify-center
+          font-heading font-semibold text-sm
+          px-8 py-3 rounded-full
+          bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1]
+          hover:brightness-110
+          transition-all duration-200
+          active:scale-95
+          shadow-lg shadow-purple-900/40
+        "
+      >
         View All Blogs
       </button>
     </div>
 
-    {/* Blog Grid */}
+    {/* BLOG GRID */}
     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
       {blogs.map((blog) => (
         <div key={blog.id} className="group cursor-pointer">
           
-          {/* Image */}
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] mb-6">
+          {/* IMAGE */}
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] mb-6 border border-white/5">
             <img
               src={blog.image}
               alt="Blog cover"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
 
-            {/* Glow on hover */}
+            {/* Hover glow */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-t from-purple-500/20 via-transparent to-transparent" />
           </div>
 
-          {/* Tags */}
+          {/* TAGS */}
           <div className="flex flex-wrap gap-2">
             {blog.tags.map((tag) => (
               <span
                 key={tag}
                 className="
                   px-4 py-1.5 rounded-full text-xs
+                  font-body
                   border border-purple-500/20
                   bg-gradient-to-r from-purple-500/10 to-pink-500/10
                   backdrop-blur-md
                   text-gray-300
                   hover:text-white hover:border-purple-500/40
-                  transition
+                  transition-all
                 "
               >
                 {tag}
