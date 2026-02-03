@@ -194,194 +194,107 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-[100] px-4 py-4 lg:px-0">
-      <nav className="max-w-7xl mx-auto relative flex items-center justify-between px-6 py-3 lg:py-4 rounded-full bg-black/80 backdrop-blur-xl border border-white/10 shadow-2xl">
-        <Link
-          to="/"
-          className="flex items-center gap-1 text-xl font-semibold text-white"
-        >
-          <span className="font-light">NexaSoft</span>
-          <span className="font-bold text-purple-400">Solutions</span>
-          <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 shadow-[0_0_10px_#a855f7]" />
-        </Link>
+ <header className="fixed top-0 left-0 w-full z-[100] px-4 py-4 lg:px-0">
+  <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 lg:py-4 rounded-full bg-black/80 backdrop-blur-xl border border-white/10 shadow-2xl">
 
-        <ul className="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-400">
-          <li
-            className="relative py-2"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            <button
-              className={`flex items-center gap-1 transition-colors hover:text-white ${isHovered ? "text-white" : ""}`}
+    {/* LOGO */}
+    <Link
+      to="/"
+      className="flex items-center gap-1 text-xl text-white font-heading"
+    >
+      <span className="font-light">NexaSoft</span>
+      <span className="font-bold text-purple-400">Solutions</span>
+      <span className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 shadow-[0_0_10px_#a855f7]" />
+    </Link>
+
+    {/* DESKTOP NAV */}
+    <ul className="hidden lg:flex items-center gap-8 text-sm font-heading font-medium text-gray-400">
+      <li
+        className="relative py-2"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <button className="flex items-center gap-1 hover:text-white transition-colors">
+          Services
+          <MdKeyboardArrowDown
+            className={`text-lg transition-transform ${
+              isHovered ? "rotate-180" : ""
+            }`}
+          />
+        </button>
+
+        <AnimatePresence>
+          {isHovered && (
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              className="absolute top-full -left-40 pt-6 w-[800px]"
             >
-              Services{" "}
-              <MdKeyboardArrowDown
-                className={`text-lg transition-transform duration-300 ${isHovered ? "rotate-180" : ""}`}
-              />
-            </button>
-
-            <AnimatePresence>
-              {isHovered && (
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="absolute top-full -left-40 pt-6 w-[800px]"
-                >
-                  <div className="bg-[#0f0f0f] border border-white/10 rounded-[2.5rem] p-8 shadow-[0_30px_100px_rgba(0,0,0,0.8)] flex gap-10">
-                    <div className="flex-1 grid grid-cols-2 gap-x-8">
-                      {serviceLinks.map((column, i) => (
-                        <div key={i} className="flex flex-col">
-                          {column.map((item) => (
-                            <Link
-                              key={item}
-                              to={`/services/${toSlug(item)}`}
-                              className="group flex items-center justify-between py-2.5 border-b border-white/5 hover:border-purple-500/30 transition-all"
-                            >
-                              <span className="text-gray-400 group-hover:text-white transition-colors">
-                                {item}
-                              </span>
-                              <MdSubdirectoryArrowRight className="text-gray-700 group-hover:text-purple-500 group-hover:translate-x-1 transition-all" />
-                            </Link>
-                          ))}
-                        </div>
+              <div className="bg-[#0f0f0f] border border-white/10 rounded-[2.5rem] p-8 shadow-[0_30px_100px_rgba(0,0,0,0.8)] flex gap-10">
+                <div className="flex-1 grid grid-cols-2 gap-x-8">
+                  {serviceLinks.map((column, i) => (
+                    <div key={i}>
+                      {column.map((item) => (
+                        <Link
+                          key={item}
+                          to={`/services/${toSlug(item)}`}
+                          className="group flex items-center justify-between py-2.5 border-b border-white/5 hover:border-purple-500/30"
+                        >
+                          <span className="text-gray-400 group-hover:text-white transition-colors">
+                            {item}
+                          </span>
+                          <MdSubdirectoryArrowRight className="text-gray-700 group-hover:text-purple-500 group-hover:translate-x-1 transition-all" />
+                        </Link>
                       ))}
                     </div>
-
-                    {/* Brand Section */}
-                    {/* <div className="w-[280px] bg-gradient-to-br from-white/[0.03] to-transparent p-6 rounded-3xl border border-white/5">
-                      <p className="text-xs font-bold text-purple-500 uppercase tracking-widest mb-4">Trusted By Giants</p>
-                      <div className="grid grid-cols-3 gap-3">
-                        {gccGiants.slice(0, 9).map((g) => (
-                          <div key={g} className="h-10 border border-white/5 flex items-center justify-center bg-white/[0.02] rounded-lg">
-                            <span className="text-[7px] text-gray-500 font-bold">{g}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div> */}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </li>
-
-          <li>
-            <Link
-              to="/case-studies"
-              className="hover:text-white transition-colors"
-            >
-              Our Work
-            </Link>
-          </li>
-          <li>
-            <Link to="/about-us" className="hover:text-white transition-colors">
-              About
-            </Link>
-          </li>
-        </ul>
-
-        <div className="flex items-center gap-3 lg:gap-4">
-        <button
-  className="
-    hidden md:inline-flex
-    items-center justify-center
-    /* The Gradient Change */
-    bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1]
-    text-white text-sm font-semibold
-    px-8 py-3
-    rounded-full
-    /* Effects */
-    hover:brightness-110
-    transition-all duration-200
-    active:scale-95
-    shadow-lg shadow-purple-900/40
-    tracking-tight
-  "
->
-            Speak to an expert
-          </button>
-
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href="mailto:your@email.com"
-              className="group p-3 rounded-full border border-white/20 text-white transition-all duration-300 hover:bg-white hover:border-white"
-            >
-              <HiOutlineMail
-                size={20}
-                className="group-hover:text-[#a855f7] transition-colors duration-300"
-              />
-            </a>
-
-            <a
-              href="tel:+123456789"
-              className="group p-3 rounded-full border border-white/20 text-white transition-all duration-300 hover:bg-white hover:border-white"
-            >
-              <FiPhoneCall
-                size={18}
-                className="group-hover:text-[#a855f7] transition-colors duration-300"
-              />
-            </a>
-          </div>
-
-          <button
-            className="lg:hidden text-white p-2 hover:bg-white/5 rounded-full transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <MdClose size={28} /> : <MdMenu size={28} />}
-          </button>
-        </div>
-      </nav>
-
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 20 }}
-            className="lg:hidden absolute top-20 left-4 right-4 bg-[#0a0a0a] border border-white/10 rounded-[2rem] p-6 shadow-2xl overflow-hidden"
-          >
-            <div className="flex flex-col gap-4">
-              <button
-                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                className="flex items-center justify-between text-xl font-medium text-white py-2"
-              >
-                Services
-                <MdKeyboardArrowDown
-                  className={`transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`}
-                />
-              </button>
-
-              {mobileServicesOpen && (
-                <div className="grid grid-cols-1 gap-1 pl-4 max-h-[300px] overflow-y-auto">
-                  {serviceLinks.flat().map((s) => (
-                    <Link
-                      key={s}
-                      to={`/services/${toSlug(s)}`}
-                      className="text-gray-400 py-2 text-sm border-l border-white/10 pl-4"
-                    >
-                      {s}
-                    </Link>
                   ))}
                 </div>
-              )}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </li>
 
-              <Link
-                to="/case-studies"
-                className="text-xl font-medium text-white py-2 border-t border-white/5 pt-4"
-              >
-                Our Work
-              </Link>
-              <Link
-                to="/about-us"
-                className="text-xl font-medium text-white py-2"
-              >
-                About Us
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+      <li>
+        <Link to="/case-studies" className="hover:text-white transition-colors">
+          Our Work
+        </Link>
+      </li>
+
+      <li>
+        <Link to="/about-us" className="hover:text-white transition-colors">
+          About
+        </Link>
+      </li>
+    </ul>
+
+    {/* ACTIONS */}
+    <div className="flex items-center gap-4">
+      <button className="hidden md:inline-flex font-heading bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] px-8 py-3 rounded-full text-sm font-semibold text-white hover:brightness-110 transition active:scale-95">
+        Speak to an expert
+      </button>
+
+      <div className="hidden md:flex gap-3">
+        <a className="p-3 rounded-full border border-white/20 text-white hover:bg-white hover:text-purple-500 transition-colors">
+          <HiOutlineMail />
+        </a>
+        <a className="p-3 rounded-full border border-white/20 text-white hover:bg-white hover:text-purple-500 transition-colors">
+          <FiPhoneCall />
+        </a>
+      </div>
+
+      {/* MOBILE TOGGLE */}
+      <button
+        className="lg:hidden text-white"
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      >
+        {mobileMenuOpen ? <MdClose size={28} /> : <MdMenu size={28} />}
+      </button>
+    </div>
+  </nav>
+</header>
+
   );
 };
 

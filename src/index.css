@@ -2,5 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 body {
-  @apply font-sans bg-[#050505] text-white;
+ @apply font-body;
 }

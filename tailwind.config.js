@@ -3,6 +3,12 @@ export default {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
+       fontFamily: {
+        body: ["Poppins", "sans-serif"],
+        heading: ["Jost", "sans-serif"],
+        headingAlt: ["Poltawski Nowy", "serif"],
+      },
+      
       animation: {
         marquee: "marquee 25s linear infinite",
         marqueeLeft: "marqueeLeft 35s linear infinite",

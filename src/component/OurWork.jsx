@@ -109,113 +109,55 @@ const testimonials = [
 
 const OurWork = () => {
   return (
-    <div className="bg-[#0a0a0a]">
+    <div className="bg-[#0a0a0a] font-body text-white overflow-x-hidden">
       {/* 1. OUR WORK SECTION */}
-      <section className="relative min-h-screen text-white py-24 px-8 lg:px-20 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1a0b1e] via-[#0d0d0d] to-[#0a0a0a]" />
-          <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-full h-[500px] bg-[#6d28d9]/10 blur-[120px] rounded-full" />
-        </div>
+    <section className="relative py-24 px-6 lg:px-20">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1a0b1e] via-[#0d0d0d] to-[#0a0a0a]" />
 
+        {/* Social */}
         <div className="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-40">
           {[FaBehance, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube].map(
-            (Icon, idx) => (
-              <a
-                key={idx}
-                href="#"
-                className="w-9 h-9 rounded-full bg-black border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500 transition-all"
-              >
+            (Icon, i) => (
+              <a key={i} className="w-9 h-9 rounded-full bg-black border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500">
                 <Icon size={14} />
               </a>
-            ),
+            )
           )}
         </div>
 
-        <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
-          <button className="bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] text-white py-8 px-3 rounded-l-[20px] shadow-[0_0_30px_rgba(139,44,245,0.3)] transition-all group">
-            <span className="[writing-mode:vertical-lr] rotate-180 text-[11px] font-bold tracking-[0.2em] uppercase">
-              Get A Quote!
-            </span>
-          </button>
-        </div>
-
-        <div className="fixed right-6 bottom-32 hidden xl:flex flex-col gap-3 z-40">
-          {[FaWhatsapp, HiOutlineMail, HiOutlinePhone].map((Icon, idx) => (
-            <div
-              key={idx}
-              className="w-10 h-10 bg-black/80 border border-white/10 rounded-full flex items-center justify-center text-white cursor-pointer hover:bg-purple-600 transition-colors"
-            >
-              <Icon size={18} />
-            </div>
-          ))}
-        </div>
-
-        <div className="relative z-10 max-w-[1440px] mx-auto">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-24 gap-12">
-            <div className="space-y-6">
-              <div className="flex items-center gap-3 text-[#a855f7] uppercase tracking-[0.3em] text-[12px] font-semibold">
-                <span className="w-2 h-2 rounded-full bg-[#a855f7] shadow-[0_0_12px_#a855f7]"></span>
+        <div className="relative max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row justify-between mb-24 gap-12">
+            <div>
+              <div className="flex items-center gap-3 text-purple-400 uppercase tracking-[0.3em] text-xs font-semibold mb-4">
+                <span className="w-2 h-2 bg-purple-400 rounded-full" />
                 Our Work
               </div>
-              <h2 className="text-5xl md:text-7xl font-medium leading-[1.1] tracking-tight">
+              <h2 className="text-5xl md:text-7xl font-headingAlt leading-tight">
                 10+ Years Exp but <br />
-                <span className="font-serif italic font-light opacity-80 text-gray-300">
+                <span className="italic font-light text-gray-300">
                   Countless Innovations
                 </span>
               </h2>
             </div>
-            <nav className="flex flex-wrap gap-x-8 gap-y-4 text-[14px] font-medium text-gray-500">
-              {categories.map((cat, i) => (
-                <button
-                  key={cat}
-                  className={`flex items-center gap-2 hover:text-white transition-all ${
-                    i === 0 ? "text-white" : ""
-                  }`}
-                >
-                  {i === 0 && (
-                    <MdSubdirectoryArrowRight
-                      className="text-purple-400 rotate-0"
-                      size={18}
-                    />
-                  )}
-                  {cat}
-                </button>
-              ))}
-            </nav>
+
+
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-            {projects.map((project, index) => (
-              <div key={index} className="group cursor-pointer">
-                <div className="relative aspect-[16/11] rounded-[2.5rem] overflow-hidden bg-zinc-900 mb-8 border border-white/5 shadow-2xl">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                  />
+          <div className="grid md:grid-cols-3 gap-10">
+            {projects.map((p, i) => (
+              <div key={i} className="group">
+                <div className="rounded-[2rem] overflow-hidden mb-6">
+                  <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition duration-700" />
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-normal leading-snug text-gray-200 group-hover:text-white transition-colors">
-                  {project.title}
+                <h3 className="text-2xl text-gray-200 group-hover:text-white">
+                  {p.title}
                 </h3>
               </div>
             ))}
           </div>
         </div>
-
-        <div className="fixed bottom-10 right-10 z-50 flex flex-col items-end gap-2">
-          <div className="bg-white text-black text-[9px] font-black px-4 py-1.5 rounded-full shadow-xl animate-bounce tracking-tighter">
-            WE ARE HERE!
-          </div>
-          <div className="w-16 h-16 bg-[#ec4899] rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(236,72,153,0.4)] cursor-pointer hover:scale-105 transition-transform">
-            <div className="relative">
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-white text-[10px] text-black font-bold flex items-center justify-center rounded-full">
-                1
-              </span>
-              <FaWhatsapp size={32} color="white" />
-            </div>
-          </div>
-        </div>
       </section>
+
 
       {/* PARTNERS SECTION */}
       <section className="relative py-32 bg-[#0a0a0a] overflow-hidden">
@@ -231,17 +173,15 @@ const OurWork = () => {
           {/* HEADER */}
 
           <div className="flex flex-col items-center mb-20 text-center">
-            <div className="flex items-center gap-3 text-purple-500 uppercase tracking-[0.4em] text-[11px] font-bold mb-4">
-              <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
+           <div className="flex items-center gap-3 text-purple-400 uppercase tracking-[0.3em] text-xs font-semibold mb-4">
+                <span className="w-2 h-2 bg-purple-400 rounded-full" />
               Partners & Recognition
             </div>
 
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-gray-200">
-              Trusted by Industry{" "}
-              <span className="font-serif italic font-light text-gray-400">
-                Leaders
-              </span>
-            </h2>
+           <h2 className="text-center text-4xl md:text-5xl font-headingAlt mb-20">
+            Trusted by Industry{" "}
+            <span className="italic text-gray-400">Leaders</span>
+          </h2>
           </div>
 
           {/* MARQUEE */}
@@ -388,8 +328,7 @@ const OurWork = () => {
         </div>
       </section>
 
-      <section className="relative py-32 bg-[#fafafa] overflow-hidden">
-        {/* Subtle Grid Background */}
+<section className="py-32 bg-[#fafafa] text-black">        {/* Subtle Grid Background */}
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
@@ -400,17 +339,16 @@ const OurWork = () => {
 
         <div className="relative z-10 max-w-[1440px] mx-auto px-8 lg:px-20">
           <div className="mb-16">
-            <div className="flex items-center gap-3 text-purple-600 uppercase tracking-[0.3em] text-[12px] font-bold mb-4">
-              <span className="w-2 h-2 rounded-full bg-purple-600 shadow-[0_0_10px_rgba(147,51,234,0.5)]" />
+           <div className="flex items-center gap-3 text-purple-600 uppercase tracking-[0.3em] text-xs font-semibold mb-4">
+                <span className="w-2 h-2 bg-purple-600 rounded-full" />
               Client Testimonials & Reviews
             </div>
-            <h2 className="text-5xl md:text-6xl font-medium text-black tracking-tight">
-              What Our Happy Clients <br />
-              Say About Us
-            </h2>
+             <h2 className="text-5xl font-headingAlt mb-16">
+            What Our Happy Clients Say
+          </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-marquee  hover:[animation-play-state:paused]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {testimonials.map((t, idx) => (
               <div key={idx} className="flex flex-col group cursor-pointer">
                 {/* Video/Portrait Card */}
@@ -439,16 +377,15 @@ const OurWork = () => {
                       className="h-10 w-auto object-contain grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all"
                     />
                   </div>
-                  <h4 className="text-xl font-bold text-black tracking-tight">
-                    {t.name}
-                  </h4>
+                                 <h4 className="font-bold">{t.name}</h4>
+
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
-      <section className="relative w-full flex items-center justify-center overflow-hidden text-white font-sans py-16 md:py-24 lg:h-[80vh] min-h-[600px]">
+      {/* <section className="relative w-full flex items-center justify-center overflow-hidden text-white font-sans py-16 md:py-24 lg:h-[80vh] min-h-[600px]">
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
@@ -505,7 +442,7 @@ const OurWork = () => {
           <span className="text-[10px] uppercase tracking-widest">Scroll</span>
           <div className="w-px h-8 bg-gradient-to-b from-white to-transparent" />
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
