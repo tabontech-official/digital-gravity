@@ -267,6 +267,11 @@ const Navbar = () => {
           About
         </Link>
       </li>
+       <li>
+        <Link to="/our-blogs" className="hover:text-white transition-colors">
+          Our Blogs
+        </Link>
+      </li>
     </ul>
 
     {/* ACTIONS */}

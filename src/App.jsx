@@ -9,6 +9,7 @@ import { AnimatePresence } from "framer-motion";
 import Work from "./component/work";
 import CaseStudy from "./component/pages/CaseStudy";
 import Footer from "./component/Footer";
+import BlogsPage from "./component/Blogs";
 
 const Home = () => (
   <>
@@ -33,6 +34,8 @@ function App() {
         <Route path="/case-study/:id" element={<CaseStudy />} />
 
           <Route path="/services/:service" element={<ServiceHero />} />
+                    <Route path="/our-blogs" element={<BlogsPage />} />
+
         </Routes>
         <Footer/>
       </AnimatePresence>
