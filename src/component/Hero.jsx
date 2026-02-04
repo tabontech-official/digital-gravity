@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ContactModal } from "./ContactModal";
 
 const Hero = () => {
   const texts = [
@@ -6,6 +8,16 @@ const Hero = () => {
     "We are a Digital Agency",
     "We Build Software Solutions",
   ];
+  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleCTA = () => {
+    if (window.innerWidth < 640) {
+      navigate("/contact"); // mobile → new page
+    } else {
+      setIsModalOpen(true); // desktop → modal
+    }
+  };
 
   const [textIndex, setTextIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
@@ -38,7 +50,7 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center bg-[#050505] overflow-hidden">
-      {/* Background Image */}
+      {/* BACKGROUND */}
       <div className="absolute inset-0">
         <div
           className="absolute inset-0 bg-cover bg-center scale-105"
@@ -48,80 +60,65 @@ const Hero = () => {
             filter: "brightness(0.35)",
           }}
         />
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl px-6 text-center mt-24">
-        {/* Badge */}
-        <span
-          className="
-          inline-block mb-6 px-5 py-2 rounded-full
-          border border-purple-500/30
-          bg-purple-500/10
-          text-purple-400 text-sm font-heading
-        "
-        >
+      {/* CONTENT */}
+      <div className="relative z-10 max-w-4xl px-6 text-center mt-24 md:mt-32">
+        {/* BADGE */}
+        <span className="inline-block mb-6 px-5 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs sm:text-sm font-heading">
           Global Digital Agency
         </span>
 
-        {/* Heading */}
-        <h1
-          className="
-          font-brand text-white
-          text-4xl md:text-6xl lg:text-7xl
-          leading-tight mb-6
-        "
-        >
-          Elevating Brands
-          <br />
+        {/* HEADING */}
+        <h1 className="font-brand text-white leading-tight mb-6 text-center">
+          <span className="block text-[clamp(2.1rem,6vw,4.5rem)]">
+            Elevating Brands
+          </span>
+
           <span
             className="
-    font-heading
-    bg-gradient-to-r from-purple-400 via-purple-500 to-fuchsia-500
-    bg-clip-text text-transparent
-    whitespace-nowrap
-    inline-block
-  "
+      mt-2 block
+      font-heading
+      bg-gradient-to-r from-purple-400 via-purple-500 to-fuchsia-500
+      bg-clip-text text-transparent
+      text-[clamp(1.4rem,4.5vw,3rem)]
+      min-h-[2.2em]
+      flex justify-center items-center
+      whitespace-nowrap
+    "
           >
             {currentText}
-            <span className="opacity-60">|</span>
+            <span className="ml-1 opacity-60 animate-pulse">|</span>
           </span>
         </h1>
 
-        {/* Description */}
-        <p
-          className="
-          font-body text-gray-400
-          text-base md:text-lg
-          max-w-2xl mx-auto mb-10
-        "
-        >
+        {/* DESCRIPTION */}
+        <p className="font-body text-gray-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-10">
           We help businesses design, build, and scale digital products with
           clarity, strategy, and modern technology.
         </p>
 
-        {/* Actions */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          {/* Primary CTA */}
-          <button className="text-white hidden md:inline-flex font-heading bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] px-8 py-3 rounded-full text-sm font-semibold hover:brightness-110 transition active:scale-95">
+        {/* MOBILE CTA (ONLY ONE BUTTON) */}
+        <div className="sm:hidden flex justify-center mb-10">
+          <button
+            onClick={handleCTA}
+            className="bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] text-white px-10 py-4 rounded-full text-sm font-semibold shadow-[0_0_25px_rgba(168,85,247,0.6)] active:scale-95 transition"
+          >
+            Schedule a Call
+          </button>
+        </div>
+
+        {/* DESKTOP / TABLET ACTIONS */}
+        <div className="hidden sm:flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            onClick={handleCTA}
+            className="text-white font-heading bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] px-8 py-3 rounded-full text-sm font-semibold hover:brightness-110 transition active:scale-95"
+          >
             Schedule a Call
           </button>
 
-          {/* Secondary CTA */}
-          <button
-            className="
-              font-heading text-sm font-medium
-              px-8 py-3 rounded-full
-              text-purple-400
-              border border-purple-500/40
-              hover:bg-purple-500/10
-              transition-all
-              hover:shadow-[0_0_25px_#a855f7]
-              
-              flex items-center gap-2 justify-center
-            "
-          >
+          <button className="font-heading text-sm font-medium px-8 py-3 rounded-full text-purple-400 border border-purple-500/40 hover:bg-purple-500/10 transition-all hover:shadow-[0_0_25px_#a855f7] flex items-center gap-2 justify-center">
             View Case Studies
             <svg
               className="w-4 h-4"
@@ -139,18 +136,22 @@ const Hero = () => {
           </button>
         </div>
       </div>
-        <div className="relative bg-gray-100">
-              <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
-                <button
-                  className="font-sans    bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] text-white py-8 px-3 rounded-l-[20px] shadow-[0_0_30px_rgba(139,44,245,0.3)] transition-all group"
-                >
-                  <span className="[writing-mode:vertical-lr] rotate-180 text-[11px] font-semibold tracking-[0.2em] uppercase">
-                    Get A Quote!
-                  </span>
-                </button>
-              </div>
-      
-            </div>
+
+      {/* RIGHT SIDE CTA — DESKTOP ONLY */}
+      <div className="hidden md:block fixed right-0 top-1/2 -translate-y-1/2 z-50">
+        <button
+          onClick={handleCTA}
+          className="bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] text-white py-8 px-3 rounded-l-[20px] shadow-[0_0_30px_rgba(139,44,245,0.3)] transition-all hover:brightness-110"
+        >
+          <span className="[writing-mode:vertical-lr] rotate-180 text-[11px] font-semibold tracking-[0.2em] uppercase">
+            Get A Quote!
+          </span>
+        </button>
+      </div>
+      <ContactModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 };

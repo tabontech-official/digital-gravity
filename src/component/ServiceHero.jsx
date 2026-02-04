@@ -11,10 +11,22 @@ import {
 } from "react-icons/fa";
 import { HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 import { FiArrowDown, FiChevronDown, FiChevronRight } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+import { ContactModal } from "./ContactModal";
 
 const ServiceHero = () => {
   const { service } = useParams();
   const data = servicesData[service];
+  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleGetQuote = () => {
+    if (window.innerWidth < 640) {
+      navigate("/contact"); // mobile
+    } else {
+      setIsModalOpen(true); // desktop
+    }
+  };
 
   if (!data) {
     return (
@@ -139,6 +151,65 @@ const ServiceHero = () => {
     { value: "100+", label: "Custom Apps Delivered" },
     { value: "10+ ", label: "Years of Experience" },
   ];
+  const countries = [
+    { name: "Afghanistan", code: "+93", iso: "af" },
+    { name: "Albania", code: "+355", iso: "al" },
+    { name: "Algeria", code: "+213", iso: "dz" },
+    { name: "Andorra", code: "+376", iso: "ad" },
+    { name: "Angola", code: "+244", iso: "ao" },
+    { name: "Argentina", code: "+54", iso: "ar" },
+    { name: "Armenia", code: "+374", iso: "am" },
+    { name: "Australia", code: "+61", iso: "au" },
+    { name: "Austria", code: "+43", iso: "at" },
+    { name: "Azerbaijan", code: "+994", iso: "az" },
+    { name: "Bahrain", code: "+973", iso: "bh" },
+    { name: "Bangladesh", code: "+880", iso: "bd" },
+    { name: "Belgium", code: "+32", iso: "be" },
+    { name: "Brazil", code: "+55", iso: "br" },
+    { name: "Canada", code: "+1", iso: "ca" },
+    { name: "China", code: "+86", iso: "cn" },
+    { name: "Egypt", code: "+20", iso: "eg" },
+    { name: "France", code: "+33", iso: "fr" },
+    { name: "Germany", code: "+49", iso: "de" },
+    { name: "India", code: "+91", iso: "in" },
+    { name: "Indonesia", code: "+62", iso: "id" },
+    { name: "Iran", code: "+98", iso: "ir" },
+    { name: "Iraq", code: "+964", iso: "iq" },
+    { name: "Ireland", code: "+353", iso: "ie" },
+    { name: "Italy", code: "+39", iso: "it" },
+    { name: "Japan", code: "+81", iso: "jp" },
+    { name: "Jordan", code: "+962", iso: "jo" },
+    { name: "Kenya", code: "+254", iso: "ke" },
+    { name: "Kuwait", code: "+965", iso: "kw" },
+    { name: "Malaysia", code: "+60", iso: "my" },
+    { name: "Mexico", code: "+52", iso: "mx" },
+    { name: "Netherlands", code: "+31", iso: "nl" },
+    { name: "New Zealand", code: "+64", iso: "nz" },
+    { name: "Nigeria", code: "+234", iso: "ng" },
+    { name: "Norway", code: "+47", iso: "no" },
+    { name: "Oman", code: "+968", iso: "om" },
+    { name: "Pakistan", code: "+92", iso: "pk" },
+    { name: "Philippines", code: "+63", iso: "ph" },
+    { name: "Portugal", code: "+351", iso: "pt" },
+    { name: "Qatar", code: "+974", iso: "qa" },
+    { name: "Russia", code: "+7", iso: "ru" },
+    { name: "Saudi Arabia", code: "+966", iso: "sa" },
+    { name: "Singapore", code: "+65", iso: "sg" },
+    { name: "South Africa", code: "+27", iso: "za" },
+    { name: "South Korea", code: "+82", iso: "kr" },
+    { name: "Spain", code: "+34", iso: "es" },
+    { name: "Sri Lanka", code: "+94", iso: "lk" },
+    { name: "Sweden", code: "+46", iso: "se" },
+    { name: "Switzerland", code: "+41", iso: "ch" },
+    { name: "Thailand", code: "+66", iso: "th" },
+    { name: "Turkey", code: "+90", iso: "tr" },
+    { name: "UAE", code: "+971", iso: "ae" },
+    { name: "UK", code: "+44", iso: "gb" },
+    { name: "USA", code: "+1", iso: "us" },
+    { name: "Vietnam", code: "+84", iso: "vn" },
+  ];
+  const [selected, setSelected] = useState(countries[0]);
+
   return (
     <>
       <section className="relative min-h-screen bg-[#050505] flex items-center overflow-hidden text-white">
@@ -189,7 +260,7 @@ const ServiceHero = () => {
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-headingAlt leading-[1.15] mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-headingAlt leading-[1.15]  mb-6">
                 {(() => {
                   const words = data.title.split(" ");
                   const mid = Math.ceil(words.length / 2);
@@ -236,48 +307,96 @@ const ServiceHero = () => {
 
                   {/* PHONE */}
                   <div className="relative">
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2 border-r border-white/20 pr-3">
+                    {/* COUNTRY SELECT */}
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2 pr-3">
+                      {/* FLAG */}
                       <img
-                        src="https://flagcdn.com/w20/ae.png"
-                        className="w-5 h-3"
+                        src={`https://flagcdn.com/w20/${selected.iso}.png`}
+                        className="w-5 h-3 rounded-sm"
+                        alt={selected.name}
                       />
-                      <span className="text-sm text-white">+971</span>
+
+                      {/* CODE */}
+                      <span className="text-sm text-white">
+                        {selected.code}
+                      </span>
+
+                      {/* CLEAN DIVIDER */}
+                      <div className="h-5 w-px bg-white/20 mx-2" />
+
+                      {/* HIDDEN SELECT */}
+                      <select
+                        value={selected.code}
+                        onChange={(e) =>
+                          setSelected(
+                            countries.find((c) => c.code === e.target.value),
+                          )
+                        }
+                        className="
+        absolute inset-0 opacity-0 cursor-pointer bg-gray-800
+      "
+                      >
+                        {countries.map((c, idx) => (
+                          <option key={idx} value={c.code}>
+                            {c.name} ({c.code})
+                          </option>
+                        ))}
+                      </select>
                     </div>
+
+                    {/* PHONE INPUT */}
                     <input
                       placeholder="Phone No*"
                       className="
-                  w-full bg-transparent
-                  border border-white/20
-                  rounded-xl pl-24 pr-6 py-4
-                  text-white placeholder-gray-400
-                  focus:border-purple-500 focus:ring-1 focus:ring-purple-500/40
-                  transition
-                "
+      w-full bg-transparent
+      border border-white/20
+      rounded-xl pl-28 pr-6 py-4
+      text-white placeholder-gray-400
+      focus:border-purple-500 focus:ring-1 focus:ring-purple-500/40
+      transition
+    "
                     />
                   </div>
 
                   {/* BUDGET */}
                   <div>
+                    {/* LABELS */}
                     <div className="flex justify-between text-[10px] uppercase tracking-wider mb-3 text-gray-300">
-                      <span>AED 5K</span>
+                      <span>USD 1K</span>
                       <span className="text-purple-400 font-bold">
                         Budget: {Number(budget).toLocaleString()}
                       </span>
-                      <span>AED 50K</span>
+                      <span>USD 50K</span>
                     </div>
 
-                    <div className="relative h-1.5 bg-gray-700 rounded-full">
+                    {/* SLIDER */}
+                    <div className="relative h-2 rounded-full bg-white/10">
+                      {/* PROGRESS */}
                       <div
-                        className="absolute h-full bg-purple-500 rounded-full"
+                        className="absolute top-0 left-0 h-full rounded-full bg-purple-500 transition-all duration-300"
                         style={{ width: `${(budget / 50000) * 100}%` }}
                       />
+
+                      {/* RANGE INPUT */}
                       <input
                         type="range"
                         min="5000"
                         max="50000"
                         value={budget}
                         onChange={(e) => setBudget(e.target.value)}
-                        className="absolute inset-0 opacity-0 cursor-pointer"
+                        className="
+        absolute inset-0 w-full
+        bg-transparent appearance-none
+        cursor-pointer
+        [&::-webkit-slider-thumb]:appearance-none
+        [&::-webkit-slider-thumb]:h-5
+        [&::-webkit-slider-thumb]:w-5
+        [&::-webkit-slider-thumb]:rounded-full
+        [&::-webkit-slider-thumb]:bg-purple-500
+        [&::-webkit-slider-thumb]:shadow-[0_0_15px_#a855f7]
+        [&::-webkit-slider-thumb]:border-2
+        [&::-webkit-slider-thumb]:border-[#050505]
+      "
                       />
                     </div>
                   </div>
@@ -340,7 +459,7 @@ const ServiceHero = () => {
 
       {section && (
         <section className="bg-[#050505] py-32 relative overflow-hidden font-body text-white">
-          <div className="max-w-[1440px] mx-auto px-6 lg:px-32 grid lg:grid-cols-2 gap-20 relative z-10">
+          <div className="max-w-[1440px] mx-auto px-6  grid lg:grid-cols-2 gap-20 relative z-10">
             {/* LEFT HEADING */}
             <div>
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-headingAlt font-light leading-tight tracking-tight">
@@ -651,7 +770,7 @@ const ServiceHero = () => {
       </section>
 
       <section className="bg-[#050505] py-24 text-white relative overflow-hidden font-body">
-        <div className="container mx-auto px-6 lg:px-16 text-center relative z-10 border-t border-white/10 pt-12">
+        <div className="container mx-auto px-6  text-center relative z-10 border-t border-white/10 pt-12">
           {/* Heading */}
           <h2 className="text-4xl md:text-6xl font-headingAlt font-light mb-8 tracking-tight max-w-4xl mx-auto leading-tight">
             {data.techStacktitle} <br />
@@ -730,86 +849,25 @@ const ServiceHero = () => {
         </div>
 
         {/* Background Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-purple-900/5 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4  blur-[120px] rounded-full pointer-events-none" />
       </section>
 
-      <section
-        className="relative min-h-[600px] py-24 flex items-center bg-cover bg-center bg-no-repeat font-body"
-        style={{
-          backgroundImage: `url('https://cdn.shopify.com/s/files/1/0555/4726/5114/files/content-with-counter-bg.webp?v=1769150203')`,
-        }}
-      >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/50 z-0" />
-
-        <div className="container mx-auto px-6 lg:px-16 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* LEFT CONTENT */}
-            <div className="text-white">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-headingAlt font-light mb-10 leading-tight tracking-tight">
-                {data.techStacktitle} Services <br />
-                <span className="opacity-90">
-                  that Power Up Your Business Success
-                </span>
-              </h2>
-
-              <div className="space-y-6 text-gray-300 text-lg max-w-2xl leading-relaxed font-body">
-                <p>
-                  With the finest {data.tag} development company in UAE,
-                  (Digital Gravity), your development journey can be
-                  hassle-free. We take pride in building and delivering
-                  high-standard applications that empower your business.
-                </p>
-                <p>
-                  With our determination, dedication, and skillset, we provide
-                  businesses with end-to-end services and cutting-edge solutions
-                  that make your brand visible and give you a refined digital
-                  presence.
-                </p>
-              </div>
-            </div>
-
-            {/* RIGHT STATS */}
-            <div className="flex flex-col justify-center space-y-12 lg:pl-12">
-              {stats.map((stat, index) => (
-                <div key={index} className="relative group">
-                  <div className="flex items-end justify-between pb-4">
-                    <span className="text-6xl md:text-7xl font-headingAlt font-light text-white tracking-tighter">
-                      {stat.value}
-                    </span>
-
-                    <span className="text-lg md:text-xl font-heading font-medium text-white/90 mb-2">
-                      {stat.label}
-                    </span>
-                  </div>
-
-                  {/* Divider */}
-                  <div className="w-full h-[2px] bg-white/20 relative overflow-hidden rounded-full">
-                    <div
-                      className="
-                  absolute top-0 left-0
-                  w-1/3 h-full
-                  bg-gradient-to-r from-[#6318C6] to-[#A526D1]
-                  transition-all duration-700
-                  group-hover:w-full
-                "
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
       <div className="relative bg-gray-100">
         <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
-          <button className="font-sans    bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] text-white py-8 px-3 rounded-l-[20px] shadow-[0_0_30px_rgba(139,44,245,0.3)] transition-all group">
+          <button
+            onClick={handleGetQuote}
+            className="font-sans    bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] text-white py-8 px-3 rounded-l-[20px] shadow-[0_0_30px_rgba(139,44,245,0.3)] transition-all group"
+          >
             <span className="[writing-mode:vertical-lr] rotate-180 text-[11px] font-semibold tracking-[0.2em] uppercase">
               Get A Quote!
             </span>
           </button>
         </div>
       </div>
+      <ContactModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </>
   );
 };

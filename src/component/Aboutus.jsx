@@ -11,6 +11,8 @@ import { HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
 import { FiArrowDown, FiArrowUp, FiChevronDown } from "react-icons/fi";
 import TechStack from "./TecjStack";
 import TestimonialsSection from "./Testimonial";
+import { useNavigate } from "react-router-dom";
+import { ContactModal } from "./ContactModal";
 
 const AboutUs = () => {
   const blogs = [
@@ -82,6 +84,17 @@ const AboutUs = () => {
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleGetQuote = () => {
+    if (window.innerWidth < 640) {
+      navigate("/contact"); // mobile → new page
+    } else {
+      setIsModalOpen(true); // desktop → modal
+    }
+  };
+
   return (
     <>
       <section className="relative min-h-screen w-full overflow-hidden text-white font-body">
@@ -214,7 +227,7 @@ const AboutUs = () => {
 
         {/* SUBTLE BACKGROUND GLOW */}
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-purple-900/10 blur-[140px] rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%]  blur-[140px] rounded-full" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto">
@@ -402,18 +415,22 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
-       <div className="relative bg-gray-100">
-              <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
-                <button
-                  className="font-sans    bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] text-white py-8 px-3 rounded-l-[20px] shadow-[0_0_30px_rgba(139,44,245,0.3)] transition-all group"
-                >
-                  <span className="[writing-mode:vertical-lr] rotate-180 text-[11px] font-semibold tracking-[0.2em] uppercase">
-                    Get A Quote!
-                  </span>
-                </button>
-              </div>
-      
-            </div>
+      <div className="relative bg-gray-100">
+        <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
+          <button
+            onClick={handleGetQuote}
+            className="font-sans    bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] text-white py-8 px-3 rounded-l-[20px] shadow-[0_0_30px_rgba(139,44,245,0.3)] transition-all group"
+          >
+            <span className="[writing-mode:vertical-lr] rotate-180 text-[11px] font-semibold tracking-[0.2em] uppercase">
+              Get A Quote!
+            </span>
+          </button>
+        </div>
+      </div>
+      <ContactModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </>
   );
 };

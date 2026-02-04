@@ -10,7 +10,9 @@ import {
   FaVolumeMute,
 } from "react-icons/fa";
 import { HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ContactModal } from "./ContactModal";
+
 const Work = () => {
   const TOP_CATEGORIES = [
     "All",
@@ -20,6 +22,16 @@ const Work = () => {
     "AI & Data",
     "Branding",
   ];
+  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleGetQuote = () => {
+    if (window.innerWidth < 640) {
+      navigate("/contact"); // mobile → new page
+    } else {
+      setIsModalOpen(true); // desktop → modal
+    }
+  };
 
   const [active, setActive] = useState("All");
   const filteredProjects =
@@ -29,108 +41,109 @@ const Work = () => {
 
   return (
     <section className="relative bg-[#050505] text-white py-32 overflow-hidden font-body">
-  <div className="container relative z-10 mx-auto px-6 max-w-[1440px]">
-
-    {/* HEADER */}
-    <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-20 border-b border-white/10 pb-10">
-      <div>
-        <div className="flex items-center gap-3 mb-4">
-          <span className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
-          <span className="text-purple-400 text-xs font-heading font-semibold tracking-[0.25em] uppercase">
-            Our Work
-          </span>
-        </div>
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-headingAlt font-light leading-tight">
-          Projects We’ve Built
-        </h2>
-      </div>
-
-      <button className="mt-8 lg:mt-0 px-8 py-3 rounded-full border border-white/10 text-sm font-semibold text-white hover:border-purple-500/40 hover:text-purple-300 transition-all duration-500">
-        Explore All Industries
-      </button>
-    </div>
-
-    {/* FILTERS */}
-    <div className="flex gap-10  no-scrollbar text-sm mb-20">
-      {TOP_CATEGORIES.map((cat) => (
-        <button
-          key={cat}
-          onClick={() => setActive(cat)}
-          className={`relative whitespace-nowrap transition-all duration-300 ${
-            active === cat
-              ? "text-white font-semibold"
-              : "text-gray-500 hover:text-gray-300"
-          }`}
-        >
-          {cat}
-          {active === cat && (
-            <span className="absolute -bottom-3 left-0 right-0 h-[2px] bg-purple-500 shadow-[0_0_10px_#a855f7] rounded-full" />
-          )}
-        </button>
-      ))}
-    </div>
-
-    {/* PROJECT GRID */}
-    <div className="grid md:grid-cols-2 gap-x-10 gap-y-20">
-      {filteredProjects.map((project, index) => (
-        <div key={index} className="group">
-
-          <div className="relative aspect-[16/10] rounded-[32px] overflow-hidden bg-[#0f0f0f] border border-white/10 transition-all duration-500 group-hover:border-purple-500/30">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
-            />
-          </div>
-
-          <div className="mt-8 flex flex-col gap-3">
-            <span className="text-[11px] tracking-[0.25em] uppercase text-purple-400 font-heading">
-              {project.category}
-            </span>
-
-            <div className="flex items-center justify-between gap-6">
-              <h3 className="text-xl md:text-2xl font-heading font-medium group-hover:text-purple-300 transition-colors">
-                {project.title}
-              </h3>
-
-              <Link
-                to={`/case-study/${project.id}`}
-                className="px-6 py-2.5 rounded-full border border-purple-500/40 text-sm text-purple-300 hover:bg-purple-500/10 hover:shadow-[0_0_20px_#a855f7] transition-all duration-500"
-              >
-                View Case Study
-              </Link>
+      <div className="container relative z-10 mx-auto px-6 max-w-[1440px]">
+        {/* HEADER */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-20 border-b border-white/10 pb-10">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
+              <span className="text-purple-400 text-xs font-heading font-semibold tracking-[0.25em] uppercase">
+                Our Work
+              </span>
             </div>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-headingAlt font-light leading-tight">
+              Projects We’ve Built
+            </h2>
           </div>
+
+          <button className="mt-8 lg:mt-0 px-8 py-3 rounded-full border border-white/10 text-sm font-semibold text-white hover:border-purple-500/40 hover:text-purple-300 transition-all duration-500">
+            Explore All Industries
+          </button>
         </div>
-      ))}
-    </div>
-  </div>
-   <div className="relative bg-gray-100">
-              <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
-                <button
-                  className="font-sans    bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] text-white py-8 px-3 rounded-l-[20px] shadow-[0_0_30px_rgba(139,44,245,0.3)] transition-all group"
-                >
-                  <span className="[writing-mode:vertical-lr] rotate-180 text-[11px] font-semibold tracking-[0.2em] uppercase">
-                    Get A Quote!
-                  </span>
-                </button>
+
+        {/* FILTERS */}
+        <div className="flex gap-10  no-scrollbar text-sm mb-20">
+          {TOP_CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActive(cat)}
+              className={`relative whitespace-nowrap transition-all duration-300 ${
+                active === cat
+                  ? "text-white font-semibold"
+                  : "text-gray-500 hover:text-gray-300"
+              }`}
+            >
+              {cat}
+              {active === cat && (
+                <span className="absolute -bottom-3 left-0 right-0 h-[2px] bg-purple-500 shadow-[0_0_10px_#a855f7] rounded-full" />
+              )}
+            </button>
+          ))}
+        </div>
+
+        {/* PROJECT GRID */}
+        <div className="grid md:grid-cols-2 gap-x-10 gap-y-20">
+          {filteredProjects.map((project, index) => (
+            <div key={index} className="group">
+              <div className="relative aspect-[16/10] rounded-[32px] overflow-hidden bg-[#0f0f0f] border border-white/10 transition-all duration-500 group-hover:border-purple-500/30">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
+                />
               </div>
-      
-            </div>
-            <div className="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-40">
-                            {[FaBehance, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube].map(
-                              (Icon, i) => (
-                                <a
-                                  key={i}
-                                  className="w-9 h-9 rounded-full bg-black border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500/30 transition-all"
-                                >
-                                  <Icon size={14} />
-                                </a>
-                              ),
-                            )}
-                          </div>
-</section>
 
+              <div className="mt-8 flex flex-col gap-3">
+                <span className="text-[11px] tracking-[0.25em] uppercase text-purple-400 font-heading">
+                  {project.category}
+                </span>
+
+                <div className="flex items-center justify-between gap-6">
+                  <h3 className="text-xl md:text-2xl font-heading font-medium group-hover:text-purple-300 transition-colors">
+                    {project.title}
+                  </h3>
+
+                  <Link
+                    to={`/case-study/${project.id}`}
+                    className="px-6 py-2.5 rounded-full border border-purple-500/40 text-sm text-purple-300 hover:bg-purple-500/10 hover:shadow-[0_0_20px_#a855f7] transition-all duration-500"
+                  >
+                    View Case Study
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="relative bg-gray-100">
+        <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
+          <button
+            className="font-sans    bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] text-white py-8 px-3 rounded-l-[20px] shadow-[0_0_30px_rgba(139,44,245,0.3)] transition-all group"
+            onClick={handleGetQuote}
+          >
+            <span className="[writing-mode:vertical-lr] rotate-180 text-[11px] font-semibold tracking-[0.2em] uppercase">
+              Get A Quote!
+            </span>
+          </button>
+        </div>
+      </div>
+      <div className="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-40">
+        {[FaBehance, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube].map(
+          (Icon, i) => (
+            <a
+              key={i}
+              className="w-9 h-9 rounded-full bg-black border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500/30 transition-all"
+            >
+              <Icon size={14} />
+            </a>
+          ),
+        )}
+      </div>
+      <ContactModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
+    </section>
   );
 };
 

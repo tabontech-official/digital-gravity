@@ -82,8 +82,8 @@ export const ContactModal = ({ isOpen, onClose }) => {
               {/* Budget Slider */}
               <div className="space-y-4">
                 <div className="flex justify-between text-sm font-bold text-gray-600 uppercase tracking-tight">
-                  <span>AED 5K</span>
-                  <span>AED 100K+</span>
+                  <span>USD 5K</span>
+                  <span>USD 100K+</span>
                 </div>
                 <div className="relative h-8 flex items-center">
                   {/* Custom Track Background to match image */}

@@ -75,7 +75,7 @@ const TechStack = () => {
 
   {/* SUBTLE BACKGROUND GLOW */}
   <div className="absolute inset-0 pointer-events-none">
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-purple-900/10 blur-[140px] rounded-full" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%]  blur-[140px] rounded-full" />
   </div>
 
   {/* CONTENT */}
@@ -96,69 +96,74 @@ const TechStack = () => {
       </p>
     </div>
 
-    {/* TECH SLIDER */}
-    <div className="relative overflow-hidden">
-      <div className="flex items-center gap-12 w-max animate-techSlider hover:[animation-play-state:paused]">
-        {[...commonTechStack, ...commonTechStack].map((tech, idx) => (
+   {/* TECH SLIDER */}
+<div className="relative overflow-hidden">
+  <div
+    className="
+      flex items-center gap-12
+      w-[200%]
+      animate-techSlider
+      hover:[animation-play-state:paused]
+    "
+  >
+    {[...commonTechStack, ...commonTechStack].map((tech, idx) => (
+      <div
+        key={idx}
+        className="group flex flex-col items-center gap-6 flex-shrink-0"
+      >
+        {/* CARD */}
+        <div
+          className="
+            relative w-36 h-36
+            rounded-[2.5rem]
+            bg-[#0f0f0f]
+            border border-white/10
+            flex items-center justify-center
+            transition-all duration-500
+            hover:-translate-y-3
+            hover:border-purple-500/30
+          "
+          style={{
+            boxShadow: `0 0 30px ${tech.color}30`,
+          }}
+        >
+          {/* COLOR GLOW */}
           <div
-            key={idx}
-            className="group flex flex-col items-center gap-6 shrink-0"
-          >
-            {/* CARD — SAME SIZE */}
-            <div
-              className="
-                relative w-36 h-36
-                rounded-[2.5rem]
-                bg-[#0f0f0f]
-                border border-white/10
-                flex items-center justify-center
-                transition-all duration-500
-                hover:-translate-y-3
-                hover:border-purple-500/30
-                backdrop-blur-sm
-              "
-              style={{
-                boxShadow: `0 0 30px ${tech.color}30`,
-              }}
-            >
-              {/* COLOR GLOW */}
-              <div
-                className="absolute inset-0 opacity-50"
-                style={{
-                  background: `radial-gradient(circle at 50% 120%, ${tech.color}90 0%, transparent 70%)`,
-                }}
-              />
+            className="absolute inset-0 opacity-50 rounded-[2.5rem]"
+            style={{
+              background: `radial-gradient(circle at 50% 120%, ${tech.color}90 0%, transparent 70%)`,
+            }}
+          />
 
-              <img
-                src={tech.icon}
-                alt={tech.name}
-                className="
-                  w-14 h-14
-                  object-contain
-                  z-10
-                  opacity-80
-                  transition-all duration-500
-                  group-hover:opacity-100
-                  group-hover:scale-110
-                "
-              />
+          <img
+            src={tech.icon}
+            alt={tech.name}
+            className="
+              w-14 h-14 object-contain z-10
+              opacity-80
+              transition-all duration-500
+              group-hover:opacity-100
+              group-hover:scale-110
+            "
+          />
 
-              {/* GLASS OVERLAY */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none rounded-[2.5rem]" />
-            </div>
+          {/* GLASS */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-[2.5rem]" />
+        </div>
 
-            {/* LABEL */}
-            <span className="text-sm md:text-base font-light tracking-wide text-gray-400 group-hover:text-white transition-colors font-body">
-              {tech.name}
-            </span>
-          </div>
-        ))}
+        {/* LABEL */}
+        <span className="text-sm md:text-base font-light tracking-wide text-gray-400 group-hover:text-white transition-colors">
+          {tech.name}
+        </span>
       </div>
+    ))}
+  </div>
 
-      {/* EDGE FADES */}
-      <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-[#050505] to-transparent pointer-events-none z-20" />
-      <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-[#050505] to-transparent pointer-events-none z-20" />
-    </div>
+  {/* EDGE FADES */}
+  <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-[#050505] to-transparent pointer-events-none z-20" />
+  <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-[#050505] to-transparent pointer-events-none z-20" />
+</div>
+
   </div>
 </section>
 
