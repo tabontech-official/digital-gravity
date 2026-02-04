@@ -117,6 +117,18 @@ const Work = () => {
               </div>
       
             </div>
+            <div className="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-40">
+                            {[FaBehance, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube].map(
+                              (Icon, i) => (
+                                <a
+                                  key={i}
+                                  className="w-9 h-9 rounded-full bg-black border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500/30 transition-all"
+                                >
+                                  <Icon size={14} />
+                                </a>
+                              ),
+                            )}
+                          </div>
 </section>
 
   );

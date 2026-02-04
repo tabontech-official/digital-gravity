@@ -1,6 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import {
+  FaBehance,
+  FaInstagram,
+  FaFacebookF,
+  FaLinkedinIn,
+  FaYoutube,
+  FaWhatsapp,
+} from "react-icons/fa";
+import { HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
+import { FiArrowDown, FiChevronDown, FiChevronRight } from "react-icons/fi";
 const blogs = [
   {
     id: 1,
@@ -169,7 +178,27 @@ const BlogsPage = () => {
 
         </div>
       </section>
-
+<div className="relative bg-gray-100">
+        <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
+          <button className="font-sans    bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] text-white py-8 px-3 rounded-l-[20px] shadow-[0_0_30px_rgba(139,44,245,0.3)] transition-all group">
+            <span className="[writing-mode:vertical-lr] rotate-180 text-[11px] font-semibold tracking-[0.2em] uppercase">
+              Get A Quote!
+            </span>
+          </button>
+        </div>
+      </div>
+      <div className="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-40">
+                {[FaBehance, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube].map(
+                  (Icon, i) => (
+                    <a
+                      key={i}
+                      className="w-9 h-9 rounded-full bg-black border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500/30 transition-all"
+                    >
+                      <Icon size={14} />
+                    </a>
+                  ),
+                )}
+              </div>
     </div>
   );
 };
