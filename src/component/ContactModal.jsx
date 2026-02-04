@@ -3,64 +3,64 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiX } from "react-icons/fi";
 
 export const ContactModal = ({ isOpen, onClose }) => {
-    const countries = [
-      { name: "Afghanistan", code: "+93", iso: "af" },
-      { name: "Albania", code: "+355", iso: "al" },
-      { name: "Algeria", code: "+213", iso: "dz" },
-      { name: "Andorra", code: "+376", iso: "ad" },
-      { name: "Angola", code: "+244", iso: "ao" },
-      { name: "Argentina", code: "+54", iso: "ar" },
-      { name: "Armenia", code: "+374", iso: "am" },
-      { name: "Australia", code: "+61", iso: "au" },
-      { name: "Austria", code: "+43", iso: "at" },
-      { name: "Azerbaijan", code: "+994", iso: "az" },
-      { name: "Bahrain", code: "+973", iso: "bh" },
-      { name: "Bangladesh", code: "+880", iso: "bd" },
-      { name: "Belgium", code: "+32", iso: "be" },
-      { name: "Brazil", code: "+55", iso: "br" },
-      { name: "Canada", code: "+1", iso: "ca" },
-      { name: "China", code: "+86", iso: "cn" },
-      { name: "Egypt", code: "+20", iso: "eg" },
-      { name: "France", code: "+33", iso: "fr" },
-      { name: "Germany", code: "+49", iso: "de" },
-      { name: "India", code: "+91", iso: "in" },
-      { name: "Indonesia", code: "+62", iso: "id" },
-      { name: "Iran", code: "+98", iso: "ir" },
-      { name: "Iraq", code: "+964", iso: "iq" },
-      { name: "Ireland", code: "+353", iso: "ie" },
-      { name: "Italy", code: "+39", iso: "it" },
-      { name: "Japan", code: "+81", iso: "jp" },
-      { name: "Jordan", code: "+962", iso: "jo" },
-      { name: "Kenya", code: "+254", iso: "ke" },
-      { name: "Kuwait", code: "+965", iso: "kw" },
-      { name: "Malaysia", code: "+60", iso: "my" },
-      { name: "Mexico", code: "+52", iso: "mx" },
-      { name: "Netherlands", code: "+31", iso: "nl" },
-      { name: "New Zealand", code: "+64", iso: "nz" },
-      { name: "Nigeria", code: "+234", iso: "ng" },
-      { name: "Norway", code: "+47", iso: "no" },
-      { name: "Oman", code: "+968", iso: "om" },
-      { name: "Pakistan", code: "+92", iso: "pk" },
-      { name: "Philippines", code: "+63", iso: "ph" },
-      { name: "Portugal", code: "+351", iso: "pt" },
-      { name: "Qatar", code: "+974", iso: "qa" },
-      { name: "Russia", code: "+7", iso: "ru" },
-      { name: "Saudi Arabia", code: "+966", iso: "sa" },
-      { name: "Singapore", code: "+65", iso: "sg" },
-      { name: "South Africa", code: "+27", iso: "za" },
-      { name: "South Korea", code: "+82", iso: "kr" },
-      { name: "Spain", code: "+34", iso: "es" },
-      { name: "Sri Lanka", code: "+94", iso: "lk" },
-      { name: "Sweden", code: "+46", iso: "se" },
-      { name: "Switzerland", code: "+41", iso: "ch" },
-      { name: "Thailand", code: "+66", iso: "th" },
-      { name: "Turkey", code: "+90", iso: "tr" },
-      { name: "UAE", code: "+971", iso: "ae" },
-      { name: "UK", code: "+44", iso: "gb" },
-      { name: "USA", code: "+1", iso: "us" },
-      { name: "Vietnam", code: "+84", iso: "vn" },
-    ];
-    const [selected, setSelected] = useState(countries[0]);
+  const countries = [
+    { name: "Afghanistan", code: "+93", iso: "af" },
+    { name: "Albania", code: "+355", iso: "al" },
+    { name: "Algeria", code: "+213", iso: "dz" },
+    { name: "Andorra", code: "+376", iso: "ad" },
+    { name: "Angola", code: "+244", iso: "ao" },
+    { name: "Argentina", code: "+54", iso: "ar" },
+    { name: "Armenia", code: "+374", iso: "am" },
+    { name: "Australia", code: "+61", iso: "au" },
+    { name: "Austria", code: "+43", iso: "at" },
+    { name: "Azerbaijan", code: "+994", iso: "az" },
+    { name: "Bahrain", code: "+973", iso: "bh" },
+    { name: "Bangladesh", code: "+880", iso: "bd" },
+    { name: "Belgium", code: "+32", iso: "be" },
+    { name: "Brazil", code: "+55", iso: "br" },
+    { name: "Canada", code: "+1", iso: "ca" },
+    { name: "China", code: "+86", iso: "cn" },
+    { name: "Egypt", code: "+20", iso: "eg" },
+    { name: "France", code: "+33", iso: "fr" },
+    { name: "Germany", code: "+49", iso: "de" },
+    { name: "India", code: "+91", iso: "in" },
+    { name: "Indonesia", code: "+62", iso: "id" },
+    { name: "Iran", code: "+98", iso: "ir" },
+    { name: "Iraq", code: "+964", iso: "iq" },
+    { name: "Ireland", code: "+353", iso: "ie" },
+    { name: "Italy", code: "+39", iso: "it" },
+    { name: "Japan", code: "+81", iso: "jp" },
+    { name: "Jordan", code: "+962", iso: "jo" },
+    { name: "Kenya", code: "+254", iso: "ke" },
+    { name: "Kuwait", code: "+965", iso: "kw" },
+    { name: "Malaysia", code: "+60", iso: "my" },
+    { name: "Mexico", code: "+52", iso: "mx" },
+    { name: "Netherlands", code: "+31", iso: "nl" },
+    { name: "New Zealand", code: "+64", iso: "nz" },
+    { name: "Nigeria", code: "+234", iso: "ng" },
+    { name: "Norway", code: "+47", iso: "no" },
+    { name: "Oman", code: "+968", iso: "om" },
+    { name: "Pakistan", code: "+92", iso: "pk" },
+    { name: "Philippines", code: "+63", iso: "ph" },
+    { name: "Portugal", code: "+351", iso: "pt" },
+    { name: "Qatar", code: "+974", iso: "qa" },
+    { name: "Russia", code: "+7", iso: "ru" },
+    { name: "Saudi Arabia", code: "+966", iso: "sa" },
+    { name: "Singapore", code: "+65", iso: "sg" },
+    { name: "South Africa", code: "+27", iso: "za" },
+    { name: "South Korea", code: "+82", iso: "kr" },
+    { name: "Spain", code: "+34", iso: "es" },
+    { name: "Sri Lanka", code: "+94", iso: "lk" },
+    { name: "Sweden", code: "+46", iso: "se" },
+    { name: "Switzerland", code: "+41", iso: "ch" },
+    { name: "Thailand", code: "+66", iso: "th" },
+    { name: "Turkey", code: "+90", iso: "tr" },
+    { name: "UAE", code: "+971", iso: "ae" },
+    { name: "UK", code: "+44", iso: "gb" },
+    { name: "USA", code: "+1", iso: "us" },
+    { name: "Vietnam", code: "+84", iso: "vn" },
+  ];
+  const [selected, setSelected] = useState(countries[0]);
   return (
     <AnimatePresence>
       {isOpen && (
@@ -124,11 +124,7 @@ export const ContactModal = ({ isOpen, onClose }) => {
 
             {/* Form */}
             <form className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-              {[
-                "Name*",
-                "Company / Organisation*",
-                "Email*",
-              ].map((ph) => (
+              {["Name*", "Company / Organisation*", "Email*"].map((ph) => (
                 <input
                   key={ph}
                   placeholder={ph}
@@ -146,47 +142,47 @@ export const ContactModal = ({ isOpen, onClose }) => {
                 />
               ))}
 
-            <div className="relative">
-  <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2 pr-3">
-    {/* FLAG */}
-    <img
-      src={`https://flagcdn.com/w20/${selected.iso}.png`}
-      className="w-5 h-3 rounded-sm opacity-90"
-      alt={selected.name}
-    />
+              <div className="relative">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2 pr-3">
+                  {/* FLAG */}
+                  <img
+                    src={`https://flagcdn.com/w20/${selected.iso}.png`}
+                    className="w-5 h-3 rounded-sm opacity-90"
+                    alt={selected.name}
+                  />
 
-    {/* CODE */}
-    <span className="text-sm font-body text-gray-200 tracking-wide">
-      {selected.code}
-    </span>
+                  {/* CODE */}
+                  <span className="text-sm font-body text-gray-200 tracking-wide">
+                    {selected.code}
+                  </span>
 
-    {/* CLEAN DIVIDER */}
-    <div className="h-5 w-px bg-white/15 mx-2" />
+                  {/* CLEAN DIVIDER */}
+                  <div className="h-5 w-px bg-white/15 mx-2" />
 
-    {/* HIDDEN SELECT */}
-    <select
-      value={selected.code}
-      onChange={(e) =>
-        setSelected(
-          countries.find((c) => c.code === e.target.value),
-        )
-      }
-      className="
+                  {/* HIDDEN SELECT */}
+                  <select
+                    value={selected.code}
+                    onChange={(e) =>
+                      setSelected(
+                        countries.find((c) => c.code === e.target.value),
+                      )
+                    }
+                    className="
         absolute inset-0 opacity-0 cursor-pointer
       "
-    >
-      {countries.map((c, idx) => (
-        <option key={idx} value={c.code}>
-          {c.name} ({c.code})
-        </option>
-      ))}
-    </select>
-  </div>
+                  >
+                    {countries.map((c, idx) => (
+                      <option key={idx} value={c.code}>
+                        {c.name} ({c.code})
+                      </option>
+                    ))}
+                  </select>
+                </div>
 
-  {/* PHONE INPUT */}
-  <input
-    placeholder="Phone No*"
-    className="
+                {/* PHONE INPUT */}
+                <input
+                  placeholder="Phone No*"
+                  className="
       w-full
       bg-[#0f0f0f]
       border border-white/10
@@ -203,8 +199,8 @@ export const ContactModal = ({ isOpen, onClose }) => {
 
       transition
     "
-  />
-</div>
+                />
+              </div>
 
               {/* Selects */}
               {["Service you are interested in*", "Project Timeline*"].map(
@@ -228,7 +224,7 @@ export const ContactModal = ({ isOpen, onClose }) => {
                       ▼
                     </span>
                   </div>
-                )
+                ),
               )}
 
               {/* Budget */}
@@ -243,7 +239,8 @@ export const ContactModal = ({ isOpen, onClose }) => {
                 </div>
 
                 <p className="text-sm text-gray-400 max-w-sm">
-                  Ballpark budgets help us align expectations. Precision comes later.
+                  Ballpark budgets help us align expectations. Precision comes
+                  later.
                 </p>
               </div>
 
