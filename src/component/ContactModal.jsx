@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiX } from "react-icons/fi";
 
 export const ContactModal = ({ isOpen, onClose }) => {
+  const [budget, setBudget] = useState(10000);
+
   const countries = [
     { name: "Afghanistan", code: "+93", iso: "af" },
     { name: "Albania", code: "+355", iso: "al" },
@@ -229,20 +231,56 @@ export const ContactModal = ({ isOpen, onClose }) => {
 
               {/* Budget */}
               <div className="space-y-4">
-                <div className="flex justify-between text-xs uppercase tracking-widest text-gray-500 font-heading">
-                  <span>USD 5K</span>
-                  <span>USD 100K+</span>
-                </div>
+  {/* Labels */}
+  <div className="flex justify-between text-xs uppercase tracking-widest text-gray-500 font-heading">
+    <span>USD 1K</span>
+    <span>USD 50K+</span>
+  </div>
 
-                <div className="relative h-3 rounded-full bg-purple-500/30">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#6318C6] via-[#8B22CD] to-[#A526D1]" />
-                </div>
+  {/* Slider */}
+  <div className="relative">
+    {/* Track */}
+    <div className="h-3 rounded-full bg-purple-500/20 overflow-hidden">
+      <div
+        className="h-full rounded-full bg-gradient-to-r from-[#6318C6] via-[#8B22CD] to-[#A526D1] transition-all"
+        style={{
+          width: `${(budget / 50000) * 100}%`,
+        }}
+      />
+    </div>
 
-                <p className="text-sm text-gray-400 max-w-sm">
-                  Ballpark budgets help us align expectations. Precision comes
-                  later.
-                </p>
-              </div>
+    {/* Native Range */}
+    <input
+      type="range"
+      min={1000}
+      max={50000}
+      step={1000}
+      value={budget}
+      onChange={(e) => setBudget(Number(e.target.value))}
+      className="
+        absolute inset-0 w-full h-3
+        opacity-0 cursor-pointer
+      "
+    />
+  </div>
+
+  {/* Live Value */}
+  <div className="flex justify-between items-center">
+    <span className="text-sm font-semibold text-white">
+      ${budget.toLocaleString()}
+    </span>
+
+    <span className="text-xs text-gray-400">
+      Estimated budget
+    </span>
+  </div>
+
+  {/* Helper Text */}
+  <p className="text-sm text-gray-400 max-w-sm leading-relaxed">
+    Ballpark budgets help us align expectations. Precision comes later.
+  </p>
+</div>
+
 
               {/* Message */}
               <textarea
