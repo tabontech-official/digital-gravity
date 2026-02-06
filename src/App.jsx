@@ -10,6 +10,7 @@ import Work from "./component/work";
 import CaseStudy from "./component/pages/CaseStudy";
 import Footer from "./component/Footer";
 import BlogsPage from "./component/Blogs";
+import Contact from "./component/pages/contact";
 
 const Home = () => (
   <>
@@ -35,6 +36,7 @@ function App() {
 
           <Route path="/services/:service" element={<ServiceHero />} />
                     <Route path="/our-blogs" element={<BlogsPage />} />
+                    <Route path="/contact" element={<Contact />} />
 
         </Routes>
         <Footer/>
