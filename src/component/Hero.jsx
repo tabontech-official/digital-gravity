@@ -118,7 +118,9 @@ const Hero = () => {
             Schedule a Call
           </button>
 
-          <button className="font-heading text-sm font-medium px-8 py-3 rounded-full text-purple-400 border border-purple-500/40 hover:bg-purple-500/10 transition-all hover:shadow-[0_0_25px_#a855f7] flex items-center gap-2 justify-center">
+          <button onClick={()=>{
+            navigate("/case-studies")
+          }} className="font-heading text-sm font-medium px-8 py-3 rounded-full text-purple-400 border border-purple-500/40 hover:bg-purple-500/10 transition-all hover:shadow-[0_0_25px_#a855f7] flex items-center gap-2 justify-center">
             View Case Studies
             <svg
               className="w-4 h-4"

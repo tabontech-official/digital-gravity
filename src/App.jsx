@@ -11,6 +11,7 @@ import CaseStudy from "./component/pages/CaseStudy";
 import Footer from "./component/Footer";
 import BlogsPage from "./component/Blogs";
 import Contact from "./component/pages/contact";
+import ScrollToTop from "./component/ScrollToTop";
 
 const Home = () => (
   <>
@@ -26,7 +27,7 @@ function App() {
   return (
     <>
       <Navbar />
-
+  <ScrollToTop /> 
       <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />

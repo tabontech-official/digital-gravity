@@ -49,7 +49,6 @@ const Contact = () => {
 
   return (
     <section className="min-h-screen bg-[#050505] text-white font-body px-6 md:px-16 py-24">
-      {/* Header */}
       <div className="max-w-5xl mx-auto mb-20">
         <div className="flex items-center gap-3 mb-6">
           <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
@@ -71,7 +70,6 @@ const Contact = () => {
         </p>
       </div>
 
-      {/* Form */}
       <motion.form
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -108,7 +106,6 @@ const Contact = () => {
           "
         />
 
-        {/* Service Dropdown */}
         <div className="relative">
           <FiBriefcase className="absolute left-5 top-1/2 -translate-y-1/2 text-purple-400" />
           <select
@@ -193,7 +190,6 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Message */}
         <textarea
           rows={5}
           placeholder="Tell us about your project"
@@ -206,7 +202,6 @@ const Contact = () => {
           "
         />
 
-        {/* CTA */}
         <div className="md:col-span-2 mt-10">
           <button
             type="submit"
