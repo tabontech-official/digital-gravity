@@ -31,9 +31,9 @@ const BlogDetail = () => {
     }
   };
   return (
-    <article className="relative  text-white font-body">
+    <article className="relative min-h-screen  text-white font-body">
       {/* BACKGROUND IMAGE */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute  inset-0 -z-10">
         <img
           src={blog.image}
           alt={blog.title}
@@ -44,7 +44,7 @@ const BlogDetail = () => {
       </div>
 
       {/* CONTENT WRAPPER */}
-      <div className="relative h-[100vh] px-6 pt-28 pb-32">
+      <div className="relative  px-6 pt-28 pb-32">
         <div className="max-w-4xl mx-auto">
           {/* BREADCRUMB */}
 
