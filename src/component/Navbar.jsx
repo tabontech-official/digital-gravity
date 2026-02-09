@@ -144,8 +144,8 @@ const serviceLinks = [
     "Web Development",
     "Ecommerce Development",
     "ERP Software",
-    "AI & Machine Learning",
     "Cloud Solutions",
+    "Mobile App Development",
     "Shopify Store Build & Redesign",
     "Shopify Theme Customization",
   ],
@@ -153,30 +153,13 @@ const serviceLinks = [
     "Shopify SEO Optimization",
     "Shopify Analytics & Tracking",
     "Shopify Digital Branding",
-    "Shopify Business Strategy",
+    "Shopify Custom Domain Setup",
     "Website Audit",
     "Shopify Content Marketing",
   ],
 ];
 
-const gccGiants = [
-  "BEYOND",
-  "GBM",
-  "SkillBridge",
-  "mediaPro",
-  "DIFC",
-  "SANAD",
-  "exa",
-  "ADIB",
-  "flydubai",
-  "Terra Nexus",
-  "EMDAD",
-  "ATMOSPHERE",
-  "SHARJAH",
-  "SEPHORA",
-  "Khazna",
-  "OHANA",
-];
+
 
 const toSlug = (text) =>
   text.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-");

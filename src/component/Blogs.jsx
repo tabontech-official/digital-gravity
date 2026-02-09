@@ -1,181 +1,103 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import blogsData from "../data/blogsData";
+
 import {
   FaBehance,
   FaInstagram,
   FaFacebookF,
   FaLinkedinIn,
   FaYoutube,
-  FaWhatsapp,
 } from "react-icons/fa";
-import { HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
-import { FiArrowDown, FiChevronDown, FiChevronRight } from "react-icons/fi";
 import { ContactModal } from "./ContactModal";
-const blogs = [
-  {
-    id: 1,
-    title: "How Modern SaaS Products Scale Faster With Better UX",
-    excerpt:
-      "Discover how UX decisions directly impact scalability, retention and growth in modern SaaS platforms.",
-    category: "UX Design",
-    date: "Jan 12, 2026",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    id: 2,
-    title: "Why Performance Optimization Matters More Than Ever",
-    excerpt:
-      "A deep dive into performance, Core Web Vitals and why speed is now a business advantage.",
-    category: "Development",
-    date: "Feb 02, 2026",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    id: 3,
-    title: "Design Systems: The Backbone of Scalable Products",
-    excerpt:
-      "How strong design systems help teams ship faster while maintaining consistency.",
-    category: "Product Design",
-    date: "Feb 18, 2026",
-    image:
-      "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    id: 4,
-    title: "Building Trust Through Branding in the Digital Age",
-    excerpt:
-      "Branding is more than visuals — learn how perception shapes long-term trust.",
-    category: "Branding",
-    date: "Mar 05, 2026",
-    image:
-      "https://images.unsplash.com/photo-1558403194-611308249627?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    id: 5,
-    title: "From MVP to Enterprise: Scaling the Right Way",
-    excerpt:
-      "Avoid common pitfalls when scaling your MVP into a full enterprise product.",
-    category: "Startups",
-    date: "Mar 18, 2026",
-    image:
-      "https://images.unsplash.com/photo-1558403194-611308249627?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    id: 6,
-    title: "The Role of AI in Modern Web Applications",
-    excerpt:
-      "Explore how AI is reshaping user experiences and backend workflows.",
-    category: "AI & Tech",
-    date: "Apr 01, 2026",
-    image:
-      "https://images.unsplash.com/photo-1558403194-611308249627?auto=format&fit=crop&q=80&w=800",
-  },
-];
+
+
 
 const BlogsPage = () => {
   const navigate = useNavigate();
+  const blogs = blogsData;
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleGetQuote = () => {
-    if (window.innerWidth < 640) {
-      navigate("/contact");
-    } else {
-      setIsModalOpen(true);
-    }
+    window.innerWidth < 640 ? navigate("/contact") : setIsModalOpen(true);
   };
 
   return (
     <div className="bg-[#050505] text-white font-body">
-      <section className="relative py-32 px-6 overflow-hidden">
-        <div className="relative z-10 max-w-[1440px] mx-auto">
-          <div className="border-b border-white/10 pb-10 mb-20">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
-              <span className="text-purple-400 text-xs font-heading tracking-[0.25em] uppercase">
-                Insights & Articles
-              </span>
-            </div>
 
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-headingAlt font-light leading-tight max-w-4xl">
-              Thoughts, Stories & Ideas <br />
-              from Our Experts
-            </h1>
-          </div>
+      {/* HERO */}
+      <section className="py-32 px-6">
+        <div className="max-w-[1440px] mx-auto border-b border-white/10 pb-12">
+          <span className="text-purple-400 text-xs tracking-[0.25em] uppercase">
+            Our Expertise
+          </span>
+
+          {/* SERVICE-FOCUSED H1 */}
+          <h1 className="text-4xl md:text-6xl font-light mt-6 max-w-4xl">
+            Insights on Web, Ecommerce & Shopify Growth
+          </h1>
+
+          {/* SEO SERVICE TEXT */}
+          <p className="text-gray-400 max-w-3xl mt-6">
+            Explore expert blogs by NexaSoft Solutions covering web development,
+            ecommerce solutions, Shopify SEO optimization, website audits and
+            content marketing strategies designed to grow your business online.
+          </p>
         </div>
       </section>
 
-      <section className="relative px-6 mb-32">
-        <div className="max-w-[1440px] mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center bg-[#0f0f0f] border border-white/10 rounded-[32px] p-10 lg:p-16">
-            <div>
-              <span className="text-purple-400 text-xs font-heading tracking-[0.25em] uppercase">
-                Featured Article
-              </span>
-
-              <h2 className="text-2xl md:text-4xl font-headingAlt font-light mt-6 mb-8">
-                {blogs[0].title}
-              </h2>
-
-              <p className="text-gray-400 leading-relaxed mb-10 max-w-xl">
-                {blogs[0].excerpt}
-              </p>
-
-              <Link
-                to={`/blog/${blogs[0].id}`}
-                className="inline-flex px-8 py-3 rounded-full border border-purple-500/40 text-purple-300 hover:bg-purple-500/10 hover:shadow-[0_0_25px_#a855f7] transition-all duration-500"
-              >
-                Read Article
-              </Link>
-            </div>
-
-            <div className="rounded-[32px] overflow-hidden border border-white/10">
-              <img
-                src={blogs[0].image}
-                alt={blogs[0].title}
-                className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-700"
-              />
-            </div>
+      {/* FEATURED BLOG */}
+      <section className="px-6 mb-32">
+        <div className="max-w-[1440px] mx-auto grid lg:grid-cols-2 gap-16 bg-[#0f0f0f] p-12 rounded-[32px]">
+          <div>
+            <span className="text-purple-400 text-xs uppercase">
+              Featured Service Insight
+            </span>
+            <h2 className="text-3xl md:text-4xl font-light mt-6 mb-6">
+              {blogs[0].title}
+            </h2>
+            <p className="text-gray-400 mb-10">{blogs[0].excerpt}</p>
+            <Link
+              to={`/blog/${blogs[0].slug}`}
+              className="px-8 py-3 rounded-full border border-purple-500/40 text-purple-300 hover:bg-purple-500/10 transition"
+            >
+              Read Article
+            </Link>
           </div>
+
+          <img
+            src={blogs[0].image}
+            alt={blogs[0].title}
+            className="rounded-[24px] object-cover"
+          />
         </div>
       </section>
 
-      <section className="relative px-6 pb-32">
+      {/* BLOG GRID */}
+      <section className="px-6 pb-32">
         <div className="max-w-[1440px] mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {blogs.slice(1).map((blog) => (
             <article
               key={blog.id}
-              className="bg-[#0f0f0f] border border-white/10 rounded-[32px] overflow-hidden transition-all duration-500 hover:border-purple-500/30"
+              className="bg-[#0f0f0f] border border-white/10 rounded-[32px] overflow-hidden hover:border-purple-500/30 transition"
             >
-              {/* IMAGE */}
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className="w-full h-full object-cover opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-1000"
-                />
-              </div>
-
-              {/* CONTENT */}
-              <div className="p-8 flex flex-col h-full">
-                <span className="text-xs font-heading tracking-[0.25em] uppercase text-purple-400 mb-4">
+              <img
+                src={blog.image}
+                alt={blog.title}
+                className="aspect-[16/10] object-cover"
+              />
+              <div className="p-8">
+                <span className="text-xs text-purple-400 uppercase">
                   {blog.category}
                 </span>
-
-                <h3 className="text-xl font-heading font-medium mb-4 leading-snug">
-                  {blog.title}
-                </h3>
-
-                <p className="text-gray-400 text-sm leading-relaxed flex-grow">
-                  {blog.excerpt}
-                </p>
-
-                <div className="mt-8 flex items-center justify-between text-sm text-gray-500">
+                <h3 className="text-xl mt-4 mb-3">{blog.title}</h3>
+                <p className="text-gray-400 text-sm">{blog.excerpt}</p>
+                <div className="mt-6 flex justify-between text-sm text-gray-500">
                   <span>{blog.date}</span>
                   <Link
-                    to={`/blog/${blog.id}`}
-                    className="text-purple-400 hover:text-purple-300 transition-colors"
+                    to={`/blog/${blog.slug}`}
+                    className="text-purple-400 hover:text-purple-300"
                   >
                     Read →
                   </Link>
@@ -185,30 +107,43 @@ const BlogsPage = () => {
           ))}
         </div>
       </section>
-      <div className="relative bg-gray-100">
-        <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
-          <button
-            onClick={handleGetQuote}
-            className="font-sans    bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] text-white py-8 px-3 rounded-l-[20px] shadow-[0_0_30px_rgba(139,44,245,0.3)] transition-all group"
-          >
-            <span className="[writing-mode:vertical-lr] rotate-180 text-[11px] font-semibold tracking-[0.2em] uppercase">
-              Get A Quote!
-            </span>
-          </button>
-        </div>
+
+      {/* CTA */}
+      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
+        <button
+          onClick={handleGetQuote}
+          className="bg-gradient-to-br from-purple-600 to-purple-400 text-white py-8 px-3 rounded-l-2xl"
+        >
+          <span className="[writing-mode:vertical-lr] rotate-180 text-xs uppercase tracking-widest">
+            Get A Quote
+          </span>
+        </button>
       </div>
-      <div className="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-40">
-        {[FaBehance, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube].map(
-          (Icon, i) => (
-            <a
-              key={i}
-              className="w-9 h-9 rounded-full bg-black border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500/30 transition-all"
-            >
-              <Icon size={14} />
-            </a>
-          ),
-        )}
-      </div>
+
+      {/* SOCIALS */}
+         <div className="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-40">
+               {[FaBehance, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube].map(
+                 (Icon, idx) => (
+                   <a
+                     key={idx}
+                     href="#"
+                     className="
+                 w-9 h-9 rounded-full
+                 bg-black/70
+                 border border-purple-500/20
+                 flex items-center justify-center
+                 text-gray-400
+                 hover:text-white hover:border-purple-500
+                 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)]
+                 transition
+               "
+                   >
+                     <Icon size={14} />
+                   </a>
+                 ),
+               )}
+             </div>
+
       <ContactModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

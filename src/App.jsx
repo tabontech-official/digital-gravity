@@ -12,6 +12,7 @@ import Footer from "./component/Footer";
 import BlogsPage from "./component/Blogs";
 import Contact from "./component/pages/contact";
 import ScrollToTop from "./component/ScrollToTop";
+import BlogDetail from "./component/BlogDetail";
 
 const Home = () => (
   <>
@@ -23,24 +24,25 @@ const Home = () => (
 
 function App() {
   const location = useLocation();
+  const hideFooterOnBlogDetail = location.pathname.startsWith("/blog/");
 
   return (
     <>
       <Navbar />
-  <ScrollToTop /> 
+      <ScrollToTop />
       <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
-                    <Route path="/case-studies" element={<Work />} />
-        <Route path="/case-study/:id" element={<CaseStudy />} />
+          <Route path="/case-studies" element={<Work />} />
+          <Route path="/case-study/:id" element={<CaseStudy />} />
 
           <Route path="/services/:service" element={<ServiceHero />} />
-                    <Route path="/our-blogs" element={<BlogsPage />} />
-                    <Route path="/contact" element={<Contact />} />
-
+          <Route path="/our-blogs" element={<BlogsPage />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog/:slug" element={<BlogDetail />} />
         </Routes>
-        <Footer/>
+        {hideFooterOnBlogDetail ? null : <Footer />}
       </AnimatePresence>
     </>
   );

@@ -60,12 +60,7 @@ const ServiceHero = () => {
       image:
         "https://cdn.shopify.com/s/files/1/0654/1210/4348/files/difc-website.gif?v=1769150548",
     },
-    "ai-machine-learning": {
-      title: "Predictive Analytics for Retail",
-      desc: "Developed a Gen-AI recommendation engine that analyzes customer behavior patterns to predict future purchases, driving a 25% uplift in repeat customer rate.",
-      image:
-        "https://cdn.shopify.com/s/files/1/0654/1210/4348/files/difc-website.gif?v=1769150548",
-    },
+   
     "cloud-solutions": {
       title: "Azure Enterprise Migration",
       desc: "Seamless cloud migration of legacy infrastructure for a financial institution. Enhanced security protocols and established a 99.99% uptime architecture using multi-region failovers.",
@@ -572,34 +567,57 @@ const ServiceHero = () => {
           </div>
 
           {/* Tabs */}
-          <div className="flex flex-wrap items-center gap-x-10 gap-y-6 mb-20 border-b border-white/5 pb-8 font-heading">
-            {Object.keys(categoryData).map((key) => {
-              const isActive = activeTab === key;
-              return (
-                <button
-                  key={key}
-                  onClick={() => setActiveTab(key)}
-                  className={`
-              group flex items-center gap-2 text-lg capitalize
+        <div className="relative mb-12 md:mb-20">
+  {/* Mobile Fade Mask: Helps indicate more content to the right */}
+  <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none md:hidden" />
+
+  <div 
+    className="
+      flex items-center 
+      gap-x-8 md:gap-x-10 
+      pb-4 md:pb-8 
+      border-b border-white/5 
+      font-heading
+      /* Mobile: Single line scrolling */
+      overflow-x-auto 
+      whitespace-nowrap 
+      scrollbar-hide 
+      snap-x snap-mandatory
+    "
+  >
+    {Object.keys(categoryData).map((key) => {
+      const isActive = activeTab === key;
+      return (
+        <button
+          key={key}
+          onClick={() => setActiveTab(key)}
+          className={`
+            group flex items-center gap-2 
+            text-base md:text-lg capitalize
+            transition-all duration-300
+            snap-start scroll-ml-6
+            flex-shrink-0
+            ${isActive ? "text-white font-medium" : "text-gray-500 hover:text-gray-300"}
+          `}
+        >
+          <FiChevronRight
+            className={`
               transition-all duration-300
-              ${isActive ? "text-white" : "text-gray-500 hover:text-gray-300"}
+              ${
+                isActive
+                  ? "opacity-100 translate-x-0 text-purple-400"
+                  : "opacity-0 -translate-x-2 w-0" /* Collapse width when hidden */
+              }
             `}
-                >
-                  <FiChevronRight
-                    className={`
-                transition-all duration-300
-                ${
-                  isActive
-                    ? "opacity-100 translate-x-0 text-purple-400"
-                    : "opacity-0 -translate-x-2"
-                }
-              `}
-                  />
-                  {key.replace(/-/g, " ")}
-                </button>
-              );
-            })}
-          </div>
+          />
+          <span className={`${isActive ? "translate-x-0" : "-translate-x-2 md:translate-x-0"} transition-transform duration-300`}>
+             {key.replace(/-/g, " ")}
+          </span>
+        </button>
+      );
+    })}
+  </div>
+</div>
 
           {/* Content */}
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center transition-all duration-500">
@@ -659,116 +677,83 @@ const ServiceHero = () => {
         </div>
       </section>
 
-      <section className="bg-[#050505] py-24 text-white font-body">
-        <div className="container mx-auto px-6 lg:px-16 border-t border-white/10 pt-16">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
-            {/* CARD 1 */}
-            <div className="group cursor-pointer">
-              <div className="relative overflow-hidden rounded-[40px] mb-8 bg-[#111] aspect-[4/3] border border-white/5">
-                <img
-                  src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80"
-                  alt="DP World Project"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
-              </div>
+     <section className="bg-[#050505] py-16 md:py-24 text-white font-body overflow-hidden">
+  <div className="container mx-auto px-6 lg:px-16 border-t border-white/10 pt-12 md:pt-16">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
+      
+      {/* CASE STUDY CARD */}
+      {[
+        {
+          title: "Engineered DP World for Global Reach",
+          img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
+          stat: "120%",
+          desc: "Our team of 50+ web development experts partnered with DP World to engineer a high-performance, customer-focused website.",
+          sub: "A surge in website visitors during key events."
+        },
+        {
+          title: "Sephora – Beauty brand, Powered by Tech",
+          img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80",
+          stat: "110%",
+          desc: "Our designers and developers built a sleek, user-centric eCommerce experience for Sephora delivering mobile optimization.",
+          sub: "Increase in online shopping and retail inquiries."
+        }
+      ].map((item, index) => (
+        <div key={index} className="group cursor-pointer flex flex-col">
+          {/* Image Container */}
+          <div className="relative overflow-hidden rounded-[32px] md:rounded-[40px] mb-6 md:mb-8 bg-[#111] aspect-[4/3] border border-white/5">
+            <img
+              src={item.img}
+              alt={item.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+          </div>
 
-              <div className="px-2 space-y-6">
-                <h3 className="text-3xl md:text-5xl font-headingAlt font-light leading-tight">
-                  Engineered DP World for Global Reach
-                </h3>
+          {/* Content */}
+          <div className="px-1 md:px-2 flex-grow space-y-4 md:space-y-6">
+            <h3 className="text-3xl lg:text-5xl font-headingAlt font-light leading-[1.1] tracking-tight transition-colors group-hover:text-purple-400">
+              {item.title}
+            </h3>
 
-                <p className="text-gray-400 text-lg leading-relaxed font-body">
-                  Our team of 50+ web development experts partnered with DP
-                  World to engineer a high-performance, customer-focused
-                  website. Built with speed, UX, and security in mind, the
-                  platform achieved 98% speed optimization, 27% bounce rate, 67%
-                  user engagement, and 100% security.
+            <p className="text-gray-400 text-base md:text-lg leading-relaxed font-body line-clamp-3 md:line-clamp-none">
+              {item.desc}
+            </p>
+
+            {/* Stats & CTA Container */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-4 border-t border-white/5">
+              <div className="flex items-center gap-4">
+                <span className="text-5xl md:text-6xl font-headingAlt font-light text-white">
+                  {item.stat}
+                </span>
+                <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-[0.15em] max-w-[120px] leading-tight">
+                  {item.sub}
                 </p>
-
-                <div className="flex items-center justify-between pt-4">
-                  <div className="flex items-center gap-4">
-                    <span className="text-5xl md:text-6xl font-headingAlt font-light">
-                      120%
-                    </span>
-                    <p className="text-xs text-gray-400 uppercase tracking-wider max-w-[140px]">
-                      A surge in website visitors during key events.
-                    </p>
-                  </div>
-
-                  {/* CTA */}
-                  <button
-                    className="
-                font-heading
-                bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1]
-                px-8 py-3 rounded-full
-                text-sm font-semibold
-                hover:brightness-110
-                active:scale-95
-                transition-all
-                shadow-[0_8px_24px_rgba(139,44,245,0.35)]
-              "
-                  >
-                    View Case Study
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* CARD 2 */}
-            <div className="group cursor-pointer">
-              <div className="relative overflow-hidden rounded-[40px] mb-8 bg-[#111] aspect-[4/3] border border-white/5">
-                <img
-                  src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80"
-                  alt="Sephora Project"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
               </div>
 
-              <div className="px-2 space-y-6">
-                <h3 className="text-3xl md:text-5xl font-headingAlt font-light leading-tight">
-                  Sephora – Beauty brand, Powered by Tech
-                </h3>
-
-                <p className="text-gray-400 text-lg leading-relaxed font-body">
-                  Our designers and developers built a sleek, user-centric
-                  eCommerce experience for Sephora. The platform delivered 98%
-                  mobile optimization, 85% engagement, a 36% rise in organic
-                  traffic, and secure browsing across all touchpoints.
-                </p>
-
-                <div className="flex items-center justify-between pt-4">
-                  <div className="flex items-center gap-4">
-                    <span className="text-5xl md:text-6xl font-headingAlt font-light">
-                      110%
-                    </span>
-                    <p className="text-xs text-gray-400 uppercase tracking-wider max-w-[140px]">
-                      Increase in online shopping and retail inquiries.
-                    </p>
-                  </div>
-
-                  {/* CTA */}
-                  <button
-                    className="
-                font-heading
-                bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1]
-                px-8 py-3 rounded-full
-                text-sm font-semibold
-                hover:brightness-110
-                active:scale-95
-                transition-all
-                shadow-[0_8px_24px_rgba(139,44,245,0.35)]
-              "
-                  >
-                    View Case Study
-                  </button>
-                </div>
-              </div>
+              <button
+                className="
+                  w-full sm:w-auto
+                  font-heading
+                  bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1]
+                  px-8 py-4 sm:py-3 rounded-full
+                  text-sm font-semibold text-white
+                  hover:brightness-110
+                  active:scale-95
+                  transition-all
+                  shadow-[0_8px_24px_rgba(139,44,245,0.25)]
+                  whitespace-nowrap
+                "
+              >
+                View Case Study
+              </button>
             </div>
           </div>
         </div>
-      </section>
+      ))}
 
+    </div>
+  </div>
+</section>
       <section className="bg-[#050505] py-24 text-white relative overflow-hidden font-body">
         <div className="container mx-auto px-6  text-center relative z-10 border-t border-white/10 pt-12">
           {/* Heading */}
