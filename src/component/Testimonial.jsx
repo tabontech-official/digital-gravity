@@ -23,7 +23,7 @@ const TestimonialsSlider = () => {
   ];
 
   return (
-<section className="relative bg-[#050505] py-32  overflow-hidden font-body text-white">
+<section className="relative bg-[#050505] py-32 px-8  overflow-hidden font-body text-white">
   <div className="relative z-10  mx-auto">
 
     {/* HEADER */}

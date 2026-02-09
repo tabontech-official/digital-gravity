@@ -7,7 +7,7 @@ import {
   Linkedin,
   Twitter,
   ArrowRight,
-  Mail
+  Mail,
 } from "lucide-react";
 
 const Footer = () => {
@@ -44,37 +44,42 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-[#050505] text-gray-400 pt-24 pb-12 px-6 overflow-hidden border-t border-white/5">
-      <div className="max-w-7xl mx-auto relative z-10">
-        
+    <footer className="relative bg-[#050505] text-gray-400 pt-24 pb-12 px-20 overflow-hidden border-t border-white/5">
+      <div className=" mx-auto relative z-10">
         {/* Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">
-          
           {/* Brand & Newsletter Column */}
           <div className="lg:col-span-4 space-y-8">
             <div className="space-y-4">
               <h2 className="text-2xl text-white font-medium tracking-tight">
-                NexaSoft <span className="text-purple-500 font-bold">Solutions</span>
+                NexaSoft{" "}
+                <span className="text-purple-500 font-bold">Solutions</span>
               </h2>
               <p className="text-sm leading-relaxed max-w-sm">
-                Crafting digital experiences that bridge imagination with next-gen
-                technology. We build scalable solutions for the modern web.
+                Crafting digital experiences that bridge imagination with
+                next-gen technology. We build scalable solutions for the modern
+                web.
               </p>
             </div>
 
             {/* Micro-Newsletter / CTA */}
             <div className="relative max-w-sm">
-               <p className="text-white text-xs font-semibold uppercase mb-3 tracking-wider">Stay Updated</p>
-               <div className="flex items-center border-b border-white/10 focus-within:border-purple-500 transition-colors py-2">
-                  <input 
-                    type="email" 
-                    placeholder="Enter your email" 
-                    className="bg-transparent border-none outline-none text-sm w-full focus:ring-0 text-white placeholder:text-gray-600"
-                  />
-                  <button aria-label="Subscribe" className="hover:text-purple-400 transition-colors">
-                    <ArrowRight size={18} />
-                  </button>
-               </div>
+              <p className="text-white text-xs font-semibold uppercase mb-3 tracking-wider">
+                Stay Updated
+              </p>
+              <div className="flex items-center border-b border-white/10 focus-within:border-purple-500 transition-colors py-2">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="bg-transparent border-none outline-none text-sm w-full focus:ring-0 text-white placeholder:text-gray-600"
+                />
+                <button
+                  aria-label="Subscribe"
+                  className="hover:text-purple-400 transition-colors"
+                >
+                  <ArrowRight size={18} />
+                </button>
+              </div>
             </div>
           </div>
 
@@ -109,8 +114,12 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-2 text-[11px] uppercase tracking-widest font-medium">
             <p className="text-gray-500">© 2026 NexaSoft Solutions</p>
-            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link to="/privacy" className="hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <Link to="/terms" className="hover:text-white transition-colors">
+              Terms of Service
+            </Link>
           </div>
 
           <div className="flex gap-3">
@@ -119,7 +128,7 @@ const Footer = () => {
               { Icon: Instagram, href: "#" },
               { Icon: Twitter, href: "#" },
               { Icon: Linkedin, href: "#" },
-              { Icon: Youtube, href: "#" }
+              { Icon: Youtube, href: "#" },
             ].map(({ Icon, href }, i) => (
               <a
                 key={i}

@@ -68,7 +68,7 @@ const TechStack = () => {
      },
    ];
   return (
-<section className="relative bg-[#050505] py-32 text-white overflow-hidden font-body w-full">
+<section className="relative bg-[#050505] py-32 px-8 text-white overflow-hidden font-body w-full">
 
   {/* TOP DIVIDER (CONSISTENT) */}
   <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />

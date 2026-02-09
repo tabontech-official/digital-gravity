@@ -51,12 +51,13 @@ const BlogDetail = () => {
       <div className="relative h-full px-6 pt-28 pb-10 flex items-center justify-center">
         <div className="max-w-4xl w-full">
           {/* ARTICLE CARD */}
-          <div className="bg-black/40 border border-white/10 rounded-[32px] p-8
+          <div
+            className="bg-black/40 border border-white/10 rounded-[32px] p-8
                           h-[80vh]
                           shadow-[0_40px_120px_rgba(0,0,0,0.8)]
                           backdrop-blur-xl
-                          flex flex-col">
-
+                          flex flex-col"
+          >
             {/* META */}
             <span className="text-purple-400 text-xs uppercase tracking-widest">
               {blog.category}
@@ -130,7 +131,7 @@ const BlogDetail = () => {
             >
               <Icon size={14} />
             </a>
-          )
+          ),
         )}
       </div>
 

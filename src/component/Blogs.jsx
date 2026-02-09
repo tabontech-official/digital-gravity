@@ -11,8 +11,6 @@ import {
 } from "react-icons/fa";
 import { ContactModal } from "./ContactModal";
 
-
-
 const BlogsPage = () => {
   const navigate = useNavigate();
   const blogs = blogsData;
@@ -25,7 +23,6 @@ const BlogsPage = () => {
 
   return (
     <div className="bg-[#050505] text-white font-body">
-
       {/* HERO */}
       <section className="py-32 px-6">
         <div className="max-w-[1440px] mx-auto border-b border-white/10 pb-12">
@@ -112,22 +109,24 @@ const BlogsPage = () => {
       <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
         <button
           onClick={handleGetQuote}
-          className="bg-gradient-to-br from-purple-600 to-purple-400 text-white py-8 px-3 rounded-l-2xl"
+          className="font-sans bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1]
+                     text-white py-8 px-3 rounded-l-[20px]
+                     shadow-[0_0_30px_rgba(139,44,245,0.3)] transition-all"
         >
-          <span className="[writing-mode:vertical-lr] rotate-180 text-xs uppercase tracking-widest">
-            Get A Quote
+          <span className="[writing-mode:vertical-lr] rotate-180 text-[11px] font-semibold tracking-[0.2em] uppercase">
+            Get A Quote!
           </span>
         </button>
       </div>
 
       {/* SOCIALS */}
-         <div className="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-40">
-               {[FaBehance, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube].map(
-                 (Icon, idx) => (
-                   <a
-                     key={idx}
-                     href="#"
-                     className="
+      <div className="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-40">
+        {[FaBehance, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube].map(
+          (Icon, idx) => (
+            <a
+              key={idx}
+              href="#"
+              className="
                  w-9 h-9 rounded-full
                  bg-black/70
                  border border-purple-500/20
@@ -137,12 +136,12 @@ const BlogsPage = () => {
                  hover:shadow-[0_0_15px_rgba(168,85,247,0.4)]
                  transition
                "
-                   >
-                     <Icon size={14} />
-                   </a>
-                 ),
-               )}
-             </div>
+            >
+              <Icon size={14} />
+            </a>
+          ),
+        )}
+      </div>
 
       <ContactModal
         isOpen={isModalOpen}

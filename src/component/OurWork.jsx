@@ -79,31 +79,20 @@ const partners = [
 // NEW: Testimonial Data
 const testimonials = [
   {
-    name: "Joe Ann Bleish",
-    brandLogo:
-      "https://www.digitalgravity.ae/assets/images/clients/hill-knowlton.webp",
-    videoThumb:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+    title: "The Success of EMDAD's Website Launch",
+    text: "Just writing to express our appreciation to Digital Gravity and their team for their efforts that contributed to the success of the EMDAD website at its launch. A special thanks to Aashir for showing leadership and resilience each step of the way, attending to our requirements, providing us",
   },
   {
-    name: "Bachar Kaawach",
-    brandLogo: "https://www.digitalgravity.ae/assets/images/clients/admaf.webp",
-    videoThumb:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+    title: "Sleek and Smooth Experience",
+    text: "Everything went so smoothly, we loved the website, and everyone was completely amazed by it. The few hiccups that happened due to miscommunication were also managed brilliantly by the project manager who was assigned to our project. Overall everything was great, so thank you to the entire",
   },
   {
-    name: "Afaq Seyidova",
-    brandLogo:
-      "https://www.digitalgravity.ae/assets/images/clients/haka-group.webp",
-    videoThumb:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80",
+    title: "Smooth Sailing",
+    text: "A big thanks to Wasi, the project manager at Deep Water Marine's website. After the first draft, we were asked for feedback and suggested some changes. They clearly understand what we ask for. And at the end of the day, we got a website developed very nicely and as per my expectations.",
   },
   {
-    name: "Prue House",
-    brandLogo:
-      "https://www.digitalgravity.ae/assets/images/clients/scout-kidz.webp",
-    videoThumb:
-      "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=600&q=80",
+    title: "Outstanding Website Experience",
+    text: "We wanted to thank the team for their incredible effort on the Terra website. The feedback from users has been overwhelmingly positive, from design to usability. Special appreciation for the ongoing support throughout the project duration.",
   },
 ];
 
@@ -111,20 +100,9 @@ const OurWork = () => {
   return (
     <div className="bg-[#050505] font-body text-white overflow-x-hidden">
       <section className="relative py-32 px-6 lg:px-32">
-        <div className="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-40">
-          {[FaBehance, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube].map(
-            (Icon, i) => (
-              <a
-                key={i}
-                className="w-9 h-9 rounded-full bg-black border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500/30 transition-all"
-              >
-                <Icon size={14} />
-              </a>
-            ),
-          )}
-        </div>
+        
 
-        <div className="relative max-w-[1440px] mx-auto">
+        <div className="relative  mx-auto">
           {/* HEADER */}
           <div className="border-b border-white/10 pb-10 mb-20">
             <div className="flex items-center gap-3 mb-4">
@@ -165,7 +143,7 @@ const OurWork = () => {
         </div>
       </section>
       <section className="relative py-32 bg-[#050505] overflow-hidden font-body text-white">
-        <div className="relative z-10 mx-auto px-6 max-w-[1440px]">
+        <div className="relative z-10 mx-auto px-6 ">
           {/* HEADER */}
           <div className="border-b border-white/10 pb-10 mb-20 text-center">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -260,118 +238,95 @@ const OurWork = () => {
         </div>
       </section>
 
-      <section className="relative bg-[#050505] py-32 px-6 overflow-hidden font-body text-white">
-        <div className="relative z-10 max-w-[1440px] mx-auto">
-          {/* HEADER */}
-          <div className="border-b border-white/10 pb-10 mb-20">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="w-2.5 h-2.5 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
-              <span className="text-purple-400 text-xs font-heading font-semibold tracking-[0.25em] uppercase">
-                Client Testimonials & Reviews
-              </span>
-            </div>
+     <section className="relative bg-[#050505] py-20 md:py-32 px-6 sm:px-14 overflow-hidden font-body text-white">
+  <div className="relative px-2 sm:px-6 z-10 mx-auto">
+    {/* HEADER */}
+    <div className="border-b border-white/10 pb-10 mb-10 md:mb-16">
+      <div className="flex items-center gap-3 mb-4 px-2 sm:px-4">
+        <span className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
+        <span className="text-purple-400 text-[10px] md:text-xs font-heading font-semibold tracking-[0.25em] uppercase">
+          Client Testimonials & Reviews
+        </span>
+      </div>
 
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-headingAlt font-light leading-tight max-w-3xl">
-              What Our Happy Clients <br /> Say About Us
-            </h2>
-          </div>
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-headingAlt font-light leading-[1.1] max-w-4xl px-2 sm:px-4">
+        What Our Happy Clients <br className="hidden sm:block" /> Say About Us
+      </h2>
+    </div>
 
-          {/* GRID */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {testimonials.map((t, idx) => (
-              <div key={idx} className="group cursor-pointer">
-                {/* VIDEO CARD */}
-                <div className="relative aspect-[3/4] rounded-[32px] overflow-hidden bg-[#0f0f0f] border border-white/10 transition-all duration-700 group-hover:border-purple-500/30">
-                  <img
-                    src={t.videoThumb}
-                    alt={t.name}
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
-                  />
+    {/* SLIDER */}
+    <div className="relative w-full">
+      {/* Desktop fade edges */}
+      <div className="absolute left-0 top-0 bottom-0 w-16 z-20 bg-gradient-to-r from-[#050505] to-transparent pointer-events-none hidden md:block" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 z-20 bg-gradient-to-l from-[#050505] to-transparent pointer-events-none hidden md:block" />
 
-                  {/* PLAY ICON */}
-                  <div className="absolute bottom-5 left-5 w-11 h-11 rounded-full bg-purple-500/90 flex items-center justify-center shadow-[0_0_20px_#a855f7]">
-                    <FaVolumeMute size={16} />
-                  </div>
-
-                  {/* OVERLAY */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+      {/* Scroll Container */}
+      <div className="overflow-x-auto md:overflow-hidden py-4 scrollbar-hide">
+        <div className="flex gap-4 md:gap-8 w-max snap-x snap-mandatory md:animate-marquee hover:[animation-play-state:paused]">
+          {[...testimonials, ...testimonials].map((item, idx) => (
+            <div
+              key={idx}
+              className="w-[92vw] sm:w-[70vw] md:w-[40vw] lg:w-[30vw] xl:w-[25vw] flex-shrink-0 snap-start"
+            >
+              {/* CARD */}
+              <div className="bg-[#0f0f0f] rounded-[20px] md:rounded-[32px] p-5 sm:p-6 md:p-10 h-full min-h-[260px] sm:min-h-[300px] md:min-h-[400px] border border-white/10 flex flex-col transition-all duration-500 md:hover:border-purple-500/40 md:hover:-translate-y-1">
+                {/* Quote */}
+                <div className="text-purple-500 text-xl md:text-2xl font-heading font-bold mb-4 md:mb-6 tracking-tighter">
+                  //
                 </div>
 
-                {/* META */}
-                <div className="mt-6 px-1">
-                  <img
-                    src={t.brandLogo}
-                    alt="brand"
-                    className="h-8 w-auto object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all mb-3"
-                  />
-                  <h4 className="text-sm font-heading font-medium text-white">
-                    {t.name}
-                  </h4>
+                {/* Title */}
+                <h4 className="text-lg md:text-xl font-heading font-semibold text-white mb-3 md:mb-4 leading-snug">
+                  {item.title}
+                </h4>
+
+                {/* Content */}
+                <div className="relative pr-4 md:pr-6 flex-grow">
+                  <p className="text-gray-400 leading-relaxed text-[14px] sm:text-sm md:text-base font-body italic">
+                    “{item.text}”
+                  </p>
+
+                  {/* Accent Line */}
+                  <div className="absolute right-0 top-0 w-[2px] md:w-[3px] h-full flex flex-col">
+                    <div className="h-2/3 bg-purple-500 rounded-t-full shadow-[0_0_8px_#a855f7]" />
+                    <div className="h-1/3 bg-white/5 rounded-b-full" />
+                  </div>
+                </div>
+
+                {/* Footer */}
+                <div className="mt-5 md:mt-8 flex items-center justify-between">
+                  <div className="flex gap-1.5 md:gap-2">
+                    <div className="w-2 h-2 rounded-full bg-purple-500" />
+                    <div className="w-2 h-2 rounded-full bg-white/10" />
+                    <div className="w-2 h-2 rounded-full bg-white/10" />
+                  </div>
+                  <span className="text-[10px] text-white/20 font-mono">
+                    0{(idx % testimonials.length) + 1}
+                  </span>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* <section className="relative w-full flex items-center justify-center overflow-hidden text-white font-sans py-16 md:py-24 lg:h-[80vh] min-h-[600px]">
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          >
-            <source
-              src="https://cdn.shopify.com/videos/c/o/v/1dae855412ca4656b8ae4fa2a61c0d1b.mp4"
-              type="video/mp4"
-            />
-          </video>
-          <div className="absolute inset-0 bg-black/40 z-0" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          <div className="space-y-4 md:space-y-6 text-center lg:text-left">
-            <div className="flex items-center justify-center lg:justify-start gap-3">
-              <span className="w-2 h-2 rounded-full bg-[#7C1DF0]" />
-              <span className="text-[10px] md:text-xs uppercase tracking-[0.35em] font-medium text-gray-300">
-                Catch The Success
-              </span>
             </div>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
-              Our 200+ Tech Nerds <br className="hidden md:block" />
-              are here to help
-            </h1>
-          </div>
-
-          <div className="lg:pl-12 space-y-6 md:space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <div className="space-y-4 md:space-y-6 max-w-lg">
-              <p className="text-gray-200 text-base md:text-lg leading-relaxed">
-                Client satisfaction is one of our top priorities. Our
-                consistency, dedication, and constant innovation have earned
-                trust across the globe.
-              </p>
-
-              <p className="text-gray-400 text-sm leading-relaxed border-l-0 lg:border-l border-white/20 lg:pl-4">
-                Hire expert developers to build scalable, high-performance
-                digital products designed for long-term growth.
-              </p>
-            </div>
-
-            <button className="group relative w-full sm:w-auto px-8 py-4 rounded-full font-semibold bg-[#7C1DF0] text-white overflow-hidden transition-all hover:bg-white hover:text-black active:scale-95">
-              <span className="relative z-10">Start A Project</span>
-              <div className="absolute inset-0 bg-white/10 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-            </button>
-          </div>
+          ))}
         </div>
+      </div>
+    </div>
+  </div>
 
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 opacity-60">
-          <span className="text-[10px] uppercase tracking-widest">Scroll</span>
-          <div className="w-px h-8 bg-gradient-to-b from-white to-transparent" />
+ 
+</section>
+
+      <div className="fixed left-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-40">
+          {[FaBehance, FaInstagram, FaFacebookF, FaLinkedinIn, FaYoutube].map(
+            (Icon, i) => (
+              <a
+                key={i}
+                className="w-9 h-9 rounded-full bg-black border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500/30 transition-all"
+              >
+                <Icon size={14} />
+              </a>
+            ),
+          )}
         </div>
-      </section> */}
     </div>
   );
 };
