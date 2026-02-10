@@ -99,14 +99,7 @@ const AboutUs = () => {
     <>
       <section className="relative min-h-screen w-full overflow-hidden text-white font-body">
         {/* Background */}
-        <div className="absolute inset-0 -z-10 overflow-hidden">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0725/3091/9640/files/modern-equipped-computer-lab.jpg?v=1770118411"
-            alt="Background"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
+       
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-12 pt-[220px] pb-40">
           {/* Eyebrow */}
@@ -158,21 +151,7 @@ const AboutUs = () => {
           </div>
 
           {/* Logos */}
-          <div className="relative mt-40 overflow-hidden">
-            <div className="pointer-events-none absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-black to-transparent z-10" />
-            <div className="pointer-events-none absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-black to-transparent z-10" />
-
-            <div className="flex w-max animate-marquee gap-20 opacity-60">
-              {[...logos, ...logos].map((logo, i) => (
-                <img
-                  key={i}
-                  src={logo}
-                  alt="brand"
-                  className="h-10 grayscale hover:grayscale-0 transition"
-                />
-              ))}
-            </div>
-          </div>
+       
         </div>
 
         {/* Left Socials */}

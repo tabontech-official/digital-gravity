@@ -48,33 +48,38 @@ const Contact = () => {
   ];
 
   return (
-    <section className="min-h-screen bg-[#050505] text-white font-body px-6 md:px-16 py-24">
-      <div className="max-w-5xl mx-auto mb-20">
+    <section className="min-h-screen font-body px-3 md:px-16 py-10 relative overflow-hidden">
+
+   
+
+      {/* HEADER */}
+      <div className="max-w-6xl mx-auto mb-20 relative z-10">
         <div className="flex items-center gap-3 mb-6">
-          <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]" />
-          <span className="text-xs uppercase tracking-[0.35em] text-gray-400 font-heading">
+          <span className="w-2 h-2 rounded-full bg-purple-600 shadow-[0_0_8px_rgba(124,58,237,0.5)]" />
+          <span className="text-xs uppercase tracking-[0.35em] text-purple-700 font-heading font-semibold">
             Contact
           </span>
         </div>
 
-        <h1 className="text-4xl md:text-6xl font-headingAlt font-light leading-[1.1]">
+        <h1 className="text-4xl md:text-6xl font-headingAlt font-light leading-[1.1] text-slate-900">
           Let’s Build <br />
-          <span className="font-medium text-transparent bg-clip-text bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1]">
+          <span className="font-medium bg-clip-text text-transparent bg-gradient-to-br from-purple-700 via-indigo-700 to-pink-600">
             Something Exceptional
           </span>
         </h1>
 
-        <p className="mt-6 max-w-xl text-gray-400 leading-relaxed">
+        <p className="mt-6 max-w-xl text-slate-600 leading-relaxed">
           Tell us about your idea. We’ll help you shape it into something
           beautiful, scalable, and impactful.
         </p>
       </div>
 
+      {/* FORM */}
       <motion.form
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6"
+        className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6 relative z-10"
       >
         {["Name*", "Company / Organisation*", "Email*"].map((ph) => (
           <input
@@ -82,12 +87,13 @@ const Contact = () => {
             placeholder={ph}
             required
             className="
-              w-full rounded-xl bg-[#0f0f0f]
-              border border-white/10
+              w-full rounded-xl
+              bg-white/60 backdrop-blur-xl
+              border border-white
               px-6 py-4
-              text-gray-200 placeholder:text-gray-500
+              text-slate-900 placeholder:text-slate-500
               focus:outline-none focus:border-purple-500
-              focus:shadow-[0_0_15px_rgba(168,85,247,0.25)]
+              focus:shadow-[0_0_15px_rgba(124,58,237,0.25)]
               transition
             "
           />
@@ -97,25 +103,27 @@ const Contact = () => {
           placeholder="Phone No*"
           required
           className="
-            w-full rounded-xl bg-[#0f0f0f]
-            border border-white/10
+            w-full rounded-xl
+            bg-white/60 backdrop-blur-xl
+            border border-white
             px-6 py-4
-            text-gray-200 placeholder:text-gray-500
+            text-slate-900 placeholder:text-slate-500
             focus:outline-none focus:border-purple-500
             transition
           "
         />
 
+        {/* SERVICE DROPDOWN */}
         <div className="relative">
-          <FiBriefcase className="absolute left-5 top-1/2 -translate-y-1/2 text-purple-400" />
+          <FiBriefcase className="absolute left-5 top-1/2 -translate-y-1/2 text-purple-600" />
           <select
             required
             className="
               w-full appearance-none rounded-xl
-              bg-[#0f0f0f]
-              border border-white/10
+              bg-white/60 backdrop-blur-xl
+              border border-white
               pl-12 pr-12 py-4
-              text-gray-400
+              text-slate-700
               focus:outline-none focus:border-purple-500
             "
           >
@@ -133,20 +141,20 @@ const Contact = () => {
               ))}
             </optgroup>
           </select>
-          <FiChevronDown className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-500" />
+          <FiChevronDown className="absolute right-6 top-1/2 -translate-y-1/2 text-slate-500" />
         </div>
 
-        {/* Timeline Dropdown */}
+        {/* TIMELINE */}
         <div className="relative">
-          <FiClock className="absolute left-5 top-1/2 -translate-y-1/2 text-purple-400" />
+          <FiClock className="absolute left-5 top-1/2 -translate-y-1/2 text-purple-600" />
           <select
             required
             className="
               w-full appearance-none rounded-xl
-              bg-[#0f0f0f]
-              border border-white/10
+              bg-white/60 backdrop-blur-xl
+              border border-white
               pl-12 pr-12 py-4
-              text-gray-400
+              text-slate-700
               focus:outline-none focus:border-purple-500
             "
           >
@@ -155,12 +163,12 @@ const Contact = () => {
               <option key={time}>{time}</option>
             ))}
           </select>
-          <FiChevronDown className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-500" />
+          <FiChevronDown className="absolute right-6 top-1/2 -translate-y-1/2 text-slate-500" />
         </div>
 
-        {/* Budget */}
+        {/* BUDGET */}
         <div className="md:col-span-2 space-y-4 mt-6">
-          <div className="flex justify-between text-xs uppercase tracking-widest text-gray-500 font-heading">
+          <div className="flex justify-between text-xs uppercase tracking-widest text-slate-500 font-heading">
             <span>USD 1K</span>
             <span>USD 50K+</span>
           </div>
@@ -168,7 +176,7 @@ const Contact = () => {
           <div className="relative">
             <div className="h-3 rounded-full bg-purple-500/20 overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-[#6318C6] via-[#8B22CD] to-[#A526D1]"
+                className="h-full bg-gradient-to-r from-purple-700 via-indigo-700 to-pink-600"
                 style={{ width: `${(budget / 50000) * 100}%` }}
               />
             </div>
@@ -185,8 +193,10 @@ const Contact = () => {
           </div>
 
           <div className="flex justify-between">
-            <span className="font-semibold">${budget.toLocaleString()}</span>
-            <span className="text-xs text-gray-400">Estimated budget</span>
+            <span className="font-semibold text-slate-900">
+              ${budget.toLocaleString()}
+            </span>
+            <span className="text-xs text-slate-500">Estimated budget</span>
           </div>
         </div>
 
@@ -194,23 +204,28 @@ const Contact = () => {
           rows={5}
           placeholder="Tell us about your project"
           className="
-            md:col-span-2 rounded-xl bg-[#0f0f0f]
-            border border-white/10
+            md:col-span-2 rounded-xl
+            bg-white/60 backdrop-blur-xl
+            border border-white
             px-6 py-4
-            text-gray-200 placeholder:text-gray-500
+            text-slate-900 placeholder:text-slate-500
             focus:outline-none focus:border-purple-500
           "
         />
 
+        {/* SUBMIT */}
         <div className="md:col-span-2 mt-10">
           <button
             type="submit"
             className="
               px-16 py-4 rounded-full
               font-heading font-semibold text-sm uppercase tracking-[0.25em]
-              bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1]
-              hover:brightness-110 active:scale-95
-              shadow-lg shadow-purple-900/40
+              bg-white/70 backdrop-blur-xl
+              border border-white
+              text-purple-700
+              hover:bg-white/90
+              hover:shadow-[0_12px_40px_rgba(124,58,237,0.3)]
+              active:scale-95
               transition
             "
           >

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ContactModal } from "./ContactModal";
 
 const Hero = () => {
   const texts = [
@@ -8,21 +7,18 @@ const Hero = () => {
     "We are a Digital Agency",
     "We Build Software Solutions",
   ];
+
   const navigate = useNavigate();
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleCTA = () => {
-    if (window.innerWidth < 640) {
-      navigate("/contact"); // mobile → new page
-    } else {
-      setIsModalOpen(true); // desktop → modal
-    }
-  };
-
+  // Typing effect
   const [textIndex, setTextIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+
+  const handleCTA = () => {
+    navigate("/contact");
+  };
 
   useEffect(() => {
     const current = texts[textIndex];
@@ -49,111 +45,139 @@ const Hero = () => {
   }, [charIndex, isDeleting, textIndex]);
 
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center bg-[#050505] overflow-hidden">
-      {/* BACKGROUND */}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center scale-105"
-          style={{
-            backgroundImage:
-              "url('https://cdn.shopify.com/s/files/1/0725/3091/9640/files/group-young-business-people-working-office.jpg?v=1770096033')",
-            filter: "brightness(0.35)",
-          }}
-        />
-        <div className="absolute inset-0 bg-black/40" />
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden  px-6">
+      
+      {/* ---- BACKGROUND BLOBS ---- */}
+      
 
-      {/* CONTENT */}
-      <div className="relative z-10 max-w-4xl px-6 text-center mt-24 md:mt-32">
-        {/* BADGE */}
-        <span className="inline-block mb-6 px-5 py-2 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs sm:text-sm font-heading">
+      {/* ---- CONTENT ---- */}
+      <div className="relative z-10 max-w-5xl text-center">
+
+        {/* BADGE – FIXED VISIBILITY */}
+        <span
+          className="
+            inline-flex items-center gap-2 mb-10 px-7 py-2.5 rounded-full
+            bg-white/80 backdrop-blur-md
+            border border-purple-300/40
+            text-purple-800 text-xs sm:text-sm
+            font-semibold tracking-[0.25em] uppercase
+            shadow-[0_6px_20px_rgba(109,40,217,0.15)]
+          "
+        >
           Global Digital Agency
         </span>
 
         {/* HEADING */}
-        <h1 className="font-brand text-white leading-tight mb-6 text-center">
-          <span className="block text-[clamp(2.1rem,6vw,4.5rem)]">
+        <h1 className="font-brand text-slate-950 leading-tight mb-8 drop-shadow-[0_2px_10px_rgba(0,0,0,0.15)]">
+          <span className="block text-[clamp(2.6rem,7vw,5.2rem)] font-light tracking-tight">
             Elevating Brands
           </span>
 
           <span
             className="
-      mt-2 block
-      font-heading
-      bg-gradient-to-r from-purple-400 via-purple-500 to-fuchsia-500
-      bg-clip-text text-transparent
-      text-[clamp(1.4rem,4.5vw,3rem)]
-      min-h-[2.2em]
-      flex justify-center items-center
-      whitespace-nowrap
-    "
+              mt-4 block font-heading
+              bg-gradient-to-r from-purple-700 via-indigo-700 to-blue-700
+              bg-clip-text text-transparent
+              text-[clamp(1.6rem,5vw,3.6rem)]
+              min-h-[1.6em]
+              flex justify-center items-center font-bold
+              drop-shadow-[0_3px_12px_rgba(99,102,241,0.35)]
+            "
           >
             {currentText}
-            <span className="ml-1 opacity-60 animate-pulse">|</span>
+            <span className="ml-1 text-purple-800 font-bold animate-pulse drop-shadow">
+              |
+            </span>
           </span>
         </h1>
 
         {/* DESCRIPTION */}
-        <p className="font-body text-gray-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-10">
+        <p className="font-body text-slate-700 text-lg md:text-xl max-w-2xl mx-auto mb-14 leading-relaxed drop-shadow-sm">
           We help businesses design, build, and scale digital products with
-          clarity, strategy, and modern technology.
+          <span className="text-purple-800 font-semibold italic">
+            {" "}strategic clarity
+          </span>{" "}
+          and
+          <span className="text-slate-900 font-semibold">
+            {" "}modern technology.
+          </span>
         </p>
 
-        {/* MOBILE CTA (ONLY ONE BUTTON) */}
-        <div className="sm:hidden flex justify-center mb-10">
-          <button
-            onClick={handleCTA}
-            className="bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] text-white px-10 py-4 rounded-full text-sm font-semibold shadow-[0_0_25px_rgba(168,85,247,0.6)] active:scale-95 transition"
-          >
-            Schedule a Call
-          </button>
-        </div>
+        {/* BUTTONS */}
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+  
+  {/* PRIMARY GLASS CTA */}
+  <button
+    onClick={handleCTA}
+    className="
+      group relative
+      px-10 py-4 rounded-2xl
 
-        {/* DESKTOP / TABLET ACTIONS */}
-        <div className="hidden sm:flex flex-col sm:flex-row gap-4 justify-center">
-          <button
-            onClick={handleCTA}
-            className="text-white font-heading bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] px-8 py-3 rounded-full text-sm font-semibold hover:brightness-110 transition active:scale-95"
-          >
-            Schedule a Call
-          </button>
+      bg-white/60
+      border border-white
+      shadow-[0_4px_30px_rgba(0,0,0,0.1)]
 
-          <button onClick={()=>{
-            navigate("/case-studies")
-          }} className="font-heading text-sm font-medium px-8 py-3 rounded-full text-purple-400 border border-purple-500/40 hover:bg-purple-500/10 transition-all hover:shadow-[0_0_25px_#a855f7] flex items-center gap-2 justify-center">
-            View Case Studies
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
+      text-slate-900 font-heading font-semibold text-sm
+      transition-all duration-300
 
-      {/* RIGHT SIDE CTA — DESKTOP ONLY */}
-      <div className="hidden md:block fixed right-0 top-1/2 -translate-y-1/2 z-50">
-        <button
-          onClick={handleCTA}
-          className="bg-gradient-to-br from-[#6318C6] via-[#8B22CD] to-[#A526D1] text-white py-8 px-3 rounded-l-[20px] shadow-[0_0_30px_rgba(139,44,245,0.3)] transition-all hover:brightness-110"
-        >
-          <span className="[writing-mode:vertical-lr] rotate-180 text-[11px] font-semibold tracking-[0.2em] uppercase">
-            Get A Quote!
-          </span>
-        </button>
-      </div>
-      <ContactModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+      hover:bg-white/75
+      hover:shadow-[0_8px_40px_rgba(109,40,217,0.25)]
+      hover:text-purple-700
+      active:scale-95
+    "
+    style={{
+      backdropFilter: "blur(11.4px)",
+      WebkitBackdropFilter: "blur(11.4px)",
+    }}
+  >
+    Schedule a Call
+  </button>
+
+  {/* SECONDARY GLASS CTA */}
+  <button
+    onClick={() => navigate("/case-studies")}
+    className="
+      group relative
+      px-10 py-4 rounded-2xl
+
+      bg-white/50
+      border border-white
+      shadow-[0_4px_30px_rgba(0,0,0,0.1)]
+
+      text-slate-800 font-heading font-medium text-sm
+      transition-all duration-300
+
+      hover:bg-white/70
+      hover:text-slate-900
+      hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)]
+      active:scale-95
+
+      flex items-center gap-3
+    "
+    style={{
+      backdropFilter: "blur(11.4px)",
+      WebkitBackdropFilter: "blur(11.4px)",
+    }}
+  >
+    View Case Studies
+    <svg
+      className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="M17 8l4 4m0 0l-4 4m4-4H3"
       />
+    </svg>
+  </button>
+
+</div>
+
+      </div>
     </section>
   );
 };
