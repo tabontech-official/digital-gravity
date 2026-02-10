@@ -452,94 +452,83 @@ const ServiceHero = () => {
         </div>
       </section>
 
-     {section && (
-  <section className="bg-[#050505] py-32 relative overflow-hidden font-body text-white">
-    <div className="max-w-[1440px] mx-auto px-6 grid lg:grid-cols-2 gap-24 relative z-10">
+      {section && (
+        <section className="bg-[#050505] py-32 relative overflow-hidden font-body text-white">
+          <div className="max-w-[1440px] mx-auto px-6  grid lg:grid-cols-2 gap-20 relative z-10">
+            {/* LEFT HEADING */}
+            <div>
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-headingAlt font-light leading-tight tracking-tight">
+                {section.heading}
+              </h2>
+            </div>
 
-      {/* LEFT HEADING */}
-      <div className="flex items-start">
-        <h2 className="
-          text-3xl md:text-5xl lg:text-6xl
-          font-headingAlt font-light
-          leading-[1.1]
-          tracking-tight
-          max-w-xl
-        ">
-          {section.heading}
-        </h2>
-      </div>
-
-      {/* RIGHT ACCORDION */}
-      <div className="flex flex-col">
-        {section.items.map((item, i) => {
-          const isOpen = active === i;
-
-          return (
-            <div
-              key={i}
-              onClick={() => setActive(isOpen ? null : i)}
-              className="
-                group
-                border-b border-white/10
-                py-8
-                cursor-pointer
-                transition-all duration-500
-                hover:border-purple-500/30
-              "
-            >
-              {/* TITLE ROW */}
-              <div className="flex items-center justify-between gap-10">
-                <h3 className={`
+            {/* RIGHT ACCORDION */}
+            <div className="flex flex-col">
+              {section.items.map((item, i) => (
+                <div
+                  key={i}
+                  className="
+              group
+              border-b border-white/10
+              py-8
+              cursor-pointer
+              transition-all duration-500
+              hover:border-purple-500/30
+            "
+                  onClick={() => setActive(active === i ? null : i)}
+                >
+                  {/* TITLE ROW */}
+                  <div className="flex items-center justify-between gap-8">
+                    <h3
+                      className="
                   text-xl md:text-2xl
                   font-heading font-medium
-                  transition-colors duration-300
-                  ${isOpen ? "text-white" : "text-gray-400 group-hover:text-white"}
-                `}>
-                  {item.title}
-                </h3>
-
-                {/* ARROW */}
-                <div className={`
-                  w-10 h-10 flex items-center justify-center
-                  rounded-full
-                  border
-                  transition-all duration-500
-                  ${
-                    isOpen
-                      ? "rotate-180 border-purple-500/40 text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.45)]"
-                      : "border-white/10 text-gray-400 group-hover:border-purple-500/30 group-hover:text-white"
-                  }
-                `}>
-                  <FiArrowDown className="text-sm" />
-                </div>
-              </div>
-
-              {/* CONTENT */}
-              <div className={`
-                overflow-hidden
-                transition-all duration-500 ease-in-out
-                ${isOpen ? "max-h-48 opacity-100 mt-6" : "max-h-0 opacity-0"}
-              `}>
-                <p className="
                   text-gray-400
-                  text-base md:text-lg
-                  leading-relaxed
-                  max-w-xl
-                ">
-                  {item.desc}
-                </p>
-              </div>
+                  group-hover:text-white
+                  transition-colors
+                "
+                    >
+                      {item.title}
+                    </h3>
+
+                    {/* ARROW */}
+                    <div
+                      className={`
+                  w-9 h-9 flex items-center justify-center
+                  rounded-full
+                  border border-white/10
+                  text-gray-400
+                  transition-all duration-300
+                  ${
+                    active === i
+                      ? "rotate-180 border-purple-500/40 text-purple-300 shadow-[0_0_10px_#a855f7]"
+                      : "group-hover:border-purple-500/30 group-hover:text-white"
+                  }
+                `}
+                    >
+                      <FiArrowDown className="text-sm" />
+                    </div>
+                  </div>
+
+                  {/* CONTENT */}
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                      active === i
+                        ? "max-h-40 opacity-100 mt-6"
+                        : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-xl font-body">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-          );
-        })}
-      </div>
-    </div>
-
-    {/* BOTTOM DIVIDER */}
-    <div className="absolute bottom-0 left-0 w-full h-px bg-white/10" />
-  </section>
-)}
-
+          </div>
+          <div className="absolute  bottom-0 left-0 w-full h-px bg-white/10 " />
+        </section>
+      )}
 
       <section className="bg-[#050505] py-24 text-white relative font-body">
         <div className="container mx-auto px-6 lg:px-16">

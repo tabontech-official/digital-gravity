@@ -46,6 +46,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
   };
   return (
     <>
+    
       <Navbar />
       <ScrollToTop />
       <AnimatePresence mode="wait" initial={false}>

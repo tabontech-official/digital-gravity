@@ -13,11 +13,7 @@ const WhatWeDo = () => {
     <section className="relative overflow-hidden py-32 font-body">
       
       {/* BACKGROUND BLOBS */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-[10%] left-[10%] w-[35%] h-[35%] bg-purple-300/30 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[10%] right-[10%] w-[35%] h-[35%] bg-pink-300/30 rounded-full blur-[120px]" />
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.12]" />
-      </div>
+    
 
       <div className="relative container mx-auto px-6">
 
